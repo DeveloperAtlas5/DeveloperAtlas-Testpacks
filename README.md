@@ -7,8 +7,7 @@ Developer Atlas helps learners, builders, and AI work from the same programming 
 ## Packs
 
 - **Rookie Pack** — a small first-mission reader for someone with an existing Vue to-do project.
-- **Full Pack** — missions, concept library, project start guides, AI guidance, and reviewer material.
-- **Dev Pack** — larger maintainer/testing package.
+- **Full Pack** — missions, concept library, project start guides, AI guidance, and reviewer material. (under construction)
 
 ## How to test a pack
 
