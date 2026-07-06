@@ -1,49 +1,63 @@
-# AI Collaboration Preview
+# Developer Atlas AI Collaboration Pack
 
 ## Best for
 
-Use this preview if:
+Use this pack if:
 
-- you use ChatGPT, Claude, Cursor, Copilot, Codex, or another AI coding tool
+- you use AI coding tools
 - AI often changes too much
-- AI gives you code you do not understand
-- you want AI to help without taking over
+- AI gives code you do not fully understand
+- you want better prompts and guardrails
+- you want to stay in control while still getting help
 
-## Current status
+This pack works with tools like:
 
-This is a preview path.
+```txt
+ChatGPT
+Claude
+Cursor
+GitHub Copilot
+Codex
+Aider
+Continue-style tools
+```
 
-The full AI guidance and standards remain private/internal for now.
+## What you will learn
 
-## Core idea
+You will learn the Atlas AI action model:
 
-AI should choose the right action level before helping:
+```txt
+Explain
+Suggest
+Patch
+Confirm
+Park
+Refuse
+```
 
-- **Explain** — clarify a concept, error, or next step
-- **Suggest** — propose an approach without expanding scope
-- **Patch** — give a small scoped change
-- **Confirm** — ask before risky changes
-- **Park** — save future ideas without building them now
-- **Refuse** — decline unsafe, private, destructive, or out-of-scope actions
+The goal is simple:
 
-## What we are testing
-
-Does this model help you stay in control?
+```txt
+AI helps.
+The human stays in control.
+```
 
 ## Expected time
 
-15–30 minutes for this preview.
+15–30 minutes.
 
-## Feedback wanted
+## Start here
 
-Use:
-
-```txt
-feedback/ai-collaboration-feedback-template.md
-```
-
-Main question:
+Open:
 
 ```txt
-Did the guardrails make AI more useful and less overwhelming?
+START_HERE.md
 ```
+
+## What this pack is not
+
+This is not a full AI coding agent.
+
+This is not a replacement for your editor.
+
+This is a control layer that helps you decide what kind of help to ask for.
