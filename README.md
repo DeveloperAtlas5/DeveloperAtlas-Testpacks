@@ -4,9 +4,9 @@
 
 Developer Atlas is an early test project for guided programming missions, beginner-friendly concept cards, and safer AI-assisted coding workflows.
 
-We are testing whether learners can open a pack, understand what to do next, and make progress without getting lost in folders, jargon, or AI overengineering.
+We are testing whether learners can open a pack, understand what to do next, and make progress without feeling lost in folders, jargon, or AI over-engineering.
 
-## Choose the right path
+## Choose the right path for you
 
 | Pack | Best for | Time | What you will test |
 |---|---|---:|---|
@@ -20,34 +20,26 @@ You do not need to test everything.
 
 ## What changed after early feedback
 
-Recent improvements include:
+Early feedback led to these improvements:
 
-- A calmer, more readable layout, especially on laptops
-- Clearer first actions
-- Plainer beginner language
+- Calmer, more readable layout, especially on laptops
+- Clearer first actions and plainer language
 - Better instructions for opening the dashboard in a browser
-- Clearer AI guidance so AI helps without taking over
+- Stronger AI guidance so the AI helps without taking over
 
-## Quick start
+## Quick Start
 
-1. Choose the pack that matches your current level.
+1. Choose the pack that matches your current level above.
 2. Download or open that pack folder.
-3. Read the pack README.
-4. Open `START_HERE.md` or `mission-dashboard.html` if the pack includes one.
-5. Stop when something feels unclear and write that down.
+3. Read the pack’s `README.md`.
+4. Open `START_HERE.md` or `mission-dashboard.html` if included.
+5. Stop when something feels unclear and note it down.
 
-### Windows tip
+**Windows tip:** If `mission-dashboard.html` opens in VS Code instead of your browser, right-click the file → **Open with** → Chrome, Edge, Firefox, or another browser.
 
-If `mission-dashboard.html` opens in VS Code instead of your browser:
+## Give Feedback
 
-1. Open the extracted folder in Windows File Explorer.
-2. Right-click `mission-dashboard.html`.
-3. Choose **Open with**.
-4. Select Chrome, Edge, Firefox, or another browser.
-
-## Give feedback
-
-After trying a pack, please answer:
+After trying a pack, please share:
 
 - What did you open first?
 - Did you know what to do next?
@@ -56,15 +48,17 @@ After trying a pack, please answer:
 - Did it feel calm or overwhelming?
 - Would you try another pack?
 
-Use the templates in [`feedback/`](feedback/) or open a GitHub Issue / Discussion.
+Use the templates in the [`feedback/`](feedback/) folder or open a GitHub Issue / Discussion.
 
-## Important notes
+## Important Notes
 
-- These are early evaluation and personal testing packs.
-- The full Developer Atlas system, generator tools, complete Canon library, and internal validators are private for now.
-- The public packs are intentionally small so feedback stays focused.
-- Please do not test every pack at once. Pick the one that matches you best.
+- These are **early evaluation and personal testing packs only**.
+- The full Developer Atlas system, including the mission generator, complete Canon library, and internal tools, is private for now.
+- The public packs are intentionally small so feedback stays focused and useful.
+- Please start with one pack, not the whole repo.
 
 ---
 
-**Made for learners who want to build real things without the usual overwhelm.**
+**Made with care for learners who want to build real things without the usual overwhelm.**
+
+Happy testing and building.
