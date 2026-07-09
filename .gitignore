@@ -1,24 +1,8 @@
-# Environment / secrets
+node_modules/
 .env
 .env.*
-!.env.example
-
-# Dependencies / caches
-node_modules/
-venv/
-.venv/
-__pycache__/
-.pytest_cache/
-.cache/
-
-# Logs
 *.log
-
-# OS files
 .DS_Store
 Thumbs.db
-
-# Local scratch
-scratch/
-tmp/
-temp/
+*.zip
+*.vsix

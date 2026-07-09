@@ -1,83 +1,28 @@
-# Developer Atlas Public Test Packs
+# DeveloperAtlas-Public
 
-**Helping rookies and AI-assisted builders complete calm, focused missions without getting overwhelmed.**
+DeveloperAtlas-Public is the public beginner-facing preview of Developer Atlas.
 
-Developer Atlas is an early test project for guided programming missions, beginner-friendly concept cards, and safer AI-assisted coding workflows.
+Developer Atlas helps beginners and AI-assisted coders keep code readable, understandable, and human-controlled.
 
-We are testing whether learners can open a pack, understand what to do next, and make progress without feeling lost in folders, jargon, or AI over-engineering.
+## What is included
 
-## Choose the right path for you
+- beginner missions from HTML to browser storage
+- Dutch and English mission material
+- selected Canon sample nodes
+- small runnable HTML/CSS/JavaScript examples
+- AI Collaboration preview pack
 
-| Pack | Best for | Time | What you will test |
-|---|---|---:|---|
-| **[Beginner Pack](packs/beginner/)** | Absolute beginners or anyone new to web projects | 10–20 min | Whether the first HTML, CSS, and JavaScript instructions feel clear |
-| **[Rookie Pack](packs/rookie/)** | People with a basic Vue project, or people ready to build a simple to-do app | 30–60 min | One calm Vue mission: make a to-do list remember items after refresh |
-| **[Library Pack](packs/library/)** | Anyone who wants quick explanations of programming terms | 10–20 min | Small concept card examples and feedback on the format |
-| **[AI Collaboration Pack](packs/ai-collaboration/)** | People using Cursor, Claude, ChatGPT, Copilot, or similar tools | 15–30 min | Prompt guardrails that help AI explain, suggest, patch, confirm, park, or refuse |
+## What is not included
 
-**Start with one path only.**  
-You do not need to test everything.
+The private Developer Atlas monorepo contains internal strategy, full Canon work, Flow Navigator source, private generated outputs, and team-context experiments. Those are intentionally not part of this public repository.
 
-## What changed after early feedback
+## Start here
 
-Early feedback led to these improvements:
+1. Open `content/missions/free/MISSION-HTML-001.md`.
+2. Then continue with `content/missions/en/MISSION-CSS-002.md`.
+3. Try the runnable examples in `examples/`.
+4. Use the selected Canon nodes in `content/nodes/gold/` as reference cards.
 
-- Calmer, more readable layout, especially on laptops
-- Clearer first actions and plainer language
-- Better instructions for opening files in a browser
-- Stronger AI guidance so the AI helps without taking over
-- More complete public packs for Beginner, Library, and AI Collaboration testing
+## Core idea
 
-## Quick Start
-
-1. Choose the pack that matches your current level above.
-2. Download or open that pack folder.
-3. Read the pack’s `README.md`.
-4. Open `START_HERE.md`, `cards/index.md`, or `mission-dashboard.html` if included.
-5. Stop when something feels unclear and note it down.
-
-**Windows tip:** If an `.html` file opens in VS Code instead of your browser, right-click the file → **Open with** → Chrome, Edge, Firefox, or another browser.
-
-## Give Feedback
-
-After trying a pack, please share:
-
-- What did you open first?
-- Did you know what to do next?
-- What felt clear?
-- What felt confusing or too much?
-- Did it feel calm or overwhelming?
-- Would you try another pack?
-
-Use the templates in the [`feedback/`](feedback/) folder or open a GitHub Issue / Discussion.
-
-## Licensing & Intellectual Property
-
-The public test packs in this repository are released under the MIT License.
-
-This applies only to the contents of this public repository.
-
-The full Developer Atlas system remains proprietary and is not open-sourced, including:
-
-- the mission generator
-- the complete Canon library
-- internal validators
-- private tooling
-- internal product strategy and research notes
-
-You may use, copy, modify, and share the public test packs under the terms of the MIT License.
-
-Commercial licensing for the full private Developer Atlas system requires separate permission.
-
-## Important Notes
-
-- These are **early evaluation and personal testing packs only**.
-- The full Developer Atlas system, including the mission generator, complete Canon library, and internal tools, is private for now.
-- The public packs are intentionally small so feedback stays focused and useful.
-- Please start with one pack, not the whole repo.
-
----
-
-**Made with care for learners who want to build real things without the usual overwhelm.**
-
-Happy testing and building.
+**Human-readable code. Human-controlled AI.**
