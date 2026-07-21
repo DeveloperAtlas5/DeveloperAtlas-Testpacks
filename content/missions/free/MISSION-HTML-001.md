@@ -1,7 +1,7 @@
 ---
 id: MISSION-HTML-001
 title: Your First Human-Readable Web Page
-status: draft
+status: public_preview
 track: free_mission_pack
 level: absolute_beginner
 estimated_time: 30-60 minutes
@@ -198,6 +198,9 @@ Under the learning goals section, add:
 </section>
 ```
 
+<details>
+<summary><strong>Reference: complete final code</strong></summary>
+
 ## Final code
 
 Your full file should look like this:
@@ -241,6 +244,11 @@ Your full file should look like this:
 </html>
 ```
 
+</details>
+
+<details>
+<summary><strong>Need help? Common errors and recovery</strong></summary>
+
 ## Common errors
 
 | Problem | Likely cause | Fix |
@@ -260,6 +268,11 @@ When stuck:
 4. Check whether your visible content is inside `<body>`.
 5. Compare only one section at a time.
 6. Ask AI to explain the structure before asking it to rewrite anything.
+
+</details>
+
+<details>
+<summary><strong>Optional AI prompts and scope boundaries</strong></summary>
 
 ## Safe AI prompts
 
@@ -284,6 +297,8 @@ Make this page amazing with animations, Tailwind, JavaScript, and a full design 
 Why this is unsafe:
 
 It skips the mission goal. You are learning file structure and readable HTML first.
+
+</details>
 
 ## Human Preference check
 

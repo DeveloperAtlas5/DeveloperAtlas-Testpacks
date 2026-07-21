@@ -1,0 +1,24 @@
+diff --git a/app/Http/Controllers/StatusController.php b/app/Http/Controllers/StatusController.php
+index 1111111..2222222 100644
+--- a/app/Http/Controllers/StatusController.php
++++ b/app/Http/Controllers/StatusController.php
+@@ -10,7 +10,8 @@ final class StatusController
+     {
+         return view('status', [
+-            'label' => 'Operational',
++            'label' => 'Ready for review',
++            'summary' => 'The application is running and ready for a human check.',
+         ]);
+     }
+ }
+diff --git a/resources/views/status.blade.php b/resources/views/status.blade.php
+index 3333333..4444444 100644
+--- a/resources/views/status.blade.php
++++ b/resources/views/status.blade.php
+@@ -1,5 +1,6 @@
+ <x-app-layout>
+     <section class="status-card">
+         <h1>{{ $label }}</h1>
++        <p>{{ $summary }}</p>
+     </section>
+ </x-app-layout>

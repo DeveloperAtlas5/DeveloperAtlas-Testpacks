@@ -1,37 +1,31 @@
-# PHP / Laravel Pack
+# PHP and Laravel bridge
 
-This is a next-step preview for testers who are ready to move beyond browser-only basics.
+For developers who know browser basics and want to trace a request through Laravel.
 
-## Best for
+- **Finish:** explain request → route → controller → validation → Blade response.
+- **Time:** 3–5 focused sessions.
+- **Requirements:** reading requires none; running Laravel code requires a separate local project.
 
-Use this pack if you already understand basic HTML/CSS/JavaScript and want to understand how PHP/Laravel connects browser actions to server-side code.
+## Start
 
-## Recommended path
+1. [PHP basics](../../content/missions/en/MISSION-PHP-006.md)
+2. [Forms and requests](../../content/missions/en/MISSION-FORMS-REQUEST-007.md)
+3. [Route, controller, and view](../../content/missions/en/MISSION-LARAVEL-RCV-008.md)
+4. [Blade CRUD bridge](../../content/missions/en/MISSION-BLADE-CRUD-009.md)
 
-1. Open the PHP basics mission in `content/missions/en/`.
-2. Continue with request/response and forms.
-3. Continue with route/controller/view.
-4. Use the Blade CRUD bridge only after the previous steps feel clear.
-5. Use `content/setup/php-laravel/` if you need setup help.
+## Expected result
 
-## What you should learn
+![Atlas Navigator tracing a Laravel request](../../screenshots/navigator-flow.png)
 
-```txt
-browser request
-Laravel route
-controller method
-request validation
-Blade view
-response back to browser
-```
+You can name each handoff without treating the framework as magic. This is a focused bridge, not a
+complete Laravel course or proof that a project is production-ready.
 
-## What this is not
+## Next
 
-This is not a full Laravel course.
+Complete the [15-minute Laravel Control exercise](../../TRY_ATLAS.md), which turns the same flow into
+a bounded AI-assisted change and an explicit human decision.
 
-It is a calm bridge from beginner web work into server-side thinking.
+## Help
 
-## Feedback question
-
-Did this help you understand how a browser action reaches Laravel code?
-
+Use the recovery sections inside each mission. Project-specific setup and debugging remain outside
+this public reading pack.

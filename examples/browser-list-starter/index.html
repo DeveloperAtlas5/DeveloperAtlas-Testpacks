@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atlas Browser List</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app-card">
+    <p class="eyebrow">SAFE DOM PRACTICE</p>
     <h1>Atlas Practice List</h1>
 
     <p>
-      This small app uses HTML, CSS, JavaScript, the DOM, and localStorage.
+      Add, complete, remove, and reload a local list. Names are always rendered as text.
     </p>
 
-    <section class="list-app">
-      <h2>Practice items</h2>
+    <section class="list-app" aria-labelledby="practice-heading">
+      <h2 id="practice-heading">Practice items</h2>
 
       <form class="item-form">
         <label for="item-name">New item</label>
 
         <div class="form-row">
-          <input id="item-name" class="item-input" type="text" placeholder="Example: Learn routes">
+          <input id="item-name" class="item-input" type="text" maxlength="120" required placeholder="Example: Learn routes">
           <button type="submit">Add item</button>
         </div>
       </form>
 
-      <ul class="item-list"></ul>
+      <p class="empty-state">No items yet. Add one small learning goal.</p>
+      <ul class="item-list" aria-live="polite"></ul>
     </section>
   </main>
 

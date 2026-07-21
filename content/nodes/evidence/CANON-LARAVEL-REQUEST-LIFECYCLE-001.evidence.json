@@ -1,0 +1,330 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-LARAVEL-REQUEST-LIFECYCLE-001",
+  "nodeContentSha256": "ebed5718375dd47887e1673e745c652ce6cb448adb62cad2bb2b4afa671fd285",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x",
+    "PHP 8.3+",
+    "Standard Laravel HTTP request lifecycle"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-13-LIFECYCLE",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Request Lifecycle",
+      "url": "https://laravel.com/docs/13.x/lifecycle",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-ROUTING",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Routing",
+      "url": "https://laravel.com/docs/13.x/routing",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-CONTROLLERS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Controllers",
+      "url": "https://laravel.com/docs/13.x/controllers",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-MIDDLEWARE",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Middleware",
+      "url": "https://laravel.com/docs/13.x/middleware",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-RESPONSES",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "HTTP Responses",
+      "url": "https://laravel.com/docs/13.x/responses",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-VIEWS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Views",
+      "url": "https://laravel.com/docs/13.x/views",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-HTTP-TESTS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "HTTP Tests",
+      "url": "https://laravel.com/docs/13.x/http-tests",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-RELEASES",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Release Notes",
+      "url": "https://laravel.com/docs/13.x/releases",
+      "versionScope": "Laravel 13.x and PHP support policy",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-LRLC-001",
+      "statement": "A standard Laravel HTTP request enters through public/index.php, which loads the Composer autoloader and retrieves the application from bootstrap/app.php.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-LIFECYCLE"
+      ],
+      "sourceLocator": "First Steps",
+      "nodeSections": [
+        "Where it fits in the flow",
+        "Mental model"
+      ],
+      "applicability": "Laravel 13.x applications served through the documented HTTP entry point.",
+      "verificationIds": [
+        "V-LRLC-001"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-002",
+      "statement": "The HTTP kernel runs framework bootstrappers and passes the request through the application's middleware stack.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-LIFECYCLE"
+      ],
+      "sourceLocator": "HTTP / Console Kernels",
+      "nodeSections": [
+        "Where it fits in the flow",
+        "Mental model"
+      ],
+      "applicability": "The standard Laravel 13.x HTTP kernel path, not console commands.",
+      "verificationIds": [
+        "V-LRLC-003"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-003",
+      "statement": "After application bootstrap, the router dispatches the request to a route or controller and runs route-specific middleware.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-LIFECYCLE",
+        "SRC-LARAVEL-13-ROUTING"
+      ],
+      "sourceLocator": "Request Lifecycle: Routing; Routing: Basic Routing",
+      "nodeSections": [
+        "Where it fits in the flow",
+        "Mental model",
+        "Working example"
+      ],
+      "applicability": "Requests that reach Laravel's router after earlier middleware permits them to continue.",
+      "verificationIds": [
+        "V-LRLC-001",
+        "V-LRLC-003",
+        "V-LRLC-004"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-004",
+      "statement": "A route action may be a closure or a controller method; when a controller route matches, Laravel invokes the configured controller method.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-ROUTING",
+        "SRC-LARAVEL-13-CONTROLLERS"
+      ],
+      "sourceLocator": "Routing: Basic Routing; Controllers: Basic Controllers",
+      "nodeSections": [
+        "Mental model",
+        "Working example",
+        "Boundaries and version notes"
+      ],
+      "applicability": "Laravel 13.x route actions; a controller is common but not mandatory.",
+      "verificationIds": [
+        "V-LRLC-001",
+        "V-LRLC-002",
+        "V-LRLC-004"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-005",
+      "statement": "Route and controller actions can return multiple response forms, including views, redirects, strings, arrays converted to JSON, and explicit response objects.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-RESPONSES",
+        "SRC-LARAVEL-13-VIEWS"
+      ],
+      "sourceLocator": "HTTP Responses: Creating Responses, Redirects, View Responses, JSON Responses; Views: Creating and Rendering Views",
+      "nodeSections": [
+        "Mental model",
+        "Boundaries and version notes",
+        "How to verify it"
+      ],
+      "applicability": "Common Laravel 13.x response types; the list is illustrative rather than exhaustive.",
+      "verificationIds": [
+        "V-LRLC-002",
+        "V-LRLC-005"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-006",
+      "statement": "The response travels back through middleware before Laravel sends the response content to the client.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-LIFECYCLE"
+      ],
+      "sourceLocator": "Finishing Up",
+      "nodeSections": [
+        "Where it fits in the flow",
+        "Mental model",
+        "Working example"
+      ],
+      "applicability": "The standard Laravel 13.x HTTP response path.",
+      "verificationIds": [
+        "V-LRLC-002",
+        "V-LRLC-003",
+        "V-LRLC-005"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-007",
+      "statement": "Middleware can inspect or filter a request and can return a response before the intended route action runs.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-MIDDLEWARE"
+      ],
+      "sourceLocator": "Introduction; Middleware and Responses",
+      "nodeSections": [
+        "Common failure and recovery",
+        "How to verify it"
+      ],
+      "applicability": "Global, group, route, and controller middleware configured for the request.",
+      "verificationIds": [
+        "V-LRLC-003"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-008",
+      "statement": "Laravel 13.x requires PHP 8.3 or newer within the officially supported PHP range.",
+      "claimType": "version",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-RELEASES"
+      ],
+      "sourceLocator": "Support Policy; Laravel 13: PHP 8.3",
+      "nodeSections": [
+        "Boundaries and version notes"
+      ],
+      "applicability": "Laravel 13.x; later framework versions require a new evidence review.",
+      "verificationIds": [
+        "V-LRLC-001"
+      ]
+    },
+    {
+      "claimId": "CLM-LRLC-009",
+      "statement": "Laravel HTTP tests provide assertions for response status, returned views, redirects, and JSON fragments.",
+      "claimType": "verification",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-HTTP-TESTS"
+      ],
+      "sourceLocator": "Response Assertions: assertStatus, assertViewIs, assertRedirect, assertJson",
+      "nodeSections": [
+        "How to verify it"
+      ],
+      "applicability": "Laravel 13.x HTTP feature tests.",
+      "verificationIds": [
+        "V-LRLC-002",
+        "V-LRLC-005"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-LRLC-001",
+      "method": "Run php artisan route:list --path=groceries and inspect the method, URI, action, and middleware columns.",
+      "expectedResult": "GET /groceries resolves to GroceryController@index with the expected middleware and the application reports a Laravel 13-compatible PHP runtime.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-LRLC-002",
+      "method": "Issue GET /groceries in a Laravel feature test and call assertOk() plus assertViewIs('groceries.index').",
+      "expectedResult": "The request returns HTTP 200 and the configured Blade view.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-LRLC-003",
+      "method": "Attach observable test middleware that records entry and exit, then test both a pass-through response and an early redirect.",
+      "expectedResult": "Middleware entry occurs before the controller, middleware exit occurs after the controller response, and an early middleware response prevents the controller action.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-LRLC-004",
+      "method": "Send POST /groceries when only the GET route exists and use a controller spy or observable side effect.",
+      "expectedResult": "Laravel rejects the method mismatch and the GET controller action is not invoked.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-LRLC-005",
+      "method": "Create focused route variants that return a redirect and JSON, then assert status and payload with assertRedirect(...) and assertJson(...).",
+      "expectedResult": "Each route produces its declared response type without requiring a Blade view.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "The review covers Laravel 13.x documentation and must be repeated for a future major version.",
+    "The node intentionally omits framework-internal class-by-class execution details that are unnecessary for its beginner mental model.",
+    "Long-running servers such as Octane may add worker lifecycle concerns that are outside this node's request-level scope.",
+    "Application middleware, exception handling, service providers, and response preparation can add project-specific behavior.",
+    "Independent human review remains required before the node can be marked independently_reviewed or gold."
+  ]
+}

@@ -1,4 +1,12 @@
 ---
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 2 ([Blade Templates](https://laravel.com/docs/13.x/blade), [Views](https://laravel.com/docs/13.x/views)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 id: CANON-BLADE-VIEW-001
 title: Blade View
 status: gold_candidate
@@ -6,107 +14,101 @@ type: canon_node
 node_depth: gold
 category: core_code_concept
 level: beginner_to_rookie
-hover: "A Blade view is where Laravel data becomes a page the user can see."
-related_nodes:
-  - HUMAN-PREFERENCE-001
-  - CANON-ROUTE-001
-  - CANON-CONTROLLER-001
-  - CANON-CRUD-001
+content_version: 2
+journey_ids:
+- JOURNEY-LARAVEL-REQUEST-001
+version_scope: Laravel 13.x
+version_sensitivity: medium
+review_due_at: 2026-10-12
+user_validation_status: planned
+prerequisite_nodes:
+- CANON-CONTROLLER-001
+used_with_nodes:
+- CANON-ROUTE-001
+- CANON-CONTROLLER-001
+deeper_explanation_nodes:
+- CANON-LARAVEL-REQUEST-LIFECYCLE-001
+- CANON-CRUD-001
 ---
 
 # Blade View
 
-## One-sentence truth
+## Quick answer
 
-A Blade view is a Laravel template that turns data into human-visible HTML.
+A Blade view is a Laravel template, normally stored under `resources/views`, that compiles to PHP and renders presentation output from supplied data.
 
-## Hover reminder
+## Where it fits in the flow
 
-A Blade view is where Laravel data becomes a page the user can see.
+Blade is one possible representation near the end of the request path. A route or controller returns a view with data; Blade renders HTML; Laravel places that HTML in the outgoing response.
+
+`controller view data -> Blade template -> rendered HTML -> response`
 
 ## Mental model
 
-Think of Blade like a fill-in-the-blanks document. The HTML gives the structure, and Blade places dynamic data into it.
+Think of Blade as a document template. HTML supplies the structure, Blade directives control simple presentation branches and loops, and escaped echo syntax fills values into the page. The template presents decisions made elsewhere rather than owning request or business logic.
 
-## Beginner explanation
-
-Blade lets you write HTML with Laravel helpers and template syntax such as `@foreach`, `@if`, `{{ }}`, layouts, and sections.
-
-## Technical explanation
-
-A Blade view is compiled by Laravel into PHP. It should focus on displaying data and simple view logic, not heavy business logic.
-
-## When to use it
-
-- You need to show a page.
-- You need to loop over data from a controller.
-- You need to reuse a layout.
-- You need a form that posts to a named route.
-
-## When not to use it
-
-- Do not put database queries directly in Blade.
-- Do not put complex business rules in Blade.
-- Do not make the template so clever that HTML structure becomes hard to see.
-
-## Tiny example
+## Working example
 
 ```blade
-@extends("layouts.app")
+@extends('layouts.app')
 
-@section("content")
-    <h1>Grocery Items</h1>
+@section('content')
+    <h1>Items</h1>
 
     <ul>
-        @foreach ($items as $item)
+        @forelse ($items as $item)
             <li>{{ $item->name }}</li>
-        @endforeach
+        @empty
+            <li>No items yet.</li>
+        @endforelse
     </ul>
 @endsection
 ```
 
-## Mission example
+The controller must pass an `items` value. `{{ $item->name }}` escapes the displayed text by default.
 
-In the Laravel mission pack, the item index Blade view displays all items passed from `ItemController@index`.
+## What you can safely change
 
-## Common mistakes
+- Change labels, layout markup, and simple display conditions while preserving the view-data contract.
+- Rename a Blade variable together with the controller key that supplies it.
+- Add a route helper only after confirming the named route exists.
+- Prefer escaped `{{ }}` output for untrusted values; use raw output only with an explicit trusted-content reason.
 
-- Forgetting to pass a variable from the controller.
-- Using `{!! !!}` when escaped `{{ }}` is safer.
-- Putting too much PHP logic inside the view.
-- Indenting Blade loops so the HTML becomes hard to scan.
+## Common failure and recovery
 
-## Debugging signs
+- **Undefined variable.** Compare the controller's view-data key with the Blade variable name.
+- **View not found.** Translate the dot name, such as `items.index`, to `resources/views/items/index.blade.php` and confirm the path.
+- **The list renders empty.** Inspect the data passed by the controller and provide an intentional empty state.
+- **HTML contains unsafe or unexpected markup.** Replace raw `{!! !!}` output with escaped `{{ }}` unless the content is explicitly trusted and sanitized.
 
-- Undefined variable.
-- View not found.
-- Route not defined in form action.
-- HTML renders but list is empty because the controller passed no data.
+## How to verify it
+
+- `V-BLADE-VIEW-001`: Render the view with known controller data and confirm the expected escaped values appear in the HTML.
+- `V-BLADE-VIEW-002`: Render an empty collection and confirm the intended empty-state message appears without broken markup.
+- `V-BLADE-VIEW-003`: Inspect the template and confirm request handling, database queries, and business rules have not moved into Blade.
+
+## Boundaries and version notes
+
+- Reviewed for Laravel 13.x; `.blade.php`, `resources/views`, compilation, directives, and escaped echo behavior are stable in this scope.
+- Escaped `{{ }}` and raw `{!! !!}` output have different cross-site-scripting boundaries.
+- A Blade view is one response representation; JSON, redirects, files, and empty responses do not require Blade.
+- Blade permits PHP, but request handling and business rules should remain outside presentation templates.
 
 ## AI steering rule
 
-AI may improve Blade indentation, route helpers, and simple display logic. AI should not move business logic into Blade or rewrite the layout system without confirmation.
+AI should inspect the controller's view name and data contract plus the existing layout before editing Blade, preserve escaped output by default, and avoid moving request handling or business logic into the template.
 
 ## Human readability rule
 
-A readable Blade view keeps HTML structure visible, indents Blade directives clearly, and uses small comments only when they explain page intent.
+Keep HTML structure visible, indent Blade directives consistently, give empty and error states explicit markup, and name variables after the data the user sees.
 
 ## Related nodes
 
-  - HUMAN-PREFERENCE-001
-  - CANON-ROUTE-001
-  - CANON-CONTROLLER-001
-  - CANON-CRUD-001
+- CANON-CONTROLLER-001
+- CANON-ROUTE-001
+- CANON-LARAVEL-REQUEST-LIFECYCLE-001
+- CANON-CRUD-001
 
-## Gold candidate checklist
+## Evidence status
 
-- [x] Has a one-sentence truth
-- [x] Has a hover summary
-- [x] Explains the mental model
-- [x] Includes beginner and technical explanations
-- [x] Includes examples
-- [x] Includes common mistakes
-- [x] Includes AI guardrail
-- [x] Includes human readability rule
-- [ ] Tested with a beginner
-- [ ] Translated to Dutch
+Primary-source reviewed on 2026-07-12. Independent human review and promotion are pending. See [`../evidence/CANON-BLADE-VIEW-001.evidence.json`](../evidence/CANON-BLADE-VIEW-001.evidence.json) for claim mappings, source locations, limitations, and verification contracts.

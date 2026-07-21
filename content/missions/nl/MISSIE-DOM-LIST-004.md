@@ -132,19 +132,27 @@ function renderItems() {
       itemRow.classList.add('is-done')
     }
 
-    itemRow.innerHTML = `
-      <span class="item-name">${item.name}</span>
+    const itemName = document.createElement('span')
+    itemName.classList.add('item-name')
+    itemName.textContent = item.name
 
-      <div class="item-actions">
-        <button type="button" data-action="toggle" data-id="${item.id}">
-          Done
-        </button>
+    const itemActions = document.createElement('div')
+    itemActions.classList.add('item-actions')
 
-        <button type="button" data-action="remove" data-id="${item.id}">
-          Remove
-        </button>
-      </div>
-    `
+    const toggleButton = document.createElement('button')
+    toggleButton.type = 'button'
+    toggleButton.dataset.action = 'toggle'
+    toggleButton.dataset.id = String(item.id)
+    toggleButton.textContent = 'Klaar'
+
+    const removeButton = document.createElement('button')
+    removeButton.type = 'button'
+    removeButton.dataset.action = 'remove'
+    removeButton.dataset.id = String(item.id)
+    removeButton.textContent = 'Verwijder'
+
+    itemActions.append(toggleButton, removeButton)
+    itemRow.append(itemName, itemActions)
 
     itemList.appendChild(itemRow)
   })

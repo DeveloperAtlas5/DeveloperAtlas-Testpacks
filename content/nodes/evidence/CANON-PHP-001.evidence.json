@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-PHP-001",
+  "nodeContentSha256": "4014c2c96b0610212f2f57e6cfdc984e2892f68a54b23284374a96ddd2daa5a0",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "PHP 8.x web execution",
+    "PHP 8.x CLI"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-PHP-WEB-TUTORIAL",
+      "sourceType": "official_documentation",
+      "publisher": "PHP Documentation Group",
+      "title": "A simple PHP tutorial",
+      "url": "https://www.php.net/manual/en/tutorial.php",
+      "versionScope": "PHP 8.x web execution",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-PHP-CLI",
+      "sourceType": "official_documentation",
+      "publisher": "PHP Documentation Group",
+      "title": "Command line usage",
+      "url": "https://www.php.net/manual/en/features.commandline.php",
+      "versionScope": "PHP 8.x CLI",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-PHP-001",
+      "statement": "PHP can generate dynamic web responses and also supports command-line execution.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-WEB-TUTORIAL",
+        "SRC-PHP-CLI"
+      ],
+      "sourceLocator": "Tutorial; Command line usage",
+      "nodeSections": [
+        "One-sentence truth",
+        "Applicability and boundaries"
+      ],
+      "applicability": "PHP 8.x web execution; PHP 8.x CLI",
+      "verificationIds": [
+        "V-PHP-001"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-002",
+      "statement": "In a normal PHP web flow, PHP executes before generated output reaches the browser.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-WEB-TUTORIAL"
+      ],
+      "sourceLocator": "First PHP-enabled page",
+      "nodeSections": [
+        "Beginner explanation",
+        "Syntax example"
+      ],
+      "applicability": "PHP 8.x web execution; PHP 8.x CLI",
+      "verificationIds": [
+        "V-PHP-001",
+        "V-PHP-002"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-003",
+      "statement": "PHP source and the response body are different artifacts.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-WEB-TUTORIAL"
+      ],
+      "sourceLocator": "PHP-enabled page output",
+      "nodeSections": [
+        "Beginner explanation",
+        "Common mistakes"
+      ],
+      "applicability": "PHP 8.x web execution; PHP 8.x CLI",
+      "verificationIds": [
+        "V-PHP-002",
+        "V-PHP-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-PHP-001",
+      "method": "Run the smallest PHP example or focused test and compare its output with the expected value.",
+      "expectedResult": "Its output with the expected value.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-002",
+      "method": "Check one conditional, function, or input boundary used by the example.",
+      "expectedResult": "The check exposes whether php behaves as documented: Check one conditional, function, or input boundary used by the example.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-003",
+      "method": "Run PHP syntax checking on the changed file before treating the example as valid.",
+      "expectedResult": "The check exposes whether php behaves as documented: Run PHP syntax checking on the changed file before treating the example as valid.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "PHP can also run from the command line, so server-side web execution is this node's scope rather than PHP's only mode.",
+    "The browser receives PHP output, not the PHP source that generated it.",
+    "Output encoding and trust boundaries still matter when PHP emits user-controlled data.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

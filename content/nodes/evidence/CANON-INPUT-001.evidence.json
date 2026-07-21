@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-INPUT-001",
+  "nodeContentSha256": "115e452e7d4338e5078ce5553321eeeff358c9fd20d23de00bd2e9ff7e8da8c4",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current HTML standard",
+    "Evergreen browsers"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-HTML-INPUT",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "HTML input element",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input",
+      "versionScope": "Current HTML standard and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-INPUT-001",
+      "statement": "The input element creates a form control whose behavior depends on its type.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-INPUT"
+      ],
+      "sourceLocator": "Input description; input types",
+      "nodeSections": [
+        "One-sentence truth",
+        "Tiny example"
+      ],
+      "applicability": "Current HTML standard; Evergreen browsers",
+      "verificationIds": [
+        "V-INPUT-001"
+      ]
+    },
+    {
+      "claimId": "CLM-INPUT-002",
+      "statement": "Input attributes such as type, name, value, required, and constraints affect interaction and submission.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-INPUT"
+      ],
+      "sourceLocator": "Attributes; client-side validation",
+      "nodeSections": [
+        "Tiny example",
+        "Verification"
+      ],
+      "applicability": "Current HTML standard; Evergreen browsers",
+      "verificationIds": [
+        "V-INPUT-001",
+        "V-INPUT-002"
+      ]
+    },
+    {
+      "claimId": "CLM-INPUT-003",
+      "statement": "Not all input types are user-editable text fields, and unnamed controls are not submitted normally.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-INPUT"
+      ],
+      "sourceLocator": "Input types; name attribute",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes"
+      ],
+      "applicability": "Current HTML standard; Evergreen browsers",
+      "verificationIds": [
+        "V-INPUT-002",
+        "V-INPUT-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-INPUT-001",
+      "method": "Enter a known value and confirm the application reads that exact value.",
+      "expectedResult": "The application reads that exact value.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-INPUT-002",
+      "method": "Check the empty or invalid-input path used by the surrounding form.",
+      "expectedResult": "The check exposes whether input behaves as documented: Check the empty or invalid-input path used by the surrounding form.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-INPUT-003",
+      "method": "Confirm the label, name, type, and code reference describe the same value.",
+      "expectedResult": "The label, name, type, and code reference describe the same value.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Not every input type accepts typed text; inputs also include controls such as checkbox, radio, file, hidden, and submit.",
+    "A control generally needs a name to contribute a name/value pair during form submission.",
+    "Labels and suitable input types are important accessibility and data-quality boundaries.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

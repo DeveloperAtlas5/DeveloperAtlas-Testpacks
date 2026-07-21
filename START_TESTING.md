@@ -1,95 +1,33 @@
-# Start Testing Developer Atlas
+# Start with one Atlas workflow
 
-Thank you for testing Developer Atlas.
+The clearest way to evaluate Developer Atlas is not to browse every folder. Complete one controlled
+change first.
 
-You are not being tested.  
-The pack is being tested.
+## Primary: 15-minute Control exercise
 
-## Step 1 — Choose one path
+[Start the Laravel control loop](TRY_ATLAS.md).
 
-Pick the path that best matches you:
+You will define scope, compare prompts, inspect a proposed diff, review incomplete evidence, and make
+an explicit human decision. No installation or AI account is required.
 
-| If you are... | Start with... |
-|---|---|
-| New to web development | [`packs/beginner/`](packs/beginner/) |
-| Ready for one small Vue mission | [`packs/rookie/`](packs/rookie/) |
-| Looking for quick programming explanations | [`packs/library/`](packs/library/) |
-| Using AI coding tools | [`packs/ai-collaboration/`](packs/ai-collaboration/) |
+## Secondary: Navigator preview
 
-Do not test everything at once.
+If you have received a Navigator preview package, follow its included smoke pack and test one Laravel
+route → controller → view flow before opening Control Lite. Preview distribution remains limited
+until clean-profile installation and release checks are complete.
 
-Start with one path only.
+## Supporting learning paths
 
-## Step 2 — Open the pack
+- [Beginner web foundations](packs/beginner/README.md)
+- [Rookie browser application](packs/rookie/README.md)
+- [PHP/Laravel bridge](packs/php-laravel/README.md)
+- [Knowledge Node samples](packs/library/README.md)
+- [AI Collaboration Pack](packs/ai-collaboration/README.md)
 
-Each pack folder has its own `README.md`.
+These paths support onboarding and research; they are not five competing product entry points.
 
-Start there.
+## Feedback
 
-Depending on the pack, you may also see files like:
-
-```txt
-START_HERE.md
-mission-dashboard.html
-cards/index.md
-developer-atlas-...pack.zip
-```
-
-## Step 3 — If there is a zip
-
-1. Download or copy the zip.
-2. Extract it.
-3. Open the extracted folder.
-4. Start with `START_HERE.md`, `cards/index.md`, or `mission-dashboard.html`.
-
-## Windows browser tip
-
-Sometimes `.html` files open in VS Code instead of your browser.
-
-If that happens:
-
-1. Open the extracted folder in Windows File Explorer.
-2. Right-click the `.html` file.
-3. Choose **Open with**.
-4. Pick Chrome, Edge, Firefox, or another browser.
-
-## Step 4 — Stop when confused
-
-Please stop and write down:
-
-- what you clicked
-- what you expected
-- what confused you
-- what you wanted next
-
-Confusion is useful feedback.
-
-## Step 5 — Send feedback
-
-Use one of these:
-
-```txt
-feedback/general-feedback-template.md
-feedback/rookie-feedback-template.md
-feedback/beginner-feedback-template.md
-feedback/library-feedback-template.md
-feedback/ai-collaboration-feedback-template.md
-```
-
-Or open a GitHub Issue / Discussion.
-
-## Good feedback example
-
-```txt
-I opened the Rookie Pack first.
-I understood the goal.
-I got confused when I had to find App.vue.
-The dashboard felt calm, but I wanted a screenshot of where the file is.
-I would try another pack if the first step was even clearer.
-```
-
-## Reminder
-
-The tester is not being tested.
-
-The pack is being tested.
+You are not being graded. The workflow is being evaluated. After completing one path, use
+[`FEEDBACK.md`](FEEDBACK.md) and report the first unclear instruction, trust concern, or point where
+you could not decide what to do next.

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-CONTROLLER-001",
+  "nodeContentSha256": "2302a1c982c9f1b54262625e4b051845ce80deeb66052795840f5dbbe73b9b14",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-13-CONTROLLERS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Controllers",
+      "url": "https://laravel.com/docs/13.x/controllers",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-ROUTING",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Routing",
+      "url": "https://laravel.com/docs/13.x/routing",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-VALIDATION",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Validation",
+      "url": "https://laravel.com/docs/13.x/validation",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-CONTROLLER-001",
+      "statement": "Controllers group related request-handling logic into classes.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-CONTROLLERS"
+      ],
+      "sourceLocator": "Introduction; Basic Controllers",
+      "nodeSections": [
+        "Quick answer",
+        "Where it fits in the flow"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-CONTROLLER-001"
+      ]
+    },
+    {
+      "claimId": "CLM-CONTROLLER-002",
+      "statement": "A matching controller route invokes the configured public action.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-CONTROLLERS",
+        "SRC-LARAVEL-13-ROUTING"
+      ],
+      "sourceLocator": "Basic Controllers; controller routes",
+      "nodeSections": [
+        "Working example",
+        "How to verify it"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-CONTROLLER-001",
+        "V-CONTROLLER-002"
+      ]
+    },
+    {
+      "claimId": "CLM-CONTROLLER-003",
+      "statement": "Controllers are optional and do not automatically supply validation or persistence.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-CONTROLLERS",
+        "SRC-LARAVEL-13-VALIDATION"
+      ],
+      "sourceLocator": "Controllers introduction; validation",
+      "nodeSections": [
+        "Boundaries and version notes",
+        "Common failure and recovery"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-CONTROLLER-002",
+        "V-CONTROLLER-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-CONTROLLER-001",
+      "method": "Send a request through the mapped route and confirm the intended controller method handles it.",
+      "expectedResult": "The intended controller method handles it.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-CONTROLLER-002",
+      "method": "Check both a valid path and one rejected or missing-input path.",
+      "expectedResult": "The check exposes whether controller behaves as documented: Check both a valid path and one rejected or missing-input path.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-CONTROLLER-003",
+      "method": "Assert the returned status, redirect, view, or data in the smallest focused test.",
+      "expectedResult": "The check exposes whether controller behaves as documented: Assert the returned status, redirect, view, or data in the smallest focused test.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Controllers are optional; routes may use closures or invokable classes.",
+    "A controller does not automatically validate, authorize, or persist data.",
+    "Controllers do not have to extend Laravel's base controller class.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

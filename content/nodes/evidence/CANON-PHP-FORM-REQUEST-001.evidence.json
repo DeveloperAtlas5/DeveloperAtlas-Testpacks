@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-PHP-FORM-REQUEST-001",
+  "nodeContentSha256": "5f30892f5319f9225caefbf5890e2189ffff3b4fec53ba3d4fa95452d5e157db",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "HTML form submission",
+    "PHP 8.x external variables",
+    "Laravel 13.x request validation"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-HTML-FORM",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "HTML form element",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form",
+      "versionScope": "Current HTML standard and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-PHP-EXTERNAL-VARIABLES",
+      "sourceType": "official_documentation",
+      "publisher": "PHP Documentation Group",
+      "title": "Variables from external sources",
+      "url": "https://www.php.net/manual/en/language.variables.external.php",
+      "versionScope": "PHP 8.x HTTP form input",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-VALIDATION",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Validation",
+      "url": "https://laravel.com/docs/13.x/validation",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-REQUESTS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "HTTP Requests",
+      "url": "https://laravel.com/docs/13.x/requests",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-PHP-FORM-REQUEST-001",
+      "statement": "A form submission sends named control data in an HTTP request; it does not store data by itself.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM",
+        "SRC-PHP-EXTERNAL-VARIABLES"
+      ],
+      "sourceLocator": "Form action/method; external variables",
+      "nodeSections": [
+        "One-sentence truth",
+        "Mental model",
+        "Syntax example"
+      ],
+      "applicability": "HTML form submission; PHP 8.x external variables; Laravel 13.x request validation",
+      "verificationIds": [
+        "V-PHP-FORM-REQUEST-001"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-FORM-REQUEST-002",
+      "statement": "Laravel validation can reject invalid input and expose validated data.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-VALIDATION",
+        "SRC-LARAVEL-13-REQUESTS"
+      ],
+      "sourceLocator": "Quick validation; request input",
+      "nodeSections": [
+        "Laravel example",
+        "Verification"
+      ],
+      "applicability": "HTML form submission; PHP 8.x external variables; Laravel 13.x request validation",
+      "verificationIds": [
+        "V-PHP-FORM-REQUEST-001",
+        "V-PHP-FORM-REQUEST-002"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-FORM-REQUEST-003",
+      "statement": "Browser validation does not make submitted data trusted or authorized.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-VALIDATION",
+        "SRC-LARAVEL-13-REQUESTS"
+      ],
+      "sourceLocator": "Validation; Form Request authorization",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes"
+      ],
+      "applicability": "HTML form submission; PHP 8.x external variables; Laravel 13.x request validation",
+      "verificationIds": [
+        "V-PHP-FORM-REQUEST-002",
+        "V-PHP-FORM-REQUEST-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-PHP-FORM-REQUEST-001",
+      "method": "Submit valid input and confirm the controller receives validated data.",
+      "expectedResult": "The controller receives validated data.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-FORM-REQUEST-002",
+      "method": "Submit invalid input and confirm the request returns the expected errors or redirect.",
+      "expectedResult": "The request returns the expected errors or redirect.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-FORM-REQUEST-003",
+      "method": "Inspect the authorization path and confirm it matches the intended caller boundary.",
+      "expectedResult": "It matches the intended caller boundary.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "An HTML form submission is not the same thing as Laravel's optional custom Form Request class.",
+    "Client-provided values remain untrusted even when browser validation succeeds.",
+    "Input names, HTTP method, action, CSRF protection, validation, and authorization are separate responsibilities.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

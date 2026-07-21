@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "SUPPORT-PHP-TAG-001",
+  "nodeContentSha256": "485f44544efdbeaef4a0e01f7c9bac5e8895bea2aa9495472020db76488b1aba",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "PHP 8.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-PHP-TAGS",
+      "sourceType": "maintainer_documentation",
+      "publisher": "PHP Documentation Group",
+      "title": "PHP tags",
+      "url": "https://www.php.net/manual/en/language.basic-syntax.phptags.php",
+      "versionScope": "PHP 8.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-PHP-TAG-001",
+      "statement": "PHP code is interpreted only inside recognized PHP tags.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-TAGS"
+      ],
+      "sourceLocator": "PHP tags",
+      "nodeSections": [
+        "Hover summary"
+      ],
+      "applicability": "PHP 8.x",
+      "verificationIds": [
+        "V-PHP-TAG-001",
+        "V-PHP-TAG-002",
+        "V-PHP-TAG-003"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-TAG-002",
+      "statement": "The canonical opening tag is `<?php`.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-TAGS"
+      ],
+      "sourceLocator": "PHP tags",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "PHP 8.x",
+      "verificationIds": [
+        "V-PHP-TAG-001",
+        "V-PHP-TAG-002",
+        "V-PHP-TAG-003"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-TAG-003",
+      "statement": "A closing PHP tag may be omitted at the end of a PHP-only file and doing so helps avoid unwanted trailing output.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-TAGS"
+      ],
+      "sourceLocator": "PHP tags",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "PHP 8.x",
+      "verificationIds": [
+        "V-PHP-TAG-001",
+        "V-PHP-TAG-002",
+        "V-PHP-TAG-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-PHP-TAG-001",
+      "method": "Run `php -l` on a PHP-only file that begins with `<?php`.",
+      "expectedResult": "PHP recognizes the source and reports no syntax errors.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-TAG-002",
+      "method": "Inspect the file bytes after the final PHP statement and confirm there is no closing tag or accidental output.",
+      "expectedResult": "The PHP-only file ends without a closing tag or stray response bytes.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-TAG-003",
+      "method": "Create an isolated mixed PHP/HTML example and confirm only content outside or echoed inside tags is output.",
+      "expectedResult": "The parser switches between PHP and literal output at the tag boundaries.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Short echo tags and template syntax have separate rules.",
+    "This node covers PHP source boundaries, not framework template compilation.",
+    "Independent human review remains required before any status promotion."
+  ]
+}

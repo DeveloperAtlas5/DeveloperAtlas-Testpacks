@@ -1,4 +1,12 @@
 ---
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 3 ([Controllers](https://laravel.com/docs/13.x/controllers), [Routing](https://laravel.com/docs/13.x/routing), [Validation](https://laravel.com/docs/13.x/validation)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 id: CANON-CONTROLLER-001
 title: Controller
 status: gold_candidate
@@ -6,107 +14,107 @@ type: canon_node
 node_depth: gold
 category: core_code_concept
 level: beginner_to_rookie
-hover: "A controller is the traffic guide between routes, data, and views."
-related_nodes:
-  - HUMAN-PREFERENCE-001
-  - CANON-FUNCTION-001
-  - CANON-ROUTE-001
-  - CANON-BLADE-VIEW-001
-  - CANON-CRUD-001
+content_version: 2
+journey_ids:
+- JOURNEY-LARAVEL-REQUEST-001
+version_scope: Laravel 13.x
+version_sensitivity: medium
+review_due_at: 2026-10-12
+user_validation_status: planned
+prerequisite_nodes:
+- CANON-ROUTE-001
+used_with_nodes:
+- SUPPORT-VALIDATE-001
+- CANON-BLADE-VIEW-001
+continues_to_nodes:
+- SUPPORT-VALIDATE-001
+- CANON-BLADE-VIEW-001
+deeper_explanation_nodes:
+- CANON-LARAVEL-REQUEST-LIFECYCLE-001
+- CANON-CRUD-001
 ---
 
 # Controller
 
-## One-sentence truth
+## Quick answer
 
-A controller receives a request, coordinates the needed action, and returns a response.
+A Laravel controller groups related request-handling methods. When a controller route matches, Laravel invokes the configured public action, which coordinates the work needed to return a response.
 
-## Hover reminder
+## Where it fits in the flow
 
-A controller is the traffic guide between routes, data, and views.
+The controller comes after route matching and route middleware. It receives request context, may validate or authorize input and call models or services, then returns a view, redirect, JSON response, or another supported response.
+
+`matched route -> controller action -> application work -> response`
 
 ## Mental model
 
-Think of a controller like the person at a service desk. The request comes in, the controller decides what work is needed, and then sends back the correct response.
+Think of a controller action as a coordinator at a service desk. It accepts a specific request, sends work to the right place, and returns the result. It should make the sequence visible without becoming the home for every business rule.
 
-## Beginner explanation
-
-In Laravel, a controller keeps route files clean by placing page and form logic inside named methods such as `index`, `store`, `edit`, `update`, and `destroy`.
-
-## Technical explanation
-
-A controller method receives the request context, may validate input, may call models or services, and returns a view, redirect, JSON response, or error.
-
-## When to use it
-
-- A route needs more logic than simply returning a view.
-- A form needs validation and saving.
-- A page needs database data.
-- A CRUD action needs a clear home.
-
-## When not to use it
-
-- Do not put every kind of business logic into one huge controller.
-- Do not hide beginner-level code in services too early.
-- Do not mix unrelated resources in one controller.
-
-## Tiny example
+## Working example
 
 ```php
+namespace App\Http\Controllers;
+
+use App\Models\Item;
+use Illuminate\View\View;
+
 class ItemController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $items = Item::all();
+        $items = Item::query()->latest()->get();
 
-        return view("items.index", compact("items"));
+        return view('items.index', ['items' => $items]);
     }
 }
 ```
 
-## Mission example
+The route selects `index()`. The action obtains the items and passes them to `resources/views/items/index.blade.php` under the name `$items`.
 
-In the Laravel CRUD mission, `ItemController` owns the basic item actions: show the list, show a form, save an item, edit an item, update it, and delete it.
+## What you can safely change
 
-## Common mistakes
+- Change one action's query, validation, or response while keeping its route contract visible.
+- Rename passed view data together with the Blade variable that receives it.
+- Rename an action together with the route that references it.
+- Extract business logic only when the action has a clear, repeated responsibility that benefits from a separate class.
 
-- Putting controller methods in the abstract base `Controller` instead of a real resource controller.
-- Mixing validation, unrelated calculations, and responses without spacing.
-- Using unclear variable names like `$data` everywhere.
-- Returning a view that does not exist.
+## Common failure and recovery
 
-## Debugging signs
+- **Target class or method does not exist.** Confirm the route import, controller namespace, class, and public action name.
+- **Blade reports an undefined variable.** Compare the controller's view-data key with the variable used in the template.
+- **A valid request works but invalid input behaves unpredictably.** Make validation and the rejected path explicit before persistence.
+- **The controller is difficult to scan.** Separate visible blocks for validation, data preparation, action, and response before introducing more architecture.
 
-- Class not found.
-- Target class does not exist.
-- Method does not exist.
-- Undefined variable in Blade because the controller did not pass it.
+## How to verify it
+
+- `V-CONTROLLER-001`: Send a request through the mapped route and confirm the intended public controller action handles it.
+- `V-CONTROLLER-002`: Exercise one valid path and one rejected or missing-input path and confirm their different responses.
+- `V-CONTROLLER-003`: Assert the smallest observable contract: status, redirect, view name, essential view data, or JSON data.
+
+## Boundaries and version notes
+
+- Reviewed for Laravel 13.x; controllers remain optional because routes may use closures or invokable classes.
+- A controller does not automatically validate, authorize, or persist data.
+- Laravel controllers do not have to extend the framework's base controller class.
+- Services, jobs, and repositories may be appropriate later, but they are not prerequisites for a readable beginner controller.
 
 ## AI steering rule
 
-AI may add or fix a controller method when the route and mission are clear. AI should keep the method focused and should not introduce service/repository layers unless requested.
+AI should confirm the mapped route, action contract, input, and expected response before editing a controller, keep the change inside the focused action, and avoid adding service or repository layers unless the responsibility or user request requires them.
 
 ## Human readability rule
 
-A readable controller method shows visible blocks: validate input, prepare data, perform action, return response.
+Keep controller actions short enough to scan and organize them as visible input, validation or authorization, data preparation, operation, and response blocks.
 
 ## Related nodes
 
-  - HUMAN-PREFERENCE-001
-  - CANON-FUNCTION-001
-  - CANON-ROUTE-001
-  - CANON-BLADE-VIEW-001
-  - CANON-CRUD-001
+- CANON-ROUTE-001
+- SUPPORT-VALIDATE-001
+- CANON-BLADE-VIEW-001
+- CANON-LARAVEL-REQUEST-LIFECYCLE-001
+- CANON-CRUD-001
+- CANON-FUNCTION-001
 
-## Gold candidate checklist
+## Evidence status
 
-- [x] Has a one-sentence truth
-- [x] Has a hover summary
-- [x] Explains the mental model
-- [x] Includes beginner and technical explanations
-- [x] Includes examples
-- [x] Includes common mistakes
-- [x] Includes AI guardrail
-- [x] Includes human readability rule
-- [ ] Tested with a beginner
-- [ ] Translated to Dutch
+Primary-source reviewed on 2026-07-12. Independent human review and promotion are pending. See [`../evidence/CANON-CONTROLLER-001.evidence.json`](../evidence/CANON-CONTROLLER-001.evidence.json) for claim mappings, source locations, limitations, and verification contracts.

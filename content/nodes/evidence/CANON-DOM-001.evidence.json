@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-DOM-001",
+  "nodeContentSha256": "af0c9f67cae5490523571631dc4fa8bf5d0e830a45fd908e3d43c820bca1a4a8",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current DOM standard",
+    "Evergreen browsers"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-DOM",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "Document Object Model (DOM)",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+      "versionScope": "Current DOM standard and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-DOM-001",
+      "statement": "The DOM represents a document as a node tree exposed through programming interfaces.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-DOM"
+      ],
+      "sourceLocator": "Introduction; core interfaces",
+      "nodeSections": [
+        "One-sentence truth",
+        "Mental model"
+      ],
+      "applicability": "Current DOM standard; Evergreen browsers",
+      "verificationIds": [
+        "V-DOM-001"
+      ]
+    },
+    {
+      "claimId": "CLM-DOM-002",
+      "statement": "Document and Element APIs can locate nodes and change text, attributes, classes, or structure.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-DOM"
+      ],
+      "sourceLocator": "DOM interfaces and guides",
+      "nodeSections": [
+        "Beginner explanation",
+        "Technical explanation"
+      ],
+      "applicability": "Current DOM standard; Evergreen browsers",
+      "verificationIds": [
+        "V-DOM-001",
+        "V-DOM-002"
+      ]
+    },
+    {
+      "claimId": "CLM-DOM-003",
+      "statement": "DOM operations affect the live document representation and selectors may fail to find an element.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-DOM"
+      ],
+      "sourceLocator": "Selection and traversal",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes"
+      ],
+      "applicability": "Current DOM standard; Evergreen browsers",
+      "verificationIds": [
+        "V-DOM-001",
+        "V-DOM-002",
+        "V-DOM-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-DOM-001",
+      "method": "Select a known element and confirm the lookup returns the expected node.",
+      "expectedResult": "The lookup returns the expected node.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-DOM-002",
+      "method": "Change one text value, attribute, or class and observe the corresponding page update.",
+      "expectedResult": "The corresponding page update.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-DOM-003",
+      "method": "Check the missing-element path so a failed selector is visible rather than silently guessed.",
+      "expectedResult": "The check exposes whether dom behaves as documented: Check the missing-element path so a failed selector is visible rather than silently guessed.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "The DOM is the browser's current document representation, not an automatic edit to the source HTML file.",
+    "Selector methods can return no match; code must handle that path instead of assuming an element exists.",
+    "DOM availability and timing depend on the host environment and document lifecycle.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

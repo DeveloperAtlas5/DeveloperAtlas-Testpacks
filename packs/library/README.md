@@ -1,21 +1,33 @@
-# Library Pack
+# Public Knowledge Node samples
 
-Use this when you want quick explanations of programming ideas.
+For developers who need a concise concept explanation while reviewing code.
 
-## Start here
+- **Finish:** understand one concept well enough to continue the current task.
+- **Time:** 5–10 minutes per node.
+- **Requirements:** none.
 
-Open the selected Canon cards:
+## Start
 
-[../../content/nodes/gold/](../../content/nodes/gold/)
+Open the [node index](../../content/nodes/README.md). Useful first samples:
 
-Good first cards:
+- [JavaScript](../../content/nodes/gold/CANON-JAVASCRIPT-001.md)
+- [DOM](../../content/nodes/gold/CANON-DOM-001.md)
+- [Laravel route](../../content/nodes/gold/CANON-ROUTE-001.md)
+- [Request lifecycle](../../content/nodes/gold/CANON-LARAVEL-REQUEST-LIFECYCLE-001.md)
 
-- CANON-JAVASCRIPT-001
-- CANON-DOM-001
-- CANON-EVENT-001
-- CANON-LOCALSTORAGE-001
+## What you will see
 
-## Test question
+Every sample starts with its source count, last verification date, AI-assisted review state, and
+pending independent human review. “Gold” names an internal teaching-depth target, not certification.
 
-Did the card help you understand the concept quickly enough to continue?
+![Atlas Compendium node evidence view](../../screenshots/compendium-node.png)
 
+## Next
+
+Return to the code task that brought you here, or use the
+[Control exercise](../../TRY_ATLAS.md) to apply a concept inside a bounded change.
+
+## Help
+
+Known limitations are linked from every node. Report unclear or unsupported claims through the
+public [feedback route](https://github.com/DeveloperAtlas5/DeveloperAtlas-Public/blob/main/FEEDBACK.md).

@@ -1,12 +1,20 @@
 # CANON-CSS-001 — CSS
 
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 1 ([CSS: Cascading Style Sheets](https://developer.mozilla.org/en-US/docs/Web/CSS)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Current CSS modules; Evergreen browsers.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
+
 ## Hover summary
 
 CSS controls how HTML looks.
 
 ## One-sentence truth
 
-CSS is the language that styles HTML by selecting elements and applying visual rules.
+CSS is a stylesheet language that describes how HTML or XML documents are presented across supported media.
 
 ## Mental model
 
@@ -50,6 +58,22 @@ CSS should use meaningful selectors, consistent spacing, and grouped rules that 
 
 ## Related nodes
 
-- CANON-HTML-001
+- CANON-DOM-001
 - SUPPORT-CSS-SELECTOR-001
 - SUPPORT-CLASS-001
+
+## Verification
+
+- `V-CSS-001`: Change one selector property and confirm only the intended element changes visually.
+- `V-CSS-002`: Confirm the stylesheet is loaded and the selector matches the class, ID, or element in the HTML.
+- `V-CSS-003`: Remove or override the rule and observe that the targeted presentation changes predictably.
+
+## Applicability and boundaries
+
+- A selector match does not guarantee a declaration wins; cascade, specificity, inheritance, order, and validity can affect the result.
+- CSS affects presentation rather than changing the semantic meaning of the underlying HTML.
+- Individual CSS modules evolve separately, so version-sensitive features require their own compatibility check.
+
+## Evidence status
+
+Primary-source reviewed on 2026-07-12. Independent human review and promotion are pending. See [`../evidence/CANON-CSS-001.evidence.json`](../evidence/CANON-CSS-001.evidence.json) for claim mappings, source locations, limitations, and verification contracts.

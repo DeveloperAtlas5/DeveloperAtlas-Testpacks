@@ -5,12 +5,11 @@ in control of AI-assisted code changes.
 
 ## Now
 
-- publish a clear, public-safe explanation of the product and its evidence;
+- validate the 15-minute public Control exercise with people outside the project;
 - complete the same-tester external-alpha retest;
-- finish the editor-native Control Lite golden path;
+- finish clean-profile installation and UX hardening for Control Lite in Navigator;
 - reduce Navigator information density through progressive disclosure;
-- fix public installation, search, and packaging friction;
-- validate Continuity on a real Windows Laravel/Vue/SQLite project;
+- publish a checksum-listed Navigator or Control-exercise preview after release review;
 - complete independent human review for the highest-value knowledge nodes.
 
 ## Next
@@ -29,6 +28,12 @@ in control of AI-assisted code changes.
 - multi-project history;
 - managed onboarding or private deployment;
 - broader framework support.
+
+## Parallel supporting research
+
+- validate Continuity on a real Windows Laravel/Vue/SQLite project;
+- extend First Expedition only where it improves Control or Navigator onboarding;
+- complete the Vue learning track before presenting it as equivalent to the browser and Laravel paths.
 
 ## Explicit non-goals
 

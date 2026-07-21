@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-JSON-001",
+  "nodeContentSha256": "92284e97675c5a49f71f64f6281939a31ff462d14a11068df890c9c492e5fada",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current ECMAScript JSON object",
+    "JSON data syntax"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-JS-JSON",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "JSON",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+      "versionScope": "Current ECMAScript JSON object and JSON syntax",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-MDN-JS-JSON-STRINGIFY",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "JSON.stringify()",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify",
+      "versionScope": "Current ECMAScript",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-MDN-JS-JSON-PARSE",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "JSON.parse()",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+      "versionScope": "Current ECMAScript",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-JSON-001",
+      "statement": "JSON is a text syntax for serialized data, distinct from JavaScript object values.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-JS-JSON"
+      ],
+      "sourceLocator": "JSON description; differences",
+      "nodeSections": [
+        "One-sentence truth",
+        "Beginner explanation"
+      ],
+      "applicability": "Current ECMAScript JSON object; JSON data syntax",
+      "verificationIds": [
+        "V-JSON-001"
+      ]
+    },
+    {
+      "claimId": "CLM-JSON-002",
+      "statement": "JSON.stringify serializes supported values and JSON.parse parses valid JSON text.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-JS-JSON-STRINGIFY",
+        "SRC-MDN-JS-JSON-PARSE"
+      ],
+      "sourceLocator": "Descriptions; return values; exceptions",
+      "nodeSections": [
+        "Beginner explanation",
+        "Verification"
+      ],
+      "applicability": "Current ECMAScript JSON object; JSON data syntax",
+      "verificationIds": [
+        "V-JSON-001",
+        "V-JSON-002"
+      ]
+    },
+    {
+      "claimId": "CLM-JSON-003",
+      "statement": "Invalid JSON can throw and some JavaScript values do not round-trip unchanged.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-JS-JSON-PARSE",
+        "SRC-MDN-JS-JSON-STRINGIFY"
+      ],
+      "sourceLocator": "Exceptions; conversion behavior",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes"
+      ],
+      "applicability": "Current ECMAScript JSON object; JSON data syntax",
+      "verificationIds": [
+        "V-JSON-001",
+        "V-JSON-002",
+        "V-JSON-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-JSON-001",
+      "method": "Stringify a known object, parse the text, and compare the round-tripped data.",
+      "expectedResult": "The round-tripped data.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-JSON-002",
+      "method": "Try invalid JSON and confirm the parse failure is handled or reported at the boundary.",
+      "expectedResult": "The parse failure is handled or reported at the boundary.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-JSON-003",
+      "method": "Inspect the stored or transported text and confirm it contains the intended serializable fields.",
+      "expectedResult": "It contains the intended serializable fields.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "JSON is not the same thing as a JavaScript object, even though their surface syntax overlaps.",
+    "JSON.parse throws on invalid JSON text unless the caller catches the error.",
+    "Not every JavaScript value round-trips through JSON: unsupported values may be omitted, changed, or rejected.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

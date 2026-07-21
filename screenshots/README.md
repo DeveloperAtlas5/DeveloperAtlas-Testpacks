@@ -12,5 +12,6 @@ filesystem paths.
 | `compendium-home.png` | Atlas Compendium | Primary entry points and current knowledge coverage |
 | `compendium-lexicon.png` | Atlas Compendium | Searchable programming Lexicon |
 | `compendium-node.png` | Atlas Compendium | A reviewed deep-dive knowledge node |
+| `browser-list-example.png` | Public runnable example | Safe text rendering, list actions, and the expected rookie-pack result |
 
 Screenshots are product evidence, not proof of broad usability or market demand.

@@ -1,21 +1,22 @@
 body {
-  font-family: Arial, sans-serif;
   max-width: 720px;
   margin: 40px auto;
   padding: 0 20px;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
 }
 
 .profile-card {
+  padding: 24px;
   border: 1px solid #dddddd;
   border-radius: 12px;
-  padding: 24px;
 }
 
 .note {
   margin-top: 20px;
   padding: 12px;
   background: #f5f5f5;
+  color: #202020;
 }
 
 .interaction-area {

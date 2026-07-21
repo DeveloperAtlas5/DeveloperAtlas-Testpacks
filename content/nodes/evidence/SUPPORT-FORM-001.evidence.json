@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "SUPPORT-FORM-001",
+  "nodeContentSha256": "eecba1fd4f0a9e0819eedd4cd62ac8d5ccfdfc0584c905bc646529ae47246c2e",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current HTML"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-HTML-FORM",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "<form>: The Form element",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form",
+      "versionScope": "Current HTML",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-FORM-001",
+      "statement": "The form element represents a document section containing interactive controls for submitting information.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM"
+      ],
+      "sourceLocator": "Description; Attributes; Examples",
+      "nodeSections": [
+        "Short meaning",
+        "Tiny example"
+      ],
+      "applicability": "Current HTML",
+      "verificationIds": [
+        "V-FORM-001",
+        "V-FORM-002",
+        "V-FORM-003"
+      ]
+    },
+    {
+      "claimId": "CLM-FORM-002",
+      "statement": "The form's `action` and `method` influence the request destination and HTTP method.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM"
+      ],
+      "sourceLocator": "Description; Attributes; Examples",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Current HTML",
+      "verificationIds": [
+        "V-FORM-001",
+        "V-FORM-002",
+        "V-FORM-003"
+      ]
+    },
+    {
+      "claimId": "CLM-FORM-003",
+      "statement": "Successful controls contribute named values to form submission.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM"
+      ],
+      "sourceLocator": "Description; Attributes; Examples",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Current HTML",
+      "verificationIds": [
+        "V-FORM-001",
+        "V-FORM-002",
+        "V-FORM-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-FORM-001",
+      "method": "Submit a form with two named controls and inspect the outgoing names and values.",
+      "expectedResult": "The request contains both named values at the intended destination.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-FORM-002",
+      "method": "Remove one control's `name`, submit again, and compare the request.",
+      "expectedResult": "The unnamed control is not included in submitted form data.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-FORM-003",
+      "method": "Activate the submit control by keyboard and pointer while counting submissions.",
+      "expectedResult": "Both activation paths produce one equivalent submission.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "This node covers HTML form behavior, not framework-specific request handling.",
+    "Encoding, method support, validation, and security requirements depend on the destination.",
+    "Independent human review remains required before any status promotion."
+  ]
+}

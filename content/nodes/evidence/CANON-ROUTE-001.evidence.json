@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-ROUTE-001",
+  "nodeContentSha256": "49ddb5b059d693a0a7b75d1a722b17bcf1bf8cba7ef4ea2810dff7f87f1568f8",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-13-ROUTING",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Routing",
+      "url": "https://laravel.com/docs/13.x/routing",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-URLS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "URL Generation",
+      "url": "https://laravel.com/docs/13.x/urls",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-ROUTE-001",
+      "statement": "A route associates an HTTP method and URI with behavior.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-ROUTING"
+      ],
+      "sourceLocator": "Basic Routing; router methods",
+      "nodeSections": [
+        "Quick answer",
+        "Where it fits in the flow"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-ROUTE-001"
+      ]
+    },
+    {
+      "claimId": "CLM-ROUTE-002",
+      "statement": "Routes may dispatch closures or controller actions, and names support URL generation.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-ROUTING",
+        "SRC-LARAVEL-13-URLS"
+      ],
+      "sourceLocator": "Controller routes; named routes",
+      "nodeSections": [
+        "Working example",
+        "How to verify it"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-ROUTE-001",
+        "V-ROUTE-002"
+      ]
+    },
+    {
+      "claimId": "CLM-ROUTE-003",
+      "statement": "Method, URI, name, middleware, and action are distinct route properties.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-ROUTING"
+      ],
+      "sourceLocator": "Named routes; route listing",
+      "nodeSections": [
+        "Boundaries and version notes",
+        "Common failure and recovery"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-ROUTE-001",
+        "V-ROUTE-002",
+        "V-ROUTE-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-ROUTE-001",
+      "method": "List or inspect the route and confirm its method, URI, name, and handler.",
+      "expectedResult": "Its method, URI, name, and handler.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-ROUTE-002",
+      "method": "Send a request to the route and confirm the expected controller or closure runs.",
+      "expectedResult": "The expected controller or closure runs.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-ROUTE-003",
+      "method": "Use the wrong HTTP method or route name and confirm the mismatch is visible.",
+      "expectedResult": "The mismatch is visible.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "HTTP method and URI are both part of route matching.",
+    "Named routes generate URLs by name but do not change the dispatched action.",
+    "Middleware, model binding, and authorization can affect the request around the action.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

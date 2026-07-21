@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "SUPPORT-VALIDATE-001",
+  "nodeContentSha256": "5b4c4a8c57321e56c829f1987e56785deed55bdbad11fce0113b8734f334c439",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-VALIDATION",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Laravel",
+      "title": "Validation",
+      "url": "https://laravel.com/docs/13.x/validation",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-VALIDATE-001",
+      "statement": "`$request->validate()` evaluates request input against the supplied validation rules.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-VALIDATION"
+      ],
+      "sourceLocator": "Validation Quickstart; Writing the Validation Logic",
+      "nodeSections": [
+        "Quick answer"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-VALIDATE-001",
+        "V-VALIDATE-002",
+        "V-VALIDATE-003"
+      ]
+    },
+    {
+      "claimId": "CLM-VALIDATE-002",
+      "statement": "When validation passes, the method returns the validated data.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-VALIDATION"
+      ],
+      "sourceLocator": "Writing the Validation Logic",
+      "nodeSections": [
+        "Working example",
+        "How to verify it"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-VALIDATE-001",
+        "V-VALIDATE-002",
+        "V-VALIDATE-003"
+      ]
+    },
+    {
+      "claimId": "CLM-VALIDATE-003",
+      "statement": "When validation fails, Laravel redirects traditional web requests with errors and returns a JSON error response for XHR requests.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-VALIDATION"
+      ],
+      "sourceLocator": "Writing the Validation Logic; XHR Requests and Validation",
+      "nodeSections": [
+        "Common failure and recovery",
+        "Boundaries and version notes",
+        "How to verify it"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-VALIDATE-001",
+        "V-VALIDATE-002",
+        "V-VALIDATE-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-VALIDATE-001",
+      "method": "Submit a payload that satisfies every rule and inspect the returned validated array.",
+      "expectedResult": "Only rule-covered validated values are returned.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-VALIDATE-002",
+      "method": "Submit a traditional web request missing a required field and inspect the redirect and error session.",
+      "expectedResult": "Laravel redirects back with validation errors and old input as configured.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-VALIDATE-003",
+      "method": "Submit an equivalent JSON/XHR request and inspect the error status and JSON body.",
+      "expectedResult": "Laravel returns the documented validation error response for the JSON request.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Validation rules do not establish authorization or make downstream output safe for every context.",
+    "Database races and cross-record invariants may require additional transactional checks.",
+    "Independent human review remains required before any status promotion."
+  ]
+}

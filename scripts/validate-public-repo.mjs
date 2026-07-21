@@ -6,7 +6,19 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const failures = []
-const textExtensions = new Set(['.css', '.csv', '.html', '.js', '.json', '.md', '.mjs', '.txt', '.yml', '.yaml'])
+const textExtensions = new Set(['.css', '.csv', '.diff', '.html', '.js', '.json', '.md', '.mjs', '.php', '.txt', '.yml', '.yaml'])
+const requiredFiles = [
+  'TRY_ATLAS.md',
+  'control/CHANGE_CONTRACT_TEMPLATE.md',
+  'control/DECISION_RECORD_TEMPLATE.md',
+  'control/examples/laravel-status-label/COMPLETED_EXAMPLE.md',
+  'control/examples/laravel-status-label/DECISION_RECORD.md',
+  'control/examples/laravel-status-label/PROPOSED_PATCH.diff',
+  'content/missions/README.md',
+  'content/nodes/README.md',
+  'examples/README.md',
+  'tests/browser-list.spec.mjs',
+]
 const forbiddenPathFragments = [
   '/.env',
   '/artifacts/',
@@ -41,6 +53,29 @@ for (const file of listFiles(root)) {
     if (rule.pattern.test(content)) failures.push(`${relative}: contains ${rule.label}`)
   }
 
+  if (
+    (relative.startsWith('examples/') || relative.startsWith('content/missions/')) &&
+    /\.innerHTML\s*=/.test(content)
+  ) {
+    failures.push(`${relative}: assigns to innerHTML in public teaching material`)
+  }
+
+  if (/^content\/nodes\/(?:gold|supporting)\/[^/]+\.md$/.test(relative)) {
+    if (!content.includes('**Evidence status — public preview**')) {
+      failures.push(`${relative}: missing visible public evidence status`)
+    }
+    if (!/Independent human review: \*\*pending\*\*/i.test(content)) {
+      failures.push(`${relative}: independent human review state is not visibly pending`)
+    }
+    if (!/Primary-source mapping: \*\*completed with AI assistance\*\*/i.test(content)) {
+      failures.push(`${relative}: AI-assisted primary-source review is not visible`)
+    }
+  }
+
+  if (relative === 'content/missions/free/MISSION-HTML-001.md' && /status:\s*draft/i.test(content)) {
+    failures.push(`${relative}: recommended public mission cannot remain draft`)
+  }
+
   if (path.extname(file).toLowerCase() === '.md') {
     for (const target of markdownTargets(content)) {
       if (!isLocalTarget(target)) continue
@@ -54,6 +89,10 @@ for (const file of listFiles(root)) {
   }
 }
 
+for (const required of requiredFiles) {
+  if (!fs.existsSync(path.join(root, required))) failures.push(`${required}: required golden-path file is missing`)
+}
+
 if (failures.length) {
   console.error('[atlas] Public repository validation failed:')
   for (const failure of [...new Set(failures)].sort()) console.error(`- ${failure}`)
@@ -65,7 +104,7 @@ console.log('[atlas] Public repository boundary and local links are valid.')
 function listFiles(directory) {
   const output = []
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (entry.name === '.git') continue
+    if (['.git', 'node_modules', 'playwright-report', 'test-results'].includes(entry.name)) continue
     const absolutePath = path.join(directory, entry.name)
     if (entry.isDirectory()) output.push(...listFiles(absolutePath))
     if (entry.isFile()) output.push(absolutePath)

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "SUPPORT-ROUTE-HELPER-001",
+  "nodeContentSha256": "08b2614675f5911832149254e91ef5a07a26e6f187a2d3f0595ca54cd3552bda",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-URLS",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Laravel",
+      "title": "URL Generation",
+      "url": "https://laravel.com/docs/13.x/urls",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-ROUTE-HELPER-001",
+      "statement": "The `route()` helper generates a URL for a named route.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-URLS"
+      ],
+      "sourceLocator": "URLs for Named Routes",
+      "nodeSections": [
+        "Short meaning"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-ROUTE-HELPER-001",
+        "V-ROUTE-HELPER-002",
+        "V-ROUTE-HELPER-003"
+      ]
+    },
+    {
+      "claimId": "CLM-ROUTE-HELPER-002",
+      "statement": "Supplied parameters fill route placeholders and extra array values can become query-string values.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-URLS"
+      ],
+      "sourceLocator": "URLs for Named Routes",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-ROUTE-HELPER-001",
+        "V-ROUTE-HELPER-002",
+        "V-ROUTE-HELPER-003"
+      ]
+    },
+    {
+      "claimId": "CLM-ROUTE-HELPER-003",
+      "statement": "By default the helper generates an absolute URL; an optional argument can request a relative URL.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-URLS"
+      ],
+      "sourceLocator": "URLs for Named Routes",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-ROUTE-HELPER-001",
+        "V-ROUTE-HELPER-002",
+        "V-ROUTE-HELPER-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-ROUTE-HELPER-001",
+      "method": "Generate a URL for a known parameterless named route and compare its path.",
+      "expectedResult": "The helper returns the configured route URL.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-ROUTE-HELPER-002",
+      "method": "Generate a URL for a route with a model or scalar parameter.",
+      "expectedResult": "The route placeholder is replaced with the expected route key.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-ROUTE-HELPER-003",
+      "method": "Pass an extra parameter and inspect the generated query string.",
+      "expectedResult": "The unused value appears as a query-string parameter.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Generated hosts and schemes depend on application and request URL configuration.",
+    "Signed URLs and temporary signed URLs add separate integrity and expiration behavior.",
+    "Independent human review remains required before any status promotion."
+  ]
+}

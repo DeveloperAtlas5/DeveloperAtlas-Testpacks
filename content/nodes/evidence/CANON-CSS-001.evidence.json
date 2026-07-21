@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-CSS-001",
+  "nodeContentSha256": "1d740397d0a2601a41a10bb240c3bf603b99e6a8e950f3a60c94abed6596279a",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current CSS modules",
+    "Evergreen browsers"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-CSS",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "CSS: Cascading Style Sheets",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "versionScope": "Current CSS modules and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-CSS-001",
+      "statement": "CSS is a stylesheet language used to describe document presentation.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-CSS"
+      ],
+      "sourceLocator": "CSS introduction",
+      "nodeSections": [
+        "One-sentence truth",
+        "Beginner explanation"
+      ],
+      "applicability": "Current CSS modules; Evergreen browsers",
+      "verificationIds": [
+        "V-CSS-001"
+      ]
+    },
+    {
+      "claimId": "CLM-CSS-002",
+      "statement": "A CSS rule combines selectors with property-value declarations applied to matching elements.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-CSS"
+      ],
+      "sourceLocator": "CSS syntax; selectors and properties",
+      "nodeSections": [
+        "Technical explanation"
+      ],
+      "applicability": "Current CSS modules; Evergreen browsers",
+      "verificationIds": [
+        "V-CSS-001",
+        "V-CSS-002"
+      ]
+    },
+    {
+      "claimId": "CLM-CSS-003",
+      "statement": "Cascade and selector matching can prevent an apparently valid declaration from becoming the used style.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-CSS"
+      ],
+      "sourceLocator": "Cascade, specificity, and inheritance",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes"
+      ],
+      "applicability": "Current CSS modules; Evergreen browsers",
+      "verificationIds": [
+        "V-CSS-001",
+        "V-CSS-002",
+        "V-CSS-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-CSS-001",
+      "method": "Change one selector property and confirm only the intended element changes visually.",
+      "expectedResult": "Only the intended element changes visually.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-CSS-002",
+      "method": "Confirm the stylesheet is loaded and the selector matches the class, ID, or element in the HTML.",
+      "expectedResult": "The stylesheet is loaded and the selector matches the class, ID, or element in the HTML.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-CSS-003",
+      "method": "Remove or override the rule and observe that the targeted presentation changes predictably.",
+      "expectedResult": "That the targeted presentation changes predictably.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "A selector match does not guarantee a declaration wins; cascade, specificity, inheritance, order, and validity can affect the result.",
+    "CSS affects presentation rather than changing the semantic meaning of the underlying HTML.",
+    "Individual CSS modules evolve separately, so version-sensitive features require their own compatibility check.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

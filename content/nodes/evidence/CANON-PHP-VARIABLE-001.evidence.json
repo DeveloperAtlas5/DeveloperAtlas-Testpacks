@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-PHP-VARIABLE-001",
+  "nodeContentSha256": "0649d47aaaf0c61066d92c8cbe1a5dbde49131df906242c6f10e6e4c566d2411",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "PHP 8.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-PHP-VARIABLES",
+      "sourceType": "official_documentation",
+      "publisher": "PHP Documentation Group",
+      "title": "Variable basics",
+      "url": "https://www.php.net/manual/en/language.variables.basics.php",
+      "versionScope": "PHP 8.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-PHP-VARIABLE-001",
+      "statement": "PHP variables use a dollar sign followed by a case-sensitive variable name.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-VARIABLES"
+      ],
+      "sourceLocator": "Basics; valid names",
+      "nodeSections": [
+        "One-sentence truth",
+        "Beginner explanation"
+      ],
+      "applicability": "PHP 8.x",
+      "verificationIds": [
+        "V-PHP-VARIABLE-001"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-VARIABLE-002",
+      "statement": "Assignment is by value by default, while reference assignment creates aliasing.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-VARIABLES"
+      ],
+      "sourceLocator": "Assignment by value and reference",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "PHP 8.x",
+      "verificationIds": [
+        "V-PHP-VARIABLE-001",
+        "V-PHP-VARIABLE-002"
+      ]
+    },
+    {
+      "claimId": "CLM-PHP-VARIABLE-003",
+      "statement": "Scope and initialization must be checked at the use site.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-PHP-VARIABLES"
+      ],
+      "sourceLocator": "Undefined variables; scope",
+      "nodeSections": [
+        "Common mistakes",
+        "Verification"
+      ],
+      "applicability": "PHP 8.x",
+      "verificationIds": [
+        "V-PHP-VARIABLE-002",
+        "V-PHP-VARIABLE-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-PHP-VARIABLE-001",
+      "method": "Assign a known value and confirm the next read or output uses that value.",
+      "expectedResult": "The next read or output uses that value.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-VARIABLE-002",
+      "method": "Change the value once and identify which later expression observes the change.",
+      "expectedResult": "The check exposes whether php variable behaves as documented: Change the value once and identify which later expression observes the change.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-PHP-VARIABLE-003",
+      "method": "Check scope and type at the use site instead of assuming the variable is available or unchanged.",
+      "expectedResult": "The check exposes whether php variable behaves as documented: Check scope and type at the use site instead of assuming the variable is available or unchanged.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "PHP variable names are case-sensitive and have defined naming rules.",
+    "Assignment is by value by default, while references have different aliasing behavior.",
+    "Availability depends on scope, and reading an undefined variable produces a warning in current PHP.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

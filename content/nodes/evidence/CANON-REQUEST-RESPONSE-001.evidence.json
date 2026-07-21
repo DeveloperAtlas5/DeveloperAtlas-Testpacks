@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-REQUEST-RESPONSE-001",
+  "nodeContentSha256": "f09f72f9f81a2bf71309e5c96f1969a509cfca568c45528161d5f65bbb3b5d3f",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "HTTP semantics used by modern browsers and servers"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-HTTP-OVERVIEW",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "Overview of HTTP",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+      "versionScope": "HTTP semantics used by modern browsers and servers",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-REQUEST-RESPONSE-001",
+      "statement": "HTTP communication consists of client requests and server responses.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTTP-OVERVIEW"
+      ],
+      "sourceLocator": "HTTP flow; messages",
+      "nodeSections": [
+        "Quick answer",
+        "Where it fits in the flow"
+      ],
+      "applicability": "HTTP semantics used by modern browsers and servers",
+      "verificationIds": [
+        "V-REQUEST-RESPONSE-001"
+      ]
+    },
+    {
+      "claimId": "CLM-REQUEST-RESPONSE-002",
+      "statement": "Responses carry status and headers and may carry a body.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTTP-OVERVIEW"
+      ],
+      "sourceLocator": "HTTP responses",
+      "nodeSections": [
+        "Mental model",
+        "How to verify it"
+      ],
+      "applicability": "HTTP semantics used by modern browsers and servers",
+      "verificationIds": [
+        "V-REQUEST-RESPONSE-001",
+        "V-REQUEST-RESPONSE-002"
+      ]
+    },
+    {
+      "claimId": "CLM-REQUEST-RESPONSE-003",
+      "statement": "Browser-only interactions and persistence are separate from the HTTP boundary.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTTP-OVERVIEW"
+      ],
+      "sourceLocator": "HTTP flow",
+      "nodeSections": [
+        "Boundaries and version notes",
+        "Common failure and recovery"
+      ],
+      "applicability": "HTTP semantics used by modern browsers and servers",
+      "verificationIds": [
+        "V-REQUEST-RESPONSE-002",
+        "V-REQUEST-RESPONSE-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-REQUEST-RESPONSE-001",
+      "method": "Send a known request and assert the response status and essential body or data.",
+      "expectedResult": "The response status and essential body or data.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-REQUEST-RESPONSE-002",
+      "method": "Try one wrong method, missing path, or invalid input and observe the response boundary.",
+      "expectedResult": "The response boundary.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-REQUEST-RESPONSE-003",
+      "method": "Trace which route or handler created the response and what the caller can rely on.",
+      "expectedResult": "The check exposes whether request response behaves as documented: Trace which route or handler created the response and what the caller can rely on.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "A button or JavaScript state change does not necessarily create an HTTP request.",
+    "HTTP request/response does not prove data was persisted in a database.",
+    "Redirects, errors, HTML, and JSON are all possible response outcomes.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

@@ -1,48 +1,19 @@
-# How to Give Feedback
+# Give focused feedback
 
-Short feedback is better than no feedback.
+Complete one path before answering:
 
-You do not need to write a full review.
+- the [15-minute Control exercise](TRY_ATLAS.md); or
+- an explicitly supplied Navigator preview smoke test.
 
-## Best feedback format
+Then open a GitHub issue or Discussion and include:
 
-Please answer:
+1. The path you tried.
+2. The first instruction or decision that was unclear.
+3. What you expected to happen.
+4. What actually happened.
+5. Whether the problem concerned scope, understanding, evidence, trust, or navigation.
 
-1. Which pack did you try?
-2. What did you open first?
-3. Did you know what to do next?
-4. What felt clear?
-5. What felt confusing or too much?
-6. Did it feel calm or overwhelming?
-7. Would you try another pack?
-8. What should be improved first?
+Do not post private source code, credentials, personal data, or unannounced security exploit details.
+For a potential vulnerability, follow [`SECURITY.md`](SECURITY.md).
 
-## What helps most
-
-Useful feedback sounds like:
-
-```txt
-I expected X, but saw Y.
-```
-
-or:
-
-```txt
-I stopped at this exact step.
-```
-
-or:
-
-```txt
-This word was unclear.
-```
-
-## What not to worry about
-
-You do not need to be polite about confusion.
-
-If something feels unclear, that is the most useful thing to report.
-
-## Where to send feedback
-
-Use the templates in [`feedback/`](feedback/), open a GitHub Issue/Discussion, or send your notes directly to the project maintainer.
+Facilitators can use the separate [pack evaluation questions](docs/testing/pack-evaluation-questions.md).

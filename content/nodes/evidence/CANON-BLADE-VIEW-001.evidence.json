@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-BLADE-VIEW-001",
+  "nodeContentSha256": "b2c2689e8053c82fb9b892484f2f549a88f9c012e8db5e84e3266a3ec546a970",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-13-BLADE",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Blade Templates",
+      "url": "https://laravel.com/docs/13.x/blade",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-13-VIEWS",
+      "sourceType": "official_documentation",
+      "publisher": "Laravel",
+      "title": "Views",
+      "url": "https://laravel.com/docs/13.x/views",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-BLADE-VIEW-001",
+      "statement": "Blade templates compile to PHP, use .blade.php, and normally live in resources/views.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-BLADE",
+        "SRC-LARAVEL-13-VIEWS"
+      ],
+      "sourceLocator": "Blade introduction; Views introduction",
+      "nodeSections": [
+        "Quick answer",
+        "Boundaries and version notes"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-BLADE-VIEW-001"
+      ]
+    },
+    {
+      "claimId": "CLM-BLADE-VIEW-002",
+      "statement": "Routes or controllers can return a Blade view and pass data to it.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-BLADE",
+        "SRC-LARAVEL-13-VIEWS"
+      ],
+      "sourceLocator": "Rendering views",
+      "nodeSections": [
+        "Working example",
+        "How to verify it"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-BLADE-VIEW-001",
+        "V-BLADE-VIEW-002"
+      ]
+    },
+    {
+      "claimId": "CLM-BLADE-VIEW-003",
+      "statement": "Escaped and raw Blade echo syntax have different XSS boundaries.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-13-BLADE"
+      ],
+      "sourceLocator": "Displaying Data; Unescaped Data",
+      "nodeSections": [
+        "Working example",
+        "Boundaries and version notes",
+        "Common failure and recovery"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-BLADE-VIEW-002",
+        "V-BLADE-VIEW-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-BLADE-VIEW-001",
+      "method": "Render the view with known controller data and confirm the expected values appear in the HTML.",
+      "expectedResult": "The expected values appear in the HTML.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-BLADE-VIEW-002",
+      "method": "Render an empty collection and confirm the intended empty state or list behavior.",
+      "expectedResult": "The intended empty state or list behavior.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-BLADE-VIEW-003",
+      "method": "Inspect the template and confirm request handling or business logic has not moved into Blade.",
+      "expectedResult": "Request handling or business logic has not moved into Blade.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Escaped {{ }} output is safer for untrusted text than raw {!! !!} output.",
+    "A Blade view is one response representation; other response types do not require Blade.",
+    "Blade permits PHP, but request handling and business rules should remain outside presentation templates.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

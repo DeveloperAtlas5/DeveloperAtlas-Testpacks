@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "SUPPORT-REDIRECT-001",
+  "nodeContentSha256": "52bd6f06de2b88df48880aa26637b4ab89de317192db6ef458661ac4ee09e7f6",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-RESPONSES",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Laravel",
+      "title": "HTTP Responses",
+      "url": "https://laravel.com/docs/13.x/responses",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-LARAVEL-HTTP-TESTS",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Laravel",
+      "title": "HTTP Tests",
+      "url": "https://laravel.com/docs/13.x/http-tests",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-REDIRECT-001",
+      "statement": "Laravel can return redirect responses to URLs, named routes, controller actions, or previous locations.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-RESPONSES"
+      ],
+      "sourceLocator": "Redirects",
+      "nodeSections": [
+        "Hover summary"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-REDIRECT-001",
+        "V-REDIRECT-002",
+        "V-REDIRECT-003"
+      ]
+    },
+    {
+      "claimId": "CLM-REDIRECT-002",
+      "statement": "A redirect response is a response that causes a separate client request; it is not the destination response itself.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-RESPONSES"
+      ],
+      "sourceLocator": "Redirects",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-REDIRECT-001",
+        "V-REDIRECT-002",
+        "V-REDIRECT-003"
+      ]
+    },
+    {
+      "claimId": "CLM-REDIRECT-003",
+      "statement": "Laravel HTTP tests can assert a redirect destination.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-HTTP-TESTS"
+      ],
+      "sourceLocator": "Available Assertions; assertRedirect",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-REDIRECT-001",
+        "V-REDIRECT-002",
+        "V-REDIRECT-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-REDIRECT-001",
+      "method": "Run the focused request and assert that the response is a redirect.",
+      "expectedResult": "The first response has the intended redirect status.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-REDIRECT-002",
+      "method": "Assert the exact redirect destination or named route URL.",
+      "expectedResult": "The location matches the intended application destination.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-REDIRECT-003",
+      "method": "Follow the redirect in an integration test and confirm the destination response separately.",
+      "expectedResult": "The second request reaches the expected destination without repeating the original action.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Redirects require another client request and can be handled differently by non-browser clients.",
+    "Status codes, method preservation, session state, and open-redirect safety need context-specific review.",
+    "Independent human review remains required before any status promotion."
+  ]
+}

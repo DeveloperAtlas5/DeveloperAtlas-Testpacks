@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "SUPPORT-BLADE-FOREACH-001",
+  "nodeContentSha256": "65a66cb6f60d31a8b06c508c94a986daac5dcf006f800d41493902b6537440d2",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Laravel 13.x"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-LARAVEL-BLADE",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Laravel",
+      "title": "Blade Templates",
+      "url": "https://laravel.com/docs/13.x/blade",
+      "versionScope": "Laravel 13.x",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-BLADE-FOREACH-001",
+      "statement": "Blade `@foreach` provides a template form of PHP's foreach loop.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-BLADE"
+      ],
+      "sourceLocator": "Loops",
+      "nodeSections": [
+        "Hover summary"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-BLADE-FOREACH-001",
+        "V-BLADE-FOREACH-002",
+        "V-BLADE-FOREACH-003"
+      ]
+    },
+    {
+      "claimId": "CLM-BLADE-FOREACH-002",
+      "statement": "Inside a Blade loop, the `$loop` variable exposes information such as iteration and first/last state.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-BLADE"
+      ],
+      "sourceLocator": "The Loop Variable",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-BLADE-FOREACH-001",
+        "V-BLADE-FOREACH-002",
+        "V-BLADE-FOREACH-003"
+      ]
+    },
+    {
+      "claimId": "CLM-BLADE-FOREACH-003",
+      "statement": "`@forelse` provides a separate empty branch when a collection has no values.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-LARAVEL-BLADE"
+      ],
+      "sourceLocator": "Loops",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Verification"
+      ],
+      "applicability": "Laravel 13.x",
+      "verificationIds": [
+        "V-BLADE-FOREACH-001",
+        "V-BLADE-FOREACH-002",
+        "V-BLADE-FOREACH-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-BLADE-FOREACH-001",
+      "method": "Render a view with two known items and count the repeated elements.",
+      "expectedResult": "The block renders exactly once for each item.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-BLADE-FOREACH-002",
+      "method": "Inspect `$loop->first` and `$loop->last` across the two iterations.",
+      "expectedResult": "Only the first and last iterations report the corresponding state.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-BLADE-FOREACH-003",
+      "method": "Render an empty collection through an equivalent `@forelse` example.",
+      "expectedResult": "The empty branch renders instead of an empty list.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "The iterated expression must be usable by PHP's foreach semantics.",
+    "This node covers loop rendering, not database query efficiency or eager loading.",
+    "Independent human review remains required before any status promotion."
+  ]
+}

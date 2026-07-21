@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-LOCALSTORAGE-001",
+  "nodeContentSha256": "6c233c0189abfca96621ed56bd20f07e59e511b728b0aedca1e1d11762bad510",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current Web Storage standard",
+    "Evergreen browsers"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-WEB-STORAGE-LOCALSTORAGE",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "Window.localStorage",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage",
+      "versionScope": "Current Web Storage standard and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-MDN-JS-JSON-STRINGIFY",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "JSON.stringify()",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify",
+      "versionScope": "Current ECMAScript",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-MDN-JS-JSON-PARSE",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "JSON.parse()",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+      "versionScope": "Current ECMAScript",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-LOCALSTORAGE-001",
+      "statement": "localStorage stores string key/value data for an origin and normally persists across sessions.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-WEB-STORAGE-LOCALSTORAGE"
+      ],
+      "sourceLocator": "Value; description",
+      "nodeSections": [
+        "One-sentence truth",
+        "Technical explanation"
+      ],
+      "applicability": "Current Web Storage standard; Evergreen browsers",
+      "verificationIds": [
+        "V-LOCALSTORAGE-001"
+      ]
+    },
+    {
+      "claimId": "CLM-LOCALSTORAGE-002",
+      "statement": "Structured values require serialization before storage and parsing after retrieval.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-WEB-STORAGE-LOCALSTORAGE",
+        "SRC-MDN-JS-JSON-STRINGIFY",
+        "SRC-MDN-JS-JSON-PARSE"
+      ],
+      "sourceLocator": "String values; JSON descriptions",
+      "nodeSections": [
+        "Technical explanation",
+        "Verification"
+      ],
+      "applicability": "Current Web Storage standard; Evergreen browsers",
+      "verificationIds": [
+        "V-LOCALSTORAGE-001",
+        "V-LOCALSTORAGE-002"
+      ]
+    },
+    {
+      "claimId": "CLM-LOCALSTORAGE-003",
+      "statement": "localStorage can be unavailable or unsuitable for sensitive, authoritative, or large data.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-WEB-STORAGE-LOCALSTORAGE"
+      ],
+      "sourceLocator": "Exceptions; security; origin behavior",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes",
+        "AI steering rule"
+      ],
+      "applicability": "Current Web Storage standard; Evergreen browsers",
+      "verificationIds": [
+        "V-LOCALSTORAGE-002",
+        "V-LOCALSTORAGE-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-LOCALSTORAGE-001",
+      "method": "Save a known value, refresh or recreate the state, and confirm the value loads again.",
+      "expectedResult": "The value loads again.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-LOCALSTORAGE-002",
+      "method": "Start with a missing key and confirm the application uses its intended default.",
+      "expectedResult": "The application uses its intended default.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-LOCALSTORAGE-003",
+      "method": "Store malformed or unexpected text and confirm parsing failure does not silently corrupt visible state.",
+      "expectedResult": "Parsing failure does not silently corrupt visible state.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "Storage is scoped by origin and behavior for file URLs is not a reliable contract.",
+    "Keys and values are strings; structured values require an explicit serialization format such as JSON.",
+    "Storage access can fail, is synchronous, has browser-dependent limits, and should not hold secrets or server-authoritative data.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

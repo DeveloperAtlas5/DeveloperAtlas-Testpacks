@@ -1,4 +1,12 @@
 ---
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 2 ([Routing](https://laravel.com/docs/13.x/routing), [URL Generation](https://laravel.com/docs/13.x/urls)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 id: CANON-ROUTE-001
 title: Route
 status: gold_candidate
@@ -6,100 +14,99 @@ type: canon_node
 node_depth: gold
 category: core_code_concept
 level: beginner_to_rookie
-hover: "A route is the map entry that tells Laravel what to do when a user visits a URL or submits a form."
-related_nodes:
-  - HUMAN-PREFERENCE-001
-  - CANON-CONTROLLER-001
-  - CANON-BLADE-VIEW-001
-  - CANON-CRUD-001
+content_version: 2
+journey_ids:
+- JOURNEY-LARAVEL-REQUEST-001
+version_scope: Laravel 13.x
+version_sensitivity: medium
+review_due_at: 2026-10-12
+user_validation_status: planned
+prerequisite_nodes:
+- CANON-REQUEST-RESPONSE-001
+used_with_nodes:
+- CANON-CONTROLLER-001
+- CANON-BLADE-VIEW-001
+continues_to_nodes:
+- CANON-CONTROLLER-001
+deeper_explanation_nodes:
+- CANON-LARAVEL-REQUEST-LIFECYCLE-001
+- CANON-CRUD-001
 ---
 
 # Route
 
-## One-sentence truth
+## Quick answer
 
-A route connects a URL and HTTP action to the code that should respond.
+A Laravel route matches an HTTP method and URI, then dispatches the request to a configured closure, controller action, or other supported route action.
 
-## Hover reminder
+## Where it fits in the flow
 
-A route is the map entry that tells Laravel what to do when a user visits a URL or submits a form.
+The route is the decision point after Laravel boots and applicable global middleware runs. It connects an incoming method and URI to the next action and may add route middleware, parameters, and a name used for URL generation.
+
+`request method + URI -> route match -> route middleware -> action`
 
 ## Mental model
 
-Think of a route like a signpost. The browser asks for a path, and the route points that request to the correct response.
+Think of a route as a signpost with two required coordinates: method and path. The route name is a reusable label for generating a URL; it is not the action itself.
 
-## Beginner explanation
-
-In Laravel, a route says: when someone visits this URL, run this function, controller method, or view response.
-
-## Technical explanation
-
-A Laravel route usually combines an HTTP method like GET or POST, a URL path, and a destination such as a controller method. Named routes let you refer to routes by name instead of hard-coding URLs.
-
-## When to use it
-
-- You need a page to load.
-- You need a form to submit somewhere.
-- You need to connect a browser URL to a controller method.
-- You want to use `route()` in Blade instead of hard-coded paths.
-
-## When not to use it
-
-- Do not put too much business logic directly in routes once the project grows.
-- Do not create several routes with unclear or conflicting paths.
-- Do not use GET routes for destructive actions like deleting data.
-
-## Tiny example
+## Working example
 
 ```php
 use App\Http\Controllers\ItemController;
+use Illuminate\Support\Facades\Route;
 
-Route::get("/items", [ItemController::class, "index"])->name("items.index");
-Route::post("/items", [ItemController::class, "store"])->name("items.store");
+Route::get('/items', [ItemController::class, 'index'])
+    ->name('items.index');
+
+Route::post('/items', [ItemController::class, 'store'])
+    ->name('items.store');
 ```
 
-## Mission example
+`GET /items` dispatches `index`; `POST /items` dispatches `store`. Blade can generate the first URL with `route('items.index')` without hard-coding `/items`.
 
-In the Laravel mission pack, the item list page uses a route like `/items` that points to `ItemController@index`.
+## What you can safely change
 
-## Common mistakes
+- Change a route URI together with links, forms, tests, or redirects that call it.
+- Change a route name together with every `route(...)` reference.
+- Change a controller action only when the target public method exists.
+- Preserve the HTTP meaning: reads normally use `GET`; state-changing form actions use `POST`, `PUT`, `PATCH`, or `DELETE` as appropriate.
 
-- Forgetting to import the controller class.
-- Using the wrong HTTP method for a form.
-- Naming the route one thing and calling a different name in Blade.
-- Putting delete links on GET routes instead of using a form with DELETE.
+## Common failure and recovery
 
-## Debugging signs
+- **`404 Not Found`.** Confirm the registered URI and any route prefix with `route:list`.
+- **`405 Method Not Allowed`.** The path exists but the request method differs; inspect the form method and method spoofing.
+- **`Route [name] not defined`.** Compare the exact route name with the Blade, redirect, or test reference.
+- **Target class or method error.** Confirm the controller import and public action name.
 
-- 404 Not Found when visiting a URL.
-- Route [name] not defined.
-- Controller method does not exist.
-- Form submits but the wrong method handles it.
+## How to verify it
+
+- `V-ROUTE-001`: Run `php artisan route:list --path=items` and confirm method, URI, name, middleware, and action.
+- `V-ROUTE-002`: Send a request with the registered method and URI and confirm the configured closure or controller action runs.
+- `V-ROUTE-003`: Use one wrong method or route name and confirm the mismatch is observable and the intended action does not run.
+
+## Boundaries and version notes
+
+- Reviewed for Laravel 13.x; the method-and-URI matching model is stable across supported recent Laravel versions.
+- Named routes generate URLs by name but do not change the dispatched action.
+- Middleware, route-model binding, authorization, and domain or prefix groups may affect the request around the action.
+- A controller is common but optional; a closure or invokable class can also be a route action.
 
 ## AI steering rule
 
-AI may suggest a route and explain the URL-to-controller connection. AI should not create a full route architecture or middleware stack unless the mission asks for it.
+AI should inspect the current request method and URI plus `route:list` before editing a route, and should change only the mismatched route property and its direct callers unless broader routing work is requested.
 
 ## Human readability rule
 
-A human-readable route file uses grouped, consistently named routes and keeps route definitions easy to scan.
+Group related routes, use consistent resource-oriented names, and keep method, URI, action, middleware, and route name easy to scan on one definition.
 
 ## Related nodes
 
-  - HUMAN-PREFERENCE-001
-  - CANON-CONTROLLER-001
-  - CANON-BLADE-VIEW-001
-  - CANON-CRUD-001
+- CANON-REQUEST-RESPONSE-001
+- CANON-LARAVEL-REQUEST-LIFECYCLE-001
+- CANON-CONTROLLER-001
+- CANON-BLADE-VIEW-001
+- CANON-CRUD-001
 
-## Gold candidate checklist
+## Evidence status
 
-- [x] Has a one-sentence truth
-- [x] Has a hover summary
-- [x] Explains the mental model
-- [x] Includes beginner and technical explanations
-- [x] Includes examples
-- [x] Includes common mistakes
-- [x] Includes AI guardrail
-- [x] Includes human readability rule
-- [ ] Tested with a beginner
-- [ ] Translated to Dutch
+Primary-source reviewed on 2026-07-12. Independent human review and promotion are pending. See [`../evidence/CANON-ROUTE-001.evidence.json`](../evidence/CANON-ROUTE-001.evidence.json) for claim mappings, source locations, limitations, and verification contracts.

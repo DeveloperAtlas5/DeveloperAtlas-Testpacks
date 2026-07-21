@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-JAVASCRIPT-001",
+  "nodeContentSha256": "d20d4e3b2137cdbf3328892ee0291ea4b33df4c72e2eb7e8294dc3f049a5d0fa",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current ECMAScript",
+    "Current browser Web APIs"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-JAVASCRIPT",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "JavaScript",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "versionScope": "Current ECMAScript and common host environments",
+      "checkedAt": "2026-07-12"
+    },
+    {
+      "sourceId": "SRC-MDN-DOM",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "Document Object Model (DOM)",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+      "versionScope": "Current DOM standard and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-JAVASCRIPT-001",
+      "statement": "JavaScript is a programming language used by web pages and non-browser environments.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-JAVASCRIPT"
+      ],
+      "sourceLocator": "JavaScript introduction",
+      "nodeSections": [
+        "One-sentence truth",
+        "Beginner explanation"
+      ],
+      "applicability": "Current ECMAScript; Current browser Web APIs",
+      "verificationIds": [
+        "V-JAVASCRIPT-001"
+      ]
+    },
+    {
+      "claimId": "CLM-JAVASCRIPT-002",
+      "statement": "Browser page interaction uses host APIs such as the DOM in addition to the JavaScript language.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-JAVASCRIPT",
+        "SRC-MDN-DOM"
+      ],
+      "sourceLocator": "Language versus Web APIs; DOM introduction",
+      "nodeSections": [
+        "Technical explanation",
+        "Applicability and boundaries"
+      ],
+      "applicability": "Current ECMAScript; Current browser Web APIs",
+      "verificationIds": [
+        "V-JAVASCRIPT-001",
+        "V-JAVASCRIPT-002"
+      ]
+    },
+    {
+      "claimId": "CLM-JAVASCRIPT-003",
+      "statement": "Script loading and DOM selection failures can prevent intended page behavior.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-DOM"
+      ],
+      "sourceLocator": "Document lifecycle and selection",
+      "nodeSections": [
+        "Common mistakes",
+        "Verification"
+      ],
+      "applicability": "Current ECMAScript; Current browser Web APIs",
+      "verificationIds": [
+        "V-JAVASCRIPT-001",
+        "V-JAVASCRIPT-002",
+        "V-JAVASCRIPT-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-JAVASCRIPT-001",
+      "method": "Load the script and confirm it reports no syntax or module-loading error.",
+      "expectedResult": "It reports no syntax or module-loading error.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-JAVASCRIPT-002",
+      "method": "Trace one user action through JavaScript to the resulting data or DOM change.",
+      "expectedResult": "The check exposes whether javascript behaves as documented: Trace one user action through JavaScript to the resulting data or DOM change.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-JAVASCRIPT-003",
+      "method": "Change a known input and confirm the output changes for the expected reason.",
+      "expectedResult": "The output changes for the expected reason.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "The JavaScript language and browser Web APIs are related but distinct; JavaScript can run where no DOM exists.",
+    "Script loading order, modules, and document timing affect when page elements are available.",
+    "This node focuses on browser JavaScript and does not describe every JavaScript host.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

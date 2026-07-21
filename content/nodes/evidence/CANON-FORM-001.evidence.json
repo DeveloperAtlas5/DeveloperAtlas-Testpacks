@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "CANON-FORM-001",
+  "nodeContentSha256": "7457e7f69c3d034322f9d179ce1995965d97b5d96de6b5f73685f5308a156a09",
+  "reviewStatus": "primary_source_reviewed",
+  "reviewedAt": "2026-07-12",
+  "reviewer": {
+    "name": "OpenAI Codex",
+    "kind": "ai_assisted",
+    "responsibility": "Claim extraction, primary-source mapping, scope correction, and verification design"
+  },
+  "versionScope": [
+    "Current HTML standard",
+    "Evergreen browsers"
+  ],
+  "reviewOutcome": "supported_with_scope_corrections",
+  "independentReview": {
+    "required": true,
+    "status": "pending",
+    "reviewer": null,
+    "reviewerKind": null,
+    "reviewedAt": null
+  },
+  "promotion": {
+    "status": "pending",
+    "decidedBy": null,
+    "decidedAt": null,
+    "rationale": null
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-MDN-HTML-FORM",
+      "sourceType": "maintainer_documentation",
+      "publisher": "Mozilla MDN",
+      "title": "HTML form element",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form",
+      "versionScope": "Current HTML standard and evergreen browsers",
+      "checkedAt": "2026-07-12"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM-FORM-001",
+      "statement": "An HTML form represents a section containing controls for submitting information.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM"
+      ],
+      "sourceLocator": "Form element description",
+      "nodeSections": [
+        "One-sentence truth",
+        "Beginner explanation"
+      ],
+      "applicability": "Current HTML standard; Evergreen browsers",
+      "verificationIds": [
+        "V-FORM-001"
+      ]
+    },
+    {
+      "claimId": "CLM-FORM-002",
+      "statement": "The form action and method influence where and how native form submission sends data.",
+      "claimType": "behavior",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM"
+      ],
+      "sourceLocator": "Attributes: action and method",
+      "nodeSections": [
+        "Beginner explanation",
+        "Verification"
+      ],
+      "applicability": "Current HTML standard; Evergreen browsers",
+      "verificationIds": [
+        "V-FORM-001",
+        "V-FORM-003"
+      ]
+    },
+    {
+      "claimId": "CLM-FORM-003",
+      "statement": "JavaScript-handled forms and server-submitted forms have different request behavior.",
+      "claimType": "boundary",
+      "support": "direct",
+      "confidence": "high",
+      "sourceIds": [
+        "SRC-MDN-HTML-FORM"
+      ],
+      "sourceLocator": "Usage notes; submission attributes",
+      "nodeSections": [
+        "Applicability and boundaries",
+        "Common mistakes"
+      ],
+      "applicability": "Current HTML standard; Evergreen browsers",
+      "verificationIds": [
+        "V-FORM-001",
+        "V-FORM-002",
+        "V-FORM-003"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V-FORM-001",
+      "method": "Submit known valid inputs and confirm the intended handler or request receives them.",
+      "expectedResult": "The intended handler or request receives them.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-FORM-002",
+      "method": "Submit an empty or invalid value and confirm the failure path is understandable.",
+      "expectedResult": "The failure path is understandable.",
+      "automation": "automatable"
+    },
+    {
+      "verificationId": "V-FORM-003",
+      "method": "Check that labels and input names match the values read by JavaScript or the server.",
+      "expectedResult": "The check exposes whether form behaves as documented: Check that labels and input names match the values read by JavaScript or the server.",
+      "automation": "automatable"
+    }
+  ],
+  "limitations": [
+    "A form can submit natively or have its submit event handled by JavaScript.",
+    "Client-side validation improves feedback but does not replace server-side validation for untrusted input.",
+    "Only successful named controls contribute to normal form submission.",
+    "Independent human review remains required before promotion to gold."
+  ]
+}

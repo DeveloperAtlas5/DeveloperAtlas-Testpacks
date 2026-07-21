@@ -1,12 +1,20 @@
 # CANON-JAVASCRIPT-001 — JavaScript
 
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 2 ([JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Current ECMAScript; Current browser Web APIs.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
+
 ## Hover summary
 
 JavaScript adds behavior to a page.
 
 ## One-sentence truth
 
-JavaScript is the language that can read, change, and react to a web page after it loads.
+JavaScript is a programming language used in browsers and other hosts; in a web page, host APIs such as the DOM provide page interaction.
 
 ## Mental model
 
@@ -50,3 +58,19 @@ Variable names should describe the element or value they hold.
 - CANON-DOM-001
 - CANON-EVENT-001
 - SUPPORT-QUERYSELECTOR-001
+
+## Verification
+
+- `V-JAVASCRIPT-001`: Load the script and confirm it reports no syntax or module-loading error.
+- `V-JAVASCRIPT-002`: Trace one user action through JavaScript to the resulting data or DOM change.
+- `V-JAVASCRIPT-003`: Change a known input and confirm the output changes for the expected reason.
+
+## Applicability and boundaries
+
+- The JavaScript language and browser Web APIs are related but distinct; JavaScript can run where no DOM exists.
+- Script loading order, modules, and document timing affect when page elements are available.
+- This node focuses on browser JavaScript and does not describe every JavaScript host.
+
+## Evidence status
+
+Primary-source reviewed on 2026-07-12. Independent human review and promotion are pending. See [`../evidence/CANON-JAVASCRIPT-001.evidence.json`](../evidence/CANON-JAVASCRIPT-001.evidence.json) for claim mappings, source locations, limitations, and verification contracts.
