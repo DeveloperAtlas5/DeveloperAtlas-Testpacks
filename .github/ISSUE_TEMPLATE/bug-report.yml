@@ -1,0 +1,34 @@
+name: Public preview bug
+description: Report a reproducible problem in a public pack, example, or document.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include private source, credentials, personal data, or exploit details.
+  - type: input
+    id: location
+    attributes:
+      label: Public path or feature
+      placeholder: packs/ai-collaboration/START_HERE.md
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What did you do?
+      description: Provide the smallest safe reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+    validations:
+      required: true

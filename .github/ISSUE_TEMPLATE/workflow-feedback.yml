@@ -1,0 +1,37 @@
+name: Workflow feedback
+description: Tell us where an Atlas path felt useful, unclear, or overwhelming.
+title: "[Workflow] "
+labels: [feedback]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Public mission or example
+        - AI Collaboration Pack
+        - Atlas Navigator
+        - Atlas Compendium
+        - Product vision or documentation
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: What were you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: clear
+    attributes:
+      label: What felt clear or useful?
+  - type: textarea
+    id: stopped
+    attributes:
+      label: Where did you hesitate or stop?
+    validations:
+      required: true
+  - type: textarea
+    id: next
+    attributes:
+      label: What would have helped next?
