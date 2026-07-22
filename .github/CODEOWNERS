@@ -1,0 +1,9 @@
+# Replace @DeveloperAtlas5 with the accountable human maintainer/team when available.
+* @DeveloperAtlas5
+/.github/ @DeveloperAtlas5
+/control/ @DeveloperAtlas5
+/control-lite/ @DeveloperAtlas5
+/content/nodes/ @DeveloperAtlas5
+/scripts/ @DeveloperAtlas5
+/SECURITY.md @DeveloperAtlas5
+/PROVENANCE.md @DeveloperAtlas5

@@ -9,8 +9,9 @@
   },
   "scripts": {
     "validate": "node scripts/validate-public-repo.mjs",
+    "validate:control": "node scripts/validate-control-example.mjs",
     "test:browser": "playwright test",
-    "test": "npm run validate && npm run test:browser"
+    "test": "npm run validate && npm run validate:control && npm run test:browser"
   },
   "devDependencies": {
     "@playwright/test": "1.61.1"

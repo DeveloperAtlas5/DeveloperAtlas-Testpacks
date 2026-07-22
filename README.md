@@ -10,8 +10,9 @@ evidence, and make the final decision.**
 
 ![Atlas Navigator showing a Laravel request flow](screenshots/navigator-flow.png)
 
-### [Try the 15-minute Atlas Control exercise →](TRY_ATLAS.md)
+### [Build a local Change Contract with Control Lite →](control-lite/README.md)
 
+**[Try the guided 15-minute Control walkthrough](TRY_ATLAS.md)**  
 **[See current Navigator preview access](https://github.com/DeveloperAtlas5/DeveloperAtlas-Public/blob/main/START_TESTING.md)**
 
 > **Current status:** public preview and internal alpha. The software and control lifecycle are real
@@ -113,7 +114,8 @@ More images and their review status are listed in [`screenshots/README.md`](scre
 
 | Experience | Available here | Limitation |
 | --- | --- | --- |
-| 15-minute Control exercise | Yes | Static worked example; no real Laravel runtime |
+| Local Control Lite generator | Yes | Runs in the browser; does not execute AI or verification commands |
+| Guided Control walkthrough | Yes | Static Laravel example; no real Laravel runtime |
 | Safe browser example | Yes | Learning example, not the full product |
 | Selected missions and nodes | Yes | Curated preview; independent review pending |
 | Navigator VSIX | Tester access only | General signed release and clean-profile proof pending |

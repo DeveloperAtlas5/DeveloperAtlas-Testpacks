@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Developer Atlas Control Lite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">LOCAL-FIRST PUBLIC PREVIEW</p>
+      <h1>Atlas Control Lite</h1>
+      <p>Define one bounded AI-assisted change and export reviewable Markdown. Nothing is sent anywhere.</p>
+    </header>
+
+    <form id="control-form">
+      <label>Goal<textarea id="goal" required>Improve the status page so a reviewer knows it is ready for a human check.</textarea></label>
+      <label>Allowed files<textarea id="allowed" required>app/Http/Controllers/StatusController.php
+resources/views/status.blade.php</textarea></label>
+      <label>Protected boundaries<textarea id="protected">No route, authentication, dependency, database, or unrelated UI changes.</textarea></label>
+      <label>Acceptance criteria<textarea id="acceptance">The heading is clear.
+A short explanation is visible.
+Only allowed files change.</textarea></label>
+      <label>Required verification<textarea id="verification">Show the exact changed-file list.
+Run the maintained test command.
+Inspect the result in the browser.</textarea></label>
+      <label>Parked ideas<textarea id="parked">Color changes, polling, dashboards, and deployment integrations.</textarea></label>
+      <button type="submit">Generate Atlas artifacts</button>
+    </form>
+
+    <section id="output" hidden>
+      <div class="output-header">
+        <h2>Generated artifacts</h2>
+        <p>Review every field before using it with an AI tool.</p>
+      </div>
+      <div id="artifacts"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
