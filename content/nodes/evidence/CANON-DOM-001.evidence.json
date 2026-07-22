@@ -125,5 +125,10 @@
     "Selector methods can return no match; code must handle that path instead of assuming an element exists.",
     "DOM availability and timing depend on the host environment and document lifecycle.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "e90b6d6432d9ce1aed1c553b8bd80d35a28979501d74df0596d289de4b9fb28c"
+  }
 }

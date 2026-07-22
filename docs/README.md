@@ -31,6 +31,7 @@ file at once.
 ## Governance and legal
 
 - [Provenance and AI assistance](governance/PROVENANCE.md)
+- [Repository merge rules](governance/REPOSITORY_RULES.md)
 - [Third-party notices](legal/THIRD_PARTY_NOTICES.md)
 - [Trademark guidance](legal/TRADEMARKS.md)
 - [Contribution guidance](../.github/CONTRIBUTING.md)

@@ -12,7 +12,7 @@ evidence, and make the final decision.**
 
 ### [Build a local Change Contract with Control Lite →](control-lite/README.md)
 
-**[Try the guided 15-minute Control walkthrough](docs/getting-started/TRY_ATLAS.md)**  
+**[Try the guided 15-minute Control walkthrough](docs/getting-started/TRY_ATLAS.md)**<br>
 **[See current Navigator preview access](https://github.com/DeveloperAtlas5/DeveloperAtlas-Public/blob/main/docs/testing/START_TESTING.md)**
 **[Browse all public documentation](docs/README.md)**
 

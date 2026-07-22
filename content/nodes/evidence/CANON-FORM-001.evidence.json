@@ -125,5 +125,10 @@
     "Client-side validation improves feedback but does not replace server-side validation for untrusted input.",
     "Only successful named controls contribute to normal form submission.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "1b23f0a478acaa581ccc6af4dd14538ea315b240ba9db67cf1f95e88cc72b05c"
+  }
 }

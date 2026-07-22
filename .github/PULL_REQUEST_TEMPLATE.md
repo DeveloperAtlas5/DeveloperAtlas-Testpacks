@@ -1,22 +1,74 @@
-## What changed
+## Change Contract
 
-<!-- Describe the user-visible and technical change. -->
+### Human goal
 
-## Why
+<!-- State the user-visible outcome and why it is needed. -->
 
-<!-- State the problem or evidence that justified this work. -->
+### Allowed paths
 
-## Human-control review
+<!-- List exact files or directories this PR may change. -->
 
-- [ ] Scope is explicit and limited.
-- [ ] Protected boundaries are preserved.
-- [ ] AI assistance is disclosed where material.
-- [ ] Automated checks are not presented as independent human review.
-- [ ] Unrun verification remains “Not run.”
-- [ ] A human reviewer other than the implementation agent has reviewed the change.
+- <!-- Add an allowed path. -->
 
-## Verification
+### Protected boundaries
 
-- [ ] `npm test`
-- [ ] Manual public-path review
-- [ ] No private source, personal data, credentials, or raw internal feedback included
+<!-- State behavior, data, APIs, security, privacy, or product boundaries that must not change. -->
+
+- <!-- Add a protected boundary. -->
+
+### Parked ideas
+
+<!-- Record useful ideas that are explicitly outside this PR. Use “None” when there are none. -->
+
+- <!-- Add a parked idea or write None. -->
+
+## Evidence Record
+
+### Changed files
+
+<!-- List the final changed files or link to an exact generated list. -->
+
+- <!-- Add a changed file. -->
+
+### Verification results
+
+<!-- Keep unobserved checks as **Not run**. Never infer a pass. -->
+
+- `npm test`: **Not run**
+
+### Manual review
+
+- Public-path and rendered-document review: **Not run**
+- Public/private boundary review: **Not run**
+
+### AI assistance
+
+<!-- State what AI materially assisted with, or write “No material AI assistance.” -->
+
+- <!-- Describe material AI assistance or write No material AI assistance. -->
+
+## Decision Record
+
+### Decision
+
+<!-- A ready-for-review PR must select exactly one. Only Accept can satisfy the merge policy. -->
+
+- [ ] Accept
+- [ ] Revise
+- [ ] Reject
+
+### Accountable human
+
+<!-- Name or accountable maintainer role. -->
+
+- <!-- Name the accountable maintainer. -->
+
+### Rationale
+
+<!-- Explain why the decision follows from the scope and observed evidence. -->
+
+- <!-- Explain the decision rationale. -->
+
+### Merge confirmation
+
+- [ ] I confirm that all required checks and manual reviews above were observed as passed before merge.

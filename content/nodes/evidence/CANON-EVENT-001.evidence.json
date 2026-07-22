@@ -133,5 +133,10 @@
     "Propagation, cancelability, and default actions vary by event type.",
     "Registering a listener does not guarantee it runs only once; options and removal behavior matter.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "dadf7eb459080326a04e0884a7ce09403175475246b830fed3358b793beb73c8"
+  }
 }

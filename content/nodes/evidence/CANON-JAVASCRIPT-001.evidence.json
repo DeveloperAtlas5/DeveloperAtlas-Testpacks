@@ -135,5 +135,10 @@
     "Script loading order, modules, and document timing affect when page elements are available.",
     "This node focuses on browser JavaScript and does not describe every JavaScript host.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "772ceda1ca74707a3136f739356295970e6407b7d543e56ba655b420671c556d"
+  }
 }

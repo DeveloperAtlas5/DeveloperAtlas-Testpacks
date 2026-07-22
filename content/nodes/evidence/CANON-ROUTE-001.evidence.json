@@ -134,5 +134,10 @@
     "Named routes generate URLs by name but do not change the dispatched action.",
     "Middleware, model binding, and authorization can affect the request around the action.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "4192d9230394fa3ccbe60f0b7bbd3bb49e1f2ed37fb902ee0328efab9128282e"
+  }
 }

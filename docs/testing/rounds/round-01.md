@@ -2,7 +2,7 @@
 
 Thank you for testing Developer Atlas.
 
-You are not being tested.  
+You are not being tested.<br>
 The pack is being tested.
 
 ## Goal

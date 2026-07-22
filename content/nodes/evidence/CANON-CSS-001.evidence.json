@@ -124,5 +124,10 @@
     "CSS affects presentation rather than changing the semantic meaning of the underlying HTML.",
     "Individual CSS modules evolve separately, so version-sensitive features require their own compatibility check.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "b6e3f72ad257a714d19723417182794fdc8b2c6c173ce6bfea23feb38300f469"
+  }
 }

@@ -134,5 +134,10 @@
     "Redirects require another client request and can be handled differently by non-browser clients.",
     "Status codes, method preservation, session state, and open-redirect safety need context-specific review.",
     "Independent human review remains required before any status promotion."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "b17e139c5337d1514589eab2335b61da090792dd1ed91ec15ade8778068ee66c"
+  }
 }

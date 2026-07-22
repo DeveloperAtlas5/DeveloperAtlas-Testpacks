@@ -125,5 +125,10 @@
     "Short echo tags and template syntax have separate rules.",
     "This node covers PHP source boundaries, not framework template compilation.",
     "Independent human review remains required before any status promotion."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "a07a96afc5ee91823590c5e19baf9e42e57813509272bd2fb547616e0efb8180"
+  }
 }

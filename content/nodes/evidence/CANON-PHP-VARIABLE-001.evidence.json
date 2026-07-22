@@ -123,5 +123,10 @@
     "Assignment is by value by default, while references have different aliasing behavior.",
     "Availability depends on scope, and reading an undefined variable produces a warning in current PHP.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "157e4bdbac4cf82825819de282cc1581f499a7dc1fdb1dfa2ee9590662c86b23"
+  }
 }

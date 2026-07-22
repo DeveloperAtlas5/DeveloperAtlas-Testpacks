@@ -126,5 +126,10 @@
     "Validation rules do not establish authorization or make downstream output safe for every context.",
     "Database races and cross-record invariants may require additional transactional checks.",
     "Independent human review remains required before any status promotion."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "0e2b37df3a3334472dc51e02f9f0c578d022dc922e41a10bbfcfe1a5ae71b505"
+  }
 }

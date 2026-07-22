@@ -1,12 +1,4 @@
 ---
-
-> **Evidence status — public preview**
-> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
-> Independent human review: **pending**. Publication status: **public preview, not certification**.
-> Sources: 2 ([Routing](https://laravel.com/docs/13.x/routing), [URL Generation](https://laravel.com/docs/13.x/urls)). Automated structure and evidence checks: **passed**.
-> Verification designs: 3. Version scope: Laravel 13.x.
-> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
-
 id: CANON-ROUTE-001
 title: Route
 status: gold_candidate
@@ -34,6 +26,14 @@ deeper_explanation_nodes:
 ---
 
 # Route
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 2 ([Routing](https://laravel.com/docs/13.x/routing), [URL Generation](https://laravel.com/docs/13.x/urls)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 
 ## Quick answer
 

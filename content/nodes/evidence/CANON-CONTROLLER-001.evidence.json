@@ -143,5 +143,10 @@
     "A controller does not automatically validate, authorize, or persist data.",
     "Controllers do not have to extend Laravel's base controller class.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "66146df21386862e5a162d6c3707ba828abd20bc1726da595f39b97f9129ff03"
+  }
 }

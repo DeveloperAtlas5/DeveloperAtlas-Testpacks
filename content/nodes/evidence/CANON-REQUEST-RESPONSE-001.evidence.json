@@ -123,5 +123,10 @@
     "HTTP request/response does not prove data was persisted in a database.",
     "Redirects, errors, HTML, and JSON are all possible response outcomes.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "b56e6cc3a388a029584b7223c7c6194b0001fa69fa4c2a9a667d4bf6f6f98100"
+  }
 }

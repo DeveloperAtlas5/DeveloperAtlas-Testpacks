@@ -125,5 +125,10 @@
     "Generated hosts and schemes depend on application and request URL configuration.",
     "Signed URLs and temporary signed URLs add separate integrity and expiration behavior.",
     "Independent human review remains required before any status promotion."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "83d849727067b22cc89b626eae26edcdf87caa725d14d334d69312b98b7db14e"
+  }
 }

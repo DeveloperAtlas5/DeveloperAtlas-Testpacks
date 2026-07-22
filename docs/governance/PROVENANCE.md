@@ -22,3 +22,10 @@ independent review.
 This repository is a reviewed export. It excludes private strategy, raw AI
 conversations, personal data, credentials, private project source, internal
 feedback, databases, model files, and the complete private product source.
+
+## Canonical export integrity
+
+The private monorepo `public/` tree is the canonical public source. The generated
+[`config/public-export/manifest.json`](../../config/public-export/manifest.json) fingerprints every exported
+file except itself using normalized-text or binary SHA-256. Public node sidecars preserve the canonical node
+hash and separately fingerprint the transformed public Markdown.

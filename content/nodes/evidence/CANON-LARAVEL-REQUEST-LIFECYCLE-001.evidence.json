@@ -326,5 +326,10 @@
     "Long-running servers such as Octane may add worker lifecycle concerns that are outside this node's request-level scope.",
     "Application middleware, exception handling, service providers, and response preparation can add project-specific behavior.",
     "Independent human review remains required before the node can be marked independently_reviewed or gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "106053ec2a64f5c8d567f1dfc297facac0304a4ed79056d067ec740d02021df4"
+  }
 }

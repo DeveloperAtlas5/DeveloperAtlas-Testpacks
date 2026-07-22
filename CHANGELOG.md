@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Restored public node integrity with valid frontmatter, canonical and public-content hashes, and one-to-one evidence validation.
+- Added a canonical public-tree manifest so public-only drift fails validation.
+- Added a pull-request control workflow and documented required branch protections.
 - Organized public documentation under `docs/`, moved recognized community files under `.github/`, moved export records under `config/`, and updated navigation, validation, packaging, and ownership paths.
 - Added one self-contained 15-minute Laravel Control exercise with a Change Contract, proposed diff,
   evidence checklist, and completed human revision decision.

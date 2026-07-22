@@ -20,12 +20,12 @@ What I need from you:
 - what you opened first
 - what you expected next
 
-You do not need to test everything.  
+You do not need to test everything.<br>
 Testing one pack is enough.
 
 Repo:
 https://github.com/DeveloperAtlas5/DeveloperAtlas-Testpacks
 
-The tester is not being tested.  
+The tester is not being tested.<br>
 The pack is being tested.
 ```

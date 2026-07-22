@@ -134,5 +134,10 @@
     "The browser receives PHP output, not the PHP source that generated it.",
     "Output encoding and trust boundaries still matter when PHP emits user-controlled data.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "427f8f6b412c653fbb7e02796b50c1e76d5a71239c79c9d33105231f49731497"
+  }
 }

@@ -1,12 +1,4 @@
 ---
-
-> **Evidence status — public preview**
-> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
-> Independent human review: **pending**. Publication status: **public preview, not certification**.
-> Sources: 1 ([URL Generation](https://laravel.com/docs/13.x/urls)). Automated structure and evidence checks: **passed**.
-> Verification designs: 3. Version scope: Laravel 13.x.
-> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
-
 id: SUPPORT-ROUTE-HELPER-001
 title: route() helper
 status: candidate
@@ -18,6 +10,14 @@ related_gold_node: CANON-ROUTE-001
 ---
 
 # route() helper
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 1 ([URL Generation](https://laravel.com/docs/13.x/urls)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 
 ## Short meaning
 

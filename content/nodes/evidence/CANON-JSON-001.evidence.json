@@ -145,5 +145,10 @@
     "JSON.parse throws on invalid JSON text unless the caller catches the error.",
     "Not every JavaScript value round-trips through JSON: unsupported values may be omitted, changed, or rejected.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "5d295d2726c6d1069014cc3c1360b928a617d7b7a9795e9b2fd7f2a95fc61a2c"
+  }
 }

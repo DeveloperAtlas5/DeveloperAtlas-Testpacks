@@ -1,12 +1,4 @@
 ---
-
-> **Evidence status — public preview**
-> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
-> Independent human review: **pending**. Publication status: **public preview, not certification**.
-> Sources: 8 ([Request Lifecycle](https://laravel.com/docs/13.x/lifecycle), [Routing](https://laravel.com/docs/13.x/routing), [Controllers](https://laravel.com/docs/13.x/controllers)). Automated structure and evidence checks: **passed**.
-> Verification designs: 5. Version scope: Laravel 13.x; PHP 8.3+; Standard Laravel HTTP request lifecycle.
-> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
-
 id: CANON-LARAVEL-REQUEST-LIFECYCLE-001
 title: Laravel Request Lifecycle
 status: gold_candidate
@@ -35,6 +27,14 @@ deeper_explanation_nodes:
 ---
 
 # Laravel Request Lifecycle
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 8 ([Request Lifecycle](https://laravel.com/docs/13.x/lifecycle), [Routing](https://laravel.com/docs/13.x/routing), [Controllers](https://laravel.com/docs/13.x/controllers)). Automated structure and evidence checks: **passed**.
+> Verification designs: 5. Version scope: Laravel 13.x; PHP 8.3+; Standard Laravel HTTP request lifecycle.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 
 ## Quick answer
 

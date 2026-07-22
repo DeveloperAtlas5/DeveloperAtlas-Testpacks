@@ -2,5 +2,9 @@
   "name": "DeveloperAtlas-Public PHP/Laravel preview",
   "source": "DeveloperAtlas private monorepo curated Sprint 4.1 export",
   "generatedAt": "2026-07-09T23:56:26.872Z",
-  "rule": "Public export only. Do not include Flow Navigator source, private strategy, internal reports, or private packs."
+  "rule": "Public export only. Do not include Flow Navigator source, private strategy, internal reports, or private packs.",
+  "schemaVersion": "1.0.0",
+  "status": "historical",
+  "supersededBy": "config/public-export/manifest.json",
+  "note": "Preserved provenance record for the 2026-07-09 PHP/Laravel preview; not the current canonical export manifest."
 }

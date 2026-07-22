@@ -1,12 +1,4 @@
 ---
-
-> **Evidence status — public preview**
-> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
-> Independent human review: **pending**. Publication status: **public preview, not certification**.
-> Sources: 2 ([Blade Templates](https://laravel.com/docs/13.x/blade), [Views](https://laravel.com/docs/13.x/views)). Automated structure and evidence checks: **passed**.
-> Verification designs: 3. Version scope: Laravel 13.x.
-> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
-
 id: CANON-BLADE-VIEW-001
 title: Blade View
 status: gold_candidate
@@ -32,6 +24,14 @@ deeper_explanation_nodes:
 ---
 
 # Blade View
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 2 ([Blade Templates](https://laravel.com/docs/13.x/blade), [Views](https://laravel.com/docs/13.x/views)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 
 ## Quick answer
 

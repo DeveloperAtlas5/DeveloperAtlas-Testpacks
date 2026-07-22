@@ -135,5 +135,10 @@
     "A Blade view is one response representation; other response types do not require Blade.",
     "Blade permits PHP, but request handling and business rules should remain outside presentation templates.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "676e1d9e222c2fac07d0443031b3f05653c6ebb5312019cca248756867bb957a"
+  }
 }

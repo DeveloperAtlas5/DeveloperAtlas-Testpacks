@@ -126,5 +126,10 @@
     "This node covers HTML form behavior, not framework-specific request handling.",
     "Encoding, method support, validation, and security requirements depend on the destination.",
     "Independent human review remains required before any status promotion."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "c562b6e78c5aa0bd739fcaa36fe74176bfb124308d1d95e476677a418fb5c32a"
+  }
 }

@@ -145,5 +145,10 @@
     "Keys and values are strings; structured values require an explicit serialization format such as JSON.",
     "Storage access can fail, is synchronous, has browser-dependent limits, and should not hold secrets or server-authoritative data.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "52a63ca661d004903690eca5e313cd6bb64a26f41d73a59f5b2c875842eb5a6c"
+  }
 }

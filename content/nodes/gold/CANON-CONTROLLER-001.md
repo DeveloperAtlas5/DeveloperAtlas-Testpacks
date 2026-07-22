@@ -1,12 +1,4 @@
 ---
-
-> **Evidence status — public preview**
-> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
-> Independent human review: **pending**. Publication status: **public preview, not certification**.
-> Sources: 3 ([Controllers](https://laravel.com/docs/13.x/controllers), [Routing](https://laravel.com/docs/13.x/routing), [Validation](https://laravel.com/docs/13.x/validation)). Automated structure and evidence checks: **passed**.
-> Verification designs: 3. Version scope: Laravel 13.x.
-> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
-
 id: CANON-CONTROLLER-001
 title: Controller
 status: gold_candidate
@@ -35,6 +27,14 @@ deeper_explanation_nodes:
 ---
 
 # Controller
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 3 ([Controllers](https://laravel.com/docs/13.x/controllers), [Routing](https://laravel.com/docs/13.x/routing), [Validation](https://laravel.com/docs/13.x/validation)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: Laravel 13.x.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 
 ## Quick answer
 

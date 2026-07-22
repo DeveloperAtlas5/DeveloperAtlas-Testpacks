@@ -124,5 +124,10 @@
     "A control generally needs a name to contribute a name/value pair during form submission.",
     "Labels and suitable input types are important accessibility and data-quality boundaries.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "a6c5317bcde87495e4b245dc87edf29195dfef937265a11330d4e43d4b8833ea"
+  }
 }

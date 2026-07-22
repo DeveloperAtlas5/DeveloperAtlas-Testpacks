@@ -125,5 +125,10 @@
     "The iterated expression must be usable by PHP's foreach semantics.",
     "This node covers loop rendering, not database query efficiency or eager loading.",
     "Independent human review remains required before any status promotion."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "efa7699a0f4564aea034881520f66cd3015cf6c5a23ef5470108acbe01f613a8"
+  }
 }

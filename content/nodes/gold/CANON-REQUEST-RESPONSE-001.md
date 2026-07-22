@@ -1,12 +1,4 @@
 ---
-
-> **Evidence status — public preview**
-> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
-> Independent human review: **pending**. Publication status: **public preview, not certification**.
-> Sources: 1 ([Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)). Automated structure and evidence checks: **passed**.
-> Verification designs: 3. Version scope: HTTP semantics used by modern browsers and servers.
-> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
-
 id: CANON-REQUEST-RESPONSE-001
 title: Request and Response
 status: gold_candidate
@@ -31,6 +23,14 @@ deeper_explanation_nodes:
 ---
 
 # Request and Response
+
+> **Evidence status — public preview**
+> Primary-source mapping: **completed with AI assistance** on 2026-07-12.
+> Independent human review: **pending**. Publication status: **public preview, not certification**.
+> Sources: 1 ([Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)). Automated structure and evidence checks: **passed**.
+> Verification designs: 3. Version scope: HTTP semantics used by modern browsers and servers.
+> Known limitations remain explicit in this node and in the [public limitations](../../../docs/public/known-limitations.md).
+
 
 ## Quick answer
 

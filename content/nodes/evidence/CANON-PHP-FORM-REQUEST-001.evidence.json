@@ -156,5 +156,10 @@
     "Client-provided values remain untrusted even when browser validation succeeds.",
     "Input names, HTTP method, action, CSRF protection, validation, and authorization are separate responsibilities.",
     "Independent human review remains required before promotion to gold."
-  ]
+  ],
+  "publicExport": {
+    "transformation": "evidence-status-banner-v1",
+    "canonicalHashField": "nodeContentSha256",
+    "contentSha256": "2d66d9d452db80d283bef1a5e29fd5ab3a410ea9b303cff0d9ec8894eefb6357"
+  }
 }
