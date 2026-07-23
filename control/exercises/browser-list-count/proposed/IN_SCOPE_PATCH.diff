@@ -1,0 +1,19 @@
+diff --git a/control/exercises/browser-list-count/baseline/index.html b/control/exercises/browser-list-count/project/index.html
+index 25cc297..9c1ac32 100644
+--- a/control/exercises/browser-list-count/baseline/index.html
++++ b/control/exercises/browser-list-count/project/index.html
+@@ -29,0 +30 @@
++      <p class="remaining-count" aria-live="polite">0 items remaining</p>
+diff --git a/control/exercises/browser-list-count/baseline/script.js b/control/exercises/browser-list-count/project/script.js
+index be08714..313e8b6 100644
+--- a/control/exercises/browser-list-count/baseline/script.js
++++ b/control/exercises/browser-list-count/project/script.js
+@@ -6,0 +7 @@ const emptyState = document.querySelector('.empty-state')
++const remainingCount = document.querySelector('.remaining-count')
+@@ -50,0 +52,4 @@ function createActionButton(action, label, itemId) {
++function remainingLabel(count) {
++  return `${count} ${count === 1 ? 'item' : 'items'} remaining`
++}
++
+@@ -53,0 +59 @@ function renderItems() {
++  remainingCount.textContent = remainingLabel(items.filter((item) => !item.isDone).length)

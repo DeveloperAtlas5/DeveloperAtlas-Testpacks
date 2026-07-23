@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "allowlist": "config/compendium-preview-allowlist.json",
+  "nodeIds": [
+    "CANON-BLADE-VIEW-001",
+    "CANON-CONTROLLER-001",
+    "CANON-DOM-001",
+    "CANON-LARAVEL-REQUEST-LIFECYCLE-001",
+    "CANON-LOCALSTORAGE-001",
+    "CANON-ROUTE-001"
+  ],
+  "sources": [
+    {
+      "path": "content/nodes/evidence/CANON-BLADE-VIEW-001.evidence.json",
+      "sha256": "87d5727720286e42b74a1baada8d0485ddf128a64eb77c8fbcf286a82c2134d2"
+    },
+    {
+      "path": "content/nodes/evidence/CANON-CONTROLLER-001.evidence.json",
+      "sha256": "caac97797224263cb0d2a257119baa05c04af60b4c279d6b2338ab89f35b1be8"
+    },
+    {
+      "path": "content/nodes/evidence/CANON-DOM-001.evidence.json",
+      "sha256": "1ff55cc92ff718667d25bf4833d5c54b9d180646d052c5cb94026dfe80358c84"
+    },
+    {
+      "path": "content/nodes/evidence/CANON-LARAVEL-REQUEST-LIFECYCLE-001.evidence.json",
+      "sha256": "4975cc1001b542028cbcd8f0e70be35d9609dbfbf90dfb70f90d896227f1063c"
+    },
+    {
+      "path": "content/nodes/evidence/CANON-LOCALSTORAGE-001.evidence.json",
+      "sha256": "81ccfb8b540cfbe82e41ed9fe691b528683aa486570fb10e83abc006a8e05b8f"
+    },
+    {
+      "path": "content/nodes/evidence/CANON-ROUTE-001.evidence.json",
+      "sha256": "ec9928f32ad646c1b4d5de8580c0954fd83d08c8ea92ff28e1534f45e7a9878a"
+    },
+    {
+      "path": "content/nodes/gold/CANON-BLADE-VIEW-001.md",
+      "sha256": "676e1d9e222c2fac07d0443031b3f05653c6ebb5312019cca248756867bb957a"
+    },
+    {
+      "path": "content/nodes/gold/CANON-CONTROLLER-001.md",
+      "sha256": "66146df21386862e5a162d6c3707ba828abd20bc1726da595f39b97f9129ff03"
+    },
+    {
+      "path": "content/nodes/gold/CANON-DOM-001.md",
+      "sha256": "e90b6d6432d9ce1aed1c553b8bd80d35a28979501d74df0596d289de4b9fb28c"
+    },
+    {
+      "path": "content/nodes/gold/CANON-LARAVEL-REQUEST-LIFECYCLE-001.md",
+      "sha256": "106053ec2a64f5c8d567f1dfc297facac0304a4ed79056d067ec740d02021df4"
+    },
+    {
+      "path": "content/nodes/gold/CANON-LOCALSTORAGE-001.md",
+      "sha256": "52a63ca661d004903690eca5e313cd6bb64a26f41d73a59f5b2c875842eb5a6c"
+    },
+    {
+      "path": "content/nodes/gold/CANON-ROUTE-001.md",
+      "sha256": "4192d9230394fa3ccbe60f0b7bbd3bb49e1f2ed37fb902ee0328efab9128282e"
+    }
+  ],
+  "dataSha256": "c4ade5ef8c3986694b123619210e0c7d3b23f27f5e8c8874820be144b1858311"
+}

@@ -1,0 +1,39 @@
+name: Package Navigator public preview
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "navigator-preview/**"
+      - "config/navigator-preview-allowlist.json"
+      - "scripts/build-navigator-preview.mjs"
+      - "content/nodes/**"
+      - "tests/navigator-preview.spec.cjs"
+      - "package.json"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test public preview core
+        run: npm run test:navigator-preview
+      - name: Build checksum-listed VSIX
+        run: npm run navigator:build
+      - name: Test and package demo workspace
+        run: npm run test:navigator-demo && npm run navigator:demo:package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: atlas-navigator-public-preview
+          path: |
+            dist/navigator-preview/*
+            dist/navigator-demo/*
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "1 — Clean Laravel flow",
+      "path": "clean-laravel"
+    },
+    {
+      "name": "2 — Public-preview boundary lab",
+      "path": "boundary-lab"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.DS_Store": true
+    }
+  }
+}

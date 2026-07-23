@@ -3,40 +3,194 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Define, inspect, verify, and decide one bounded AI-assisted code change locally in your browser.">
   <title>Developer Atlas Control Lite</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="shell">
-    <header>
-      <p class="eyebrow">LOCAL-FIRST PUBLIC PREVIEW</p>
-      <h1>Atlas Control Lite</h1>
-      <p>Define one bounded AI-assisted change and export reviewable Markdown. Nothing is sent anywhere.</p>
+  <a class="skip-link" href="#workspace">Skip to the control workspace</a>
+  <main class="shell" id="workspace">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LOCAL-FIRST PUBLIC PREVIEW</p>
+        <h1>Atlas Control Lite</h1>
+        <p class="hero-copy">Define what may change, inspect what actually changed, record observed evidence, and keep the final decision human.</p>
+      </div>
+      <div class="privacy-card" aria-label="Privacy summary">
+        <strong>Runs in this browser</strong>
+        <span>No account, telemetry, AI connection, or command execution.</span>
+      </div>
     </header>
 
-    <form id="control-form">
-      <label>Goal<textarea id="goal" required>Improve the status page so a reviewer knows it is ready for a human check.</textarea></label>
-      <label>Allowed files<textarea id="allowed" required>app/Http/Controllers/StatusController.php
-resources/views/status.blade.php</textarea></label>
-      <label>Protected boundaries<textarea id="protected">No route, authentication, dependency, database, or unrelated UI changes.</textarea></label>
-      <label>Acceptance criteria<textarea id="acceptance">The heading is clear.
-A short explanation is visible.
-Only allowed files change.</textarea></label>
-      <label>Required verification<textarea id="verification">Show the exact changed-file list.
-Run the maintained test command.
-Inspect the result in the browser.</textarea></label>
-      <label>Parked ideas<textarea id="parked">Color changes, polling, dashboards, and deployment integrations.</textarea></label>
-      <button type="submit">Generate Atlas artifacts</button>
+    <section class="toolbar" aria-label="Session controls">
+      <label for="scenario">Start from an example</label>
+      <select id="scenario">
+        <option value="revise">Revise: required test not run</option>
+        <option value="accept">Accept: bounded change verified</option>
+        <option value="reject">Reject: dependency outside scope</option>
+        <option value="custom">Custom change</option>
+      </select>
+      <button type="button" id="load-scenario">Load example</button>
+      <button type="button" id="import-session" class="secondary">Import session</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+      <button type="button" id="reset-session" class="ghost">Reset</button>
+    </section>
+
+    <nav class="stepper" aria-label="Control workflow">
+      <ol>
+        <li><button type="button" data-step-target="prepare" aria-current="step"><span>1</span>Prepare</button></li>
+        <li><button type="button" data-step-target="instruct"><span>2</span>Instruct</button></li>
+        <li><button type="button" data-step-target="inspect"><span>3</span>Inspect</button></li>
+        <li><button type="button" data-step-target="evidence"><span>4</span>Evidence</button></li>
+        <li><button type="button" data-step-target="decide"><span>5</span>Decide</button></li>
+        <li><button type="button" data-step-target="export"><span>6</span>Export</button></li>
+      </ol>
+    </nav>
+
+    <form id="control-form" novalidate>
+      <section class="panel" data-step="prepare">
+        <div class="panel-heading">
+          <p class="step-label">Step 1</p>
+          <h2>Prepare a bounded change</h2>
+          <p>State the outcome before discussing implementation. One line per boundary or criterion.</p>
+        </div>
+        <div class="field-grid">
+          <label class="wide">Human goal
+            <textarea id="goal" required rows="3"></textarea>
+          </label>
+          <label>Allowed files
+            <textarea id="allowed" required rows="6" spellcheck="false"></textarea>
+          </label>
+          <label>Protected boundaries
+            <textarea id="protected" rows="6"></textarea>
+          </label>
+          <label>Acceptance criteria
+            <textarea id="acceptance" rows="6"></textarea>
+          </label>
+          <label>Required verification
+            <textarea id="verification" rows="6"></textarea>
+          </label>
+          <label class="wide">Parked ideas
+            <textarea id="parked" rows="3"></textarea>
+          </label>
+        </div>
+        <div class="panel-actions end">
+          <button type="button" data-next="instruct">Generate controlled instruction</button>
+        </div>
+      </section>
+
+      <section class="panel" data-step="instruct" hidden>
+        <div class="panel-heading">
+          <p class="step-label">Step 2</p>
+          <h2>Review the AI instruction</h2>
+          <p>This instruction adds scope, protected behavior, acceptance criteria, and verification honesty to the human goal.</p>
+        </div>
+        <label>Generated instruction
+          <textarea id="instruction-preview" class="output-text" rows="22" readonly></textarea>
+        </label>
+        <p class="callout"><strong>Human checkpoint:</strong> edit the preparation fields when the instruction permits too much, protects too little, or asks for unverifiable proof.</p>
+        <div class="panel-actions">
+          <button type="button" data-back="prepare" class="secondary">Back</button>
+          <button type="button" data-next="inspect">Inspect a proposed change</button>
+        </div>
+      </section>
+
+      <section class="panel" data-step="inspect" hidden>
+        <div class="panel-heading">
+          <p class="step-label">Step 3</p>
+          <h2>Inspect scope and impact</h2>
+          <p>Paste the exact changed-file list and an optional patch or summary. Control Lite compares paths; it does not claim to understand or execute the patch.</p>
+        </div>
+        <div class="field-grid">
+          <label>Actually changed files
+            <textarea id="changed" rows="7" spellcheck="false"></textarea>
+          </label>
+          <label>Patch or change summary
+            <textarea id="patch" rows="7" spellcheck="false"></textarea>
+          </label>
+        </div>
+        <div id="scope-summary" class="assessment" aria-live="polite"></div>
+        <div class="panel-actions">
+          <button type="button" data-back="instruct" class="secondary">Back</button>
+          <button type="button" data-next="evidence">Record evidence</button>
+        </div>
+      </section>
+
+      <section class="panel" data-step="evidence" hidden>
+        <div class="panel-heading">
+          <p class="step-label">Step 4</p>
+          <h2>Record observed evidence</h2>
+          <p>Passed means the result was actually observed. Leave an unavailable or unobserved check as Not run.</p>
+        </div>
+        <div id="evidence-rows" class="evidence-list"></div>
+        <div class="panel-actions">
+          <button type="button" data-back="inspect" class="secondary">Back</button>
+          <button type="button" data-next="decide">Make the human decision</button>
+        </div>
+      </section>
+
+      <section class="panel" data-step="decide" hidden>
+        <div class="panel-heading">
+          <p class="step-label">Step 5</p>
+          <h2>Accept, revise, or reject</h2>
+          <p>Atlas shows whether the selected decision aligns with the recorded scope and evidence. It does not choose for you.</p>
+        </div>
+        <fieldset class="decision-options">
+          <legend>Final decision</legend>
+          <label><input type="radio" name="decision" value="Accept"> <span><strong>Accept</strong> — evidence is sufficient and the change may proceed.</span></label>
+          <label><input type="radio" name="decision" value="Revise"> <span><strong>Revise</strong> — useful work remains, but scope, behavior, or proof is incomplete.</span></label>
+          <label><input type="radio" name="decision" value="Reject"> <span><strong>Reject</strong> — the proposal conflicts with the goal, boundaries, or trust requirements.</span></label>
+        </fieldset>
+        <div id="decision-guidance" class="assessment" aria-live="polite"></div>
+        <div class="field-grid">
+          <label>Accountable human or role
+            <input id="reviewer" type="text" autocomplete="name" placeholder="Example: project maintainer">
+          </label>
+          <label>Decision date
+            <input id="decision-date" type="date">
+          </label>
+          <label>Rationale
+            <textarea id="rationale" rows="5"></textarea>
+          </label>
+          <label>Required next action
+            <textarea id="next-action" rows="5"></textarea>
+          </label>
+        </div>
+        <div class="panel-actions">
+          <button type="button" data-back="evidence" class="secondary">Back</button>
+          <button type="button" data-next="export">Build review record</button>
+        </div>
+      </section>
+
+      <section class="panel" data-step="export" hidden>
+        <div class="panel-heading">
+          <p class="step-label">Step 6</p>
+          <h2>Preserve the controlled-change record</h2>
+          <p>Review the generated Markdown before saving it beside the change or attaching it to a pull request.</p>
+        </div>
+        <label>Combined Atlas change record
+          <textarea id="combined-record" class="output-text" rows="30" readonly></textarea>
+        </label>
+        <div class="export-actions">
+          <button type="button" id="copy-record">Copy record</button>
+          <button type="button" id="download-record">Download Markdown</button>
+          <button type="button" id="download-session" class="secondary">Export editable session</button>
+          <a id="compendium-link" class="button-link" href="../compendium-preview/index.html">Open related Compendium node</a>
+        </div>
+        <details>
+          <summary>Separate artifacts</summary>
+          <div id="artifacts" class="artifact-list"></div>
+        </details>
+        <div class="panel-actions">
+          <button type="button" data-back="decide" class="secondary">Back</button>
+          <a class="button-link" href="../docs/getting-started/TRY_ATLAS.md">Continue to the guided walkthrough</a>
+        </div>
+      </section>
     </form>
 
-    <section id="output" hidden>
-      <div class="output-header">
-        <h2>Generated artifacts</h2>
-        <p>Review every field before using it with an AI tool.</p>
-      </div>
-      <div id="artifacts"></div>
-    </section>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
   </main>
+  <script src="core.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

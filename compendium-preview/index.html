@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A curated public preview of evidence-mapped Developer Atlas knowledge nodes.">
+  <title>Atlas Compendium — Public Preview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">Developer Atlas</a>
+    <span>Compendium public preview</span>
+    <a href="../control-lite/index.html">Open Control Lite</a>
+  </header>
+  <main id="main" class="shell">
+    <section id="catalog-view">
+      <p class="eyebrow">ALLOWLISTED PUBLIC KNOWLEDGE</p>
+      <h1>Understand the code before accepting the change.</h1>
+      <p class="lead">Search a small evidence-mapped preview covering the Laravel request flow and the browser-list verification exercise. Every node keeps its version scope, source count, limitations, AI-assistance disclosure, and independent-review state visible.</p>
+      <label class="search-label" for="search">Search public nodes</label>
+      <input id="search" type="search" placeholder="Try route, Blade, localStorage, DOM…" autocomplete="off">
+      <p id="result-count" class="result-count" aria-live="polite"></p>
+      <div id="node-grid" class="node-grid"></div>
+    </section>
+
+    <article id="node-view" class="node-view" hidden>
+      <a class="back-link" href="index.html">← Back to all public nodes</a>
+      <div id="node-meta" class="node-meta"></div>
+      <div id="node-content" class="node-content"></div>
+      <section class="evidence-section">
+        <h2>Public evidence summary</h2>
+        <div id="evidence-summary"></div>
+        <h3>Primary sources</h3>
+        <ul id="source-list"></ul>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <p>Static, local-first preview. No telemetry, account, AI execution, or private knowledge source.</p>
+  </footer>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

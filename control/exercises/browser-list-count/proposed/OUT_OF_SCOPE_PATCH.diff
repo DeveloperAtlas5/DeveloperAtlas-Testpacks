@@ -1,0 +1,29 @@
+diff --git a/control/exercises/browser-list-count/project/index.html b/control/exercises/browser-list-count/project/index.html
+--- a/control/exercises/browser-list-count/project/index.html
++++ b/control/exercises/browser-list-count/project/index.html
+@@
+-      <p class="empty-state">No items yet. Add one small learning goal.</p>
++      <p class="remaining-count" aria-live="polite">0 items remaining</p>
++      <p class="empty-state">No items yet. Add one small learning goal.</p>
+diff --git a/control/exercises/browser-list-count/project/script.js b/control/exercises/browser-list-count/project/script.js
+--- a/control/exercises/browser-list-count/project/script.js
++++ b/control/exercises/browser-list-count/project/script.js
+@@
++import pluralize from 'pluralize'
++
+ const storageKey = 'atlasPracticeItems'
+@@
++const remainingCount = document.querySelector('.remaining-count')
+@@
++  const count = items.filter((item) => !item.isDone).length
++  remainingCount.textContent = `${count} ${pluralize('item', count)} remaining`
+diff --git a/package.json b/package.json
+--- a/package.json
++++ b/package.json
+@@
+   "devDependencies": {
+     "@playwright/test": "1.61.1"
++  },
++  "dependencies": {
++    "pluralize": "8.0.0"
+   }

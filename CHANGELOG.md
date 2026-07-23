@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Rebuilt Control Lite as a complete Prepare → Instruct → Inspect → Evidence → Decide → Export workflow with autosave, editable sessions, scope comparison, evidence states, and decision-alignment guidance.
+- Added a dependency-free bounded-change exercise with Accept, Revise, and Reject paths, runnable behavior and safety verification, honest evidence records, and maintained Playwright lifecycle coverage.
+- Added a limited public Navigator VSIX, two synthetic Laravel demo workspaces, strict knowledge allowlisting, checksum-listed packages, and a manual packaging workflow without copying the private Navigator engine.
+- Added a clean-room six-node Compendium preview generated only from public Markdown and evidence sidecars, plus an integrated manual GitHub Pages deployment containing Control Lite and Compendium.
+- Added a reproducible release gate and release-review checklist that keep generated artifacts outside the canonical public-tree manifest.
 - Restored public node integrity with valid frontmatter, canonical and public-content hashes, and one-to-one evidence validation.
 - Added a canonical public-tree manifest so public-only drift fails validation.
 - Added a pull-request control workflow and documented required branch protections.

@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Sample Laravel demo — minimal artisan stub for Atlas extension testing.
+ * Not a runnable Laravel install; file structure matches conventions.
+ */
+
+define('LARAVEL_START', microtime(true));
+echo "Sample Laravel demo for Developer Atlas Flow Navigator\n";
