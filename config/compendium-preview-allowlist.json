@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "description": "Exact public nodes shown in the clean-room Compendium preview.",
+  "nodes": [
+    {
+      "id": "CANON-LARAVEL-REQUEST-LIFECYCLE-001",
+      "source": "content/nodes/gold/CANON-LARAVEL-REQUEST-LIFECYCLE-001.md",
+      "evidence": "content/nodes/evidence/CANON-LARAVEL-REQUEST-LIFECYCLE-001.evidence.json",
+      "tags": ["Laravel", "request flow", "verification"]
+    },
+    {
+      "id": "CANON-ROUTE-001",
+      "source": "content/nodes/gold/CANON-ROUTE-001.md",
+      "evidence": "content/nodes/evidence/CANON-ROUTE-001.evidence.json",
+      "tags": ["Laravel", "route", "HTTP"]
+    },
+    {
+      "id": "CANON-CONTROLLER-001",
+      "source": "content/nodes/gold/CANON-CONTROLLER-001.md",
+      "evidence": "content/nodes/evidence/CANON-CONTROLLER-001.evidence.json",
+      "tags": ["Laravel", "controller", "action"]
+    },
+    {
+      "id": "CANON-BLADE-VIEW-001",
+      "source": "content/nodes/gold/CANON-BLADE-VIEW-001.md",
+      "evidence": "content/nodes/evidence/CANON-BLADE-VIEW-001.evidence.json",
+      "tags": ["Laravel", "Blade", "view"]
+    },
+    {
+      "id": "CANON-LOCALSTORAGE-001",
+      "source": "content/nodes/gold/CANON-LOCALSTORAGE-001.md",
+      "evidence": "content/nodes/evidence/CANON-LOCALSTORAGE-001.evidence.json",
+      "tags": ["JavaScript", "browser", "storage"]
+    },
+    {
+      "id": "CANON-DOM-001",
+      "source": "content/nodes/gold/CANON-DOM-001.md",
+      "evidence": "content/nodes/evidence/CANON-DOM-001.evidence.json",
+      "tags": ["JavaScript", "DOM", "browser"]
+    }
+  ]
+}

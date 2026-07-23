@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "description": "Exact public knowledge files permitted inside the limited Navigator preview.",
+  "nodes": [
+    {
+      "id": "CANON-ROUTE-001",
+      "title": "Laravel Route",
+      "source": "content/nodes/gold/CANON-ROUTE-001.md",
+      "evidence": "content/nodes/evidence/CANON-ROUTE-001.evidence.json"
+    },
+    {
+      "id": "CANON-CONTROLLER-001",
+      "title": "Laravel Controller",
+      "source": "content/nodes/gold/CANON-CONTROLLER-001.md",
+      "evidence": "content/nodes/evidence/CANON-CONTROLLER-001.evidence.json"
+    },
+    {
+      "id": "CANON-BLADE-VIEW-001",
+      "title": "Blade View",
+      "source": "content/nodes/gold/CANON-BLADE-VIEW-001.md",
+      "evidence": "content/nodes/evidence/CANON-BLADE-VIEW-001.evidence.json"
+    },
+    {
+      "id": "CANON-LARAVEL-REQUEST-LIFECYCLE-001",
+      "title": "Laravel Request Lifecycle",
+      "source": "content/nodes/gold/CANON-LARAVEL-REQUEST-LIFECYCLE-001.md",
+      "evidence": "content/nodes/evidence/CANON-LARAVEL-REQUEST-LIFECYCLE-001.evidence.json"
+    }
+  ]
+}

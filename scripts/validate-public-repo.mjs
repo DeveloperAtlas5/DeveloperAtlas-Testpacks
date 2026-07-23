@@ -25,8 +25,14 @@ const requiredFiles = [
   'control/examples/laravel-status-label/COMPLETED_EXAMPLE.md',
   'control/examples/laravel-status-label/DECISION_RECORD.md',
   'control/examples/laravel-status-label/PROPOSED_PATCH.diff',
+  'control/exercises/browser-list-count/EVIDENCE_RECORD.md',
+  'control/exercises/browser-list-count/DECISION_RECORD.md',
+  'control/exercises/browser-list-count/VERIFY.md',
   'content/missions/README.md',
   'content/nodes/README.md',
+  'compendium-preview/index.html',
+  'compendium-preview/data.js',
+  'navigator-preview/README.md',
   'examples/README.md',
   'scripts/pr-control-policy.mjs',
   'scripts/validate-pr-body.mjs',
@@ -271,7 +277,7 @@ function normalizeText(value) {
 function listFiles(directory) {
   const output = []
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (['.git', 'node_modules', 'playwright-report', 'test-results'].includes(entry.name)) continue
+    if (['.git', 'dist', 'node_modules', 'playwright-report', 'test-results'].includes(entry.name)) continue
     const absolutePath = path.join(directory, entry.name)
     if (entry.isDirectory()) output.push(...listFiles(absolutePath))
     if (entry.isFile()) output.push(absolutePath)

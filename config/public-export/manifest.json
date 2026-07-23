@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0.0",
-  "source": "DeveloperAtlas private monorepo reviewed public/ tree",
+  "source": "DeveloperAtlas-Public reviewed public tree",
   "hashAlgorithm": "sha256-normalized-text-v1",
-  "generatedBy": "tooling/scripts/build-public-sync-manifest.mjs",
+  "generatedBy": "scripts/build-public-manifest.mjs",
   "selfExcluded": "config/public-export/manifest.json",
   "files": [
     {
@@ -58,8 +58,16 @@
       "sha256": "8298914b3e475f8eeb8dc15b4d3ef5ae35c847dd9fffad52111e41486484aac6"
     },
     {
+      "path": ".github/workflows/deploy-public-preview.yml",
+      "sha256": "174bba0fb573ae9104cf470e6c4886588c436bdf5a10ce75c8edec2f712f8599"
+    },
+    {
       "path": ".github/workflows/package-control-exercise.yml",
       "sha256": "6fad6a12aa37044da6542b643e538d6efaca0a6b389c416cc9aec5b12e32ec85"
+    },
+    {
+      "path": ".github/workflows/package-navigator-preview.yml",
+      "sha256": "f73d8ff6214ef424896f7dc73f7c5b4265cacea3a6443655da49824fcca364c4"
     },
     {
       "path": ".github/workflows/pr-control.yml",
@@ -67,15 +75,47 @@
     },
     {
       "path": ".github/workflows/public-boundary.yml",
-      "sha256": "2ec8f0d152131db18322981347a5c64aff211a2c335b9dc3049a511f1a044865"
+      "sha256": "90b7e807402311879b78c7bf00beda712f84dc4484eba3732e195eadd006f90a"
     },
     {
       "path": ".gitignore",
-      "sha256": "84e0cb1503e93650c5e951944431bc0fccda4da530cd217309467896fc469e35"
+      "sha256": "7c85cdea06afb10aec9f2d8b0b5eaa2d0fe2d465f53e575e3e4ed6fb9591a6e5"
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "a43e947033ed0474938ad409d6879ce10e87e50635f84499a6131f093080dfe8"
+      "sha256": "0e93c16f72fb4b74c13a462416945b6074cf0de8ca84b5ce2ace1b882b11b939"
+    },
+    {
+      "path": "compendium-preview/app.js",
+      "sha256": "213d9f00be75a517d03b3d4203deff7acac4cf43fc75dc2bc4516c4d75bd4835"
+    },
+    {
+      "path": "compendium-preview/data-manifest.json",
+      "sha256": "0ae667ff8c2f83c38f7c8f14d0ec5fbefe8b21d45971fbaac2aae6989d30b557"
+    },
+    {
+      "path": "compendium-preview/data.js",
+      "sha256": "c4ade5ef8c3986694b123619210e0c7d3b23f27f5e8c8874820be144b1858311"
+    },
+    {
+      "path": "compendium-preview/index.html",
+      "sha256": "9d69176275c263ef875df947d84fc4487951ee95c496f6499c42055bdd0bb979"
+    },
+    {
+      "path": "compendium-preview/README.md",
+      "sha256": "44d4a7a3461e42b85422ca818db8876e6328c117a40e9d0e38b77cb3d1c759b9"
+    },
+    {
+      "path": "compendium-preview/style.css",
+      "sha256": "b66487219d03f338086f5f363e68267330749b0a1afdb7c212f3372f03d5fe08"
+    },
+    {
+      "path": "config/compendium-preview-allowlist.json",
+      "sha256": "378b6dd7d53e8b5efde862b96ba2a3f3c864514e664bfdabaec23b330238be9f"
+    },
+    {
+      "path": "config/navigator-preview-allowlist.json",
+      "sha256": "61c94f8ac6f30ed0047363e19e2f08d38f967aef47e94cbe955a0d3c6bd55323"
     },
     {
       "path": "config/public-export/php-laravel.json",
@@ -347,19 +387,23 @@
     },
     {
       "path": "control-lite/app.js",
-      "sha256": "89ae6e6e0f5dbb090eafe449ec0a11a3f6891af9da7382b42789fa8136fb61a2"
+      "sha256": "4f0b5391a4c531daf6b46a53ce03c9922c1fba5a9830a0648692f54bf6a3ba50"
+    },
+    {
+      "path": "control-lite/core.js",
+      "sha256": "fe3ac17f50a979b0e1af5b9115a8520e9c772e3aa60c2eaaa633cce0f32bdf7e"
     },
     {
       "path": "control-lite/index.html",
-      "sha256": "decdafd30708d7a63e81f4662bed9011f97ee6d0bec64364c14912fb64214a3a"
+      "sha256": "a90471b123f8bf848e6c16fef589fe5116af7d7157c8a62a093e06067beaea51"
     },
     {
       "path": "control-lite/README.md",
-      "sha256": "d5d3ba1c0dee950041fbb754323de9f1d9503ca34564a163952e2431cf6545a1"
+      "sha256": "c5f94c7e87ee27e4235c528a3f32e1e84ee9069c8491abbabbc1e6741ff3c98b"
     },
     {
       "path": "control-lite/style.css",
-      "sha256": "6fefebbd9e80e8f01374c875e7903d708662225e85d517d2d7a7aabc3a2db82b"
+      "sha256": "5a538923d5163c2ec8de63ad868833961d82ed5951d2200c6d9f0406415234e8"
     },
     {
       "path": "control/CHANGE_CONTRACT_TEMPLATE.md",
@@ -406,8 +450,92 @@
       "sha256": "666268e372f24e9a290c005e79a086b20f2091756e6e9310c73ee6751c852172"
     },
     {
+      "path": "control/exercises/browser-list-count/ATLAS_INSTRUCTION.md",
+      "sha256": "f9686185c5fb1350061ad0a97ea76e16b1bb3db31f5a13ba1d11c81e7aed258f"
+    },
+    {
+      "path": "control/exercises/browser-list-count/BASELINE_PROMPT.md",
+      "sha256": "0b5583b9570b0a39c7b3a066a97518f0829081ae3898e2c872d7e0ef1bc0eac7"
+    },
+    {
+      "path": "control/exercises/browser-list-count/baseline/index.html",
+      "sha256": "ea7811da6452dd8ebad92896282aa75d267d08161ca9b0e550e80a6f603a6721"
+    },
+    {
+      "path": "control/exercises/browser-list-count/baseline/script.js",
+      "sha256": "66d9174e3c2771c9b98af186fd6877c0b8a4f9c54f2e4832fcf0dc39db692d75"
+    },
+    {
+      "path": "control/exercises/browser-list-count/baseline/style.css",
+      "sha256": "214a8f2de641cbb713e372a8769b781164c5c096aba26bf1fd42aace6dae66dd"
+    },
+    {
+      "path": "control/exercises/browser-list-count/CHANGE_CONTRACT.md",
+      "sha256": "4203fe1ba6ba91934a655f56900364864a81d865cc0c73009b6c25547a57b393"
+    },
+    {
+      "path": "control/exercises/browser-list-count/DECISION_RECORD.md",
+      "sha256": "1e86179928ad39498e43a54b0fe6308317d77ef08e7e4b0429bcdb3897109e81"
+    },
+    {
+      "path": "control/exercises/browser-list-count/EVIDENCE_RECORD.md",
+      "sha256": "95090386aa921a299f64408192fa0714a22b2e015c7fadd55313cd0a0cfc2287"
+    },
+    {
+      "path": "control/exercises/browser-list-count/project/index.html",
+      "sha256": "b8c07fb30c3ce41a70c879007b48490d841edd703d0d79c37a40231f5a03f00c"
+    },
+    {
+      "path": "control/exercises/browser-list-count/project/script.js",
+      "sha256": "ed49ca5f94bf3e6bb75f5cd40bb68e5f2eaaf45c3289b9f4ece8322c7490ab5f"
+    },
+    {
+      "path": "control/exercises/browser-list-count/project/style.css",
+      "sha256": "214a8f2de641cbb713e372a8769b781164c5c096aba26bf1fd42aace6dae66dd"
+    },
+    {
+      "path": "control/exercises/browser-list-count/proposed/IN_SCOPE_PATCH.diff",
+      "sha256": "1dced0dceb383614cff91181f04ea965e96d8d3006abad0f9809b2b316d2a909"
+    },
+    {
+      "path": "control/exercises/browser-list-count/proposed/OUT_OF_SCOPE_PATCH.diff",
+      "sha256": "546971028ef7929f50a79a80ab14a1b4ccff9546a36b130e0d7b40243cbf4ae9"
+    },
+    {
+      "path": "control/exercises/browser-list-count/proposed/README.md",
+      "sha256": "fb00c55f931d107c1dcdf334f546724fc93793b6b6f8cc75b52930eca4ac6a0a"
+    },
+    {
+      "path": "control/exercises/browser-list-count/README.md",
+      "sha256": "056bf970095507c31c1ed4f4221cf407b1cbc7ad2a61566b05910b796b990c95"
+    },
+    {
+      "path": "control/exercises/browser-list-count/records/IN_SCOPE_CHANGED_FILES.txt",
+      "sha256": "db78022a7fd544a2b4d52f77ca8f35e58cd6f12febaa45becad30877dfd55d0f"
+    },
+    {
+      "path": "control/exercises/browser-list-count/records/OUT_OF_SCOPE_CHANGED_FILES.txt",
+      "sha256": "076bfae7a2c5083d79a2a52e200673ee8849ac762c660494c530a682e55df5e4"
+    },
+    {
+      "path": "control/exercises/browser-list-count/records/README.md",
+      "sha256": "c9bfef903e84f4dee752e15f3b679d7f944d6b82bf9fefeadf634e697dbb2a6b"
+    },
+    {
+      "path": "control/exercises/browser-list-count/TASK.md",
+      "sha256": "fe7953807935266fd30c15b2dabf869309c9e28f0c46bfb315d8378fdb6966cb"
+    },
+    {
+      "path": "control/exercises/browser-list-count/VERIFY.md",
+      "sha256": "eb9a8a4b6d0304037fa74e0cc717db32521e0bf3679031d5946a40aaa8633783"
+    },
+    {
       "path": "docs/getting-started/DOWNLOAD.md",
       "sha256": "fd359a3f7c64609425333ce107cc9e41417f250e286c42fcd875162a17bf850d"
+    },
+    {
+      "path": "docs/getting-started/PUBLIC_PREVIEW_RELEASE_REVIEW.md",
+      "sha256": "83d35c8f6825a4ac36e60f312a3e26a29ddf52e4818babe13be0eeb034692e08"
     },
     {
       "path": "docs/getting-started/TRY_ATLAS.md",
@@ -439,7 +567,7 @@
     },
     {
       "path": "docs/product/ROADMAP.md",
-      "sha256": "1db5ea3677194a5cae82fe69fa1c54e78e739afe21fbf1a5253a1de9dd159103"
+      "sha256": "fe5ee5b74d523ea1df012c8db45666fd150d912cc0d0f7406a834a199f90b882"
     },
     {
       "path": "docs/public/architecture-overview.md",
@@ -467,7 +595,7 @@
     },
     {
       "path": "docs/README.md",
-      "sha256": "84133a05c69cfefb769e09bfe2e9acd6f3ee66568dd996b3d20bf7579d92a1d5"
+      "sha256": "bb18115e0d0a5f6f4afb236287cb260501ca82713918f3a173484da72a75299d"
     },
     {
       "path": "docs/testing/EVALUATION_TERMS.md",
@@ -487,7 +615,7 @@
     },
     {
       "path": "docs/testing/START_TESTING.md",
-      "sha256": "240718474876f6fed19ad0ea573e217ef671ec95b02d394e7e81179b47a273f5"
+      "sha256": "d9c556480e3f3943004d23a5c8918d525d37f96554cceface3cf0170fcd784da"
     },
     {
       "path": "docs/testing/templates/tester-tracking-template.csv",
@@ -542,12 +670,116 @@
       "sha256": "40ea12562b84deacf86284f2d5879cc4cec9ecb849febec0014e82e744383bb8"
     },
     {
+      "path": "navigator-preview/demo-workspace/atlas-navigator-demo.code-workspace",
+      "sha256": "9f5da2c373353a8517a9d43e0d4b3260343ec14326ea27af242f49966a1c0e41"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/boundary-lab/app/Http/Controllers/StatusController.php",
+      "sha256": "001c64451a1b7650e6682999b2503832667eabc63289c974579b0d54b3993df3"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/boundary-lab/README.md",
+      "sha256": "bc89c084a83b20f8f479d51f1c1c767e9f4d4c102b6146ceac946342c44ea772"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/boundary-lab/resources/views/status.blade.php",
+      "sha256": "eebd3395fd2e3d43721883d09f3b7ab710004f12c930f28ad1bbc9df52d9cb07"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/boundary-lab/routes/web.php",
+      "sha256": "a807233a96dd969b3d45d8891ae3f94852b5ea77702b8024060f85ead7ce1c93"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/app/Http/Controllers/Controller.php",
+      "sha256": "12bfcbfc6361492817115e10383054179d39151f24486d511a0be3f5a751423c"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/app/Http/Controllers/HomeController.php",
+      "sha256": "5a00c698e84f3e27cdcd4dfac38dc46c8da63ceeba77a605796b8f5295c1aab3"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/app/Http/Controllers/UserController.php",
+      "sha256": "906f7fe9674b6d232a54c546be6635adb9335f69117066be6777e243f91e55fc"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/artisan",
+      "sha256": "e715147ef2e70e68cdb5d89a2f38cb3f224bc49451e5034533f79885014465e6"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/public/js/app.js",
+      "sha256": "307c372c202a941febf2ca5665ac169a88fd61948b08fe01b7ceefcc44205ed7"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/README.md",
+      "sha256": "13cc14ca9286b4c6e35ccf4084d6deea3a95e6ac82bb53f773131f3ed64dac97"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/components/alert.blade.php",
+      "sha256": "990d91206716a852abe6299431d0bddff4817a0f40f6afd2299fc74b0391046a"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/layouts/app.blade.php",
+      "sha256": "f9da0b748e99287e99fbc5336b0b5a659964a0135d61555ebe10c46813b10413"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/pages/about.blade.php",
+      "sha256": "a5e6ad59aa217edad1fa3d8987cbef2197902e2bc0be1739a0e3d00278076091"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/partials/nav.blade.php",
+      "sha256": "0e4a642a3e7c42de8ddf4196295e4e7380a9e54dd85a96bdf638c82a7811c940"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/users/index.blade.php",
+      "sha256": "91943b0edc7efddb8d75b47ce0d60beae4fd3aeebb74826cea980bb44d279bfe"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/users/show.blade.php",
+      "sha256": "f74311a251c4b1aba214625c8265b8e8a8dc283e1cb9094295671c10b6e01b35"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/resources/views/welcome.blade.php",
+      "sha256": "4bd97111719b423e78f452ab96680c735de2a56d5bee60f7a65bdccec22aa2a6"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/clean-laravel/routes/web.php",
+      "sha256": "abaa2eadca037b2f79f96225b550b8cdcc5832aef3de98efbe8160d6f807d9fb"
+    },
+    {
+      "path": "navigator-preview/demo-workspace/README.md",
+      "sha256": "239f6fbc763bc4caa0a9a6fdb17631a8b20b57be981991811e32d3a7eebc0bcc"
+    },
+    {
+      "path": "navigator-preview/extension/extension.js",
+      "sha256": "8395593b67df35b1496f9d70384678c8d7c6a5ffeebd150f519009632947f2ef"
+    },
+    {
+      "path": "navigator-preview/extension/flow-core.cjs",
+      "sha256": "72b83648de13e6943e61a6562d889892dd8ab562c9f8cc57f7981f46adc36d3d"
+    },
+    {
+      "path": "navigator-preview/extension/LICENSE",
+      "sha256": "a05fc5a167bc0546e41c2d8d9cd78e415acf9dcd5ef2fd47f8d39c08a85f9691"
+    },
+    {
+      "path": "navigator-preview/extension/media/atlas-preview.svg",
+      "sha256": "a3f438edda432c71f95318ff8336bf5589bf2c4beb6b710b9bd7c1a5829a11bf"
+    },
+    {
+      "path": "navigator-preview/extension/package.json",
+      "sha256": "2ee71e60cdd4e0f5ee2bb337fd770214a33b04a82b4a4c1c881a0956981d1765"
+    },
+    {
+      "path": "navigator-preview/README.md",
+      "sha256": "b6469817f23257ee42802437ef6b808a58d012a52b3cf6be8d6b29599d20026d"
+    },
+    {
       "path": "package-lock.json",
       "sha256": "f930b702104ca37c9611915f1fd118d1472cdf58ce910e5930e45e253066e3ac"
     },
     {
       "path": "package.json",
-      "sha256": "f6d612b66572a623727de476fd483f9239c54bfbd3c0fc95d7e3208fa755e2ad"
+      "sha256": "e8698c35a323112b91d4fe0b0fa7a228d537d330d5078a755b602517b02de562"
     },
     {
       "path": "packs/ai-collaboration/ai-action-model.md",
@@ -615,7 +847,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5a2d246b250131461ec677ede590747d640afd39aa864d893c16c3cb3487e459"
+      "sha256": "36d4eba9374f372214a1dfad911b9a01dca6b03705c0bd46e8d39a6c71098a17"
     },
     {
       "path": "screenshots/browser-list-example.png",
@@ -650,6 +882,30 @@
       "sha256": "970e559d401dfe0309434d5fa97d41cfd895f21ab731548f40aedaf5729acd03"
     },
     {
+      "path": "scripts/build-compendium-preview.mjs",
+      "sha256": "6d964007fabb189a3ef69b467f4c22b3ce8d4fcb289073ccb18280811dcac7db"
+    },
+    {
+      "path": "scripts/build-navigator-preview.mjs",
+      "sha256": "f82e2cadb40c4510a785eb99c3c24e13f4f566747d612579c2d6bb923b98d4c7"
+    },
+    {
+      "path": "scripts/build-pages-preview.mjs",
+      "sha256": "369dda31ac02b2596687336ffb7fd4746d7f827b1f3adb3a9d2141a3ebd943db"
+    },
+    {
+      "path": "scripts/build-public-manifest.mjs",
+      "sha256": "7a1d19392c72703736f9fb84c5cd2f7425c83312e93782eed2fd567e5027938d"
+    },
+    {
+      "path": "scripts/compendium-render.mjs",
+      "sha256": "67017b4e0e034b711852125d32ba22bbdc06c6d17a406e6b9b4c48b0a41fad9c"
+    },
+    {
+      "path": "scripts/package-navigator-demo.mjs",
+      "sha256": "f9fb78cb91592daaeab003702671350108b2db2875ea1e8a52f12d859d032a39"
+    },
+    {
       "path": "scripts/pr-control-policy.mjs",
       "sha256": "d44b0395b0d26eb4c8fa74f850a60661f280b6b2c87ecbead709c8e6e74e9e36"
     },
@@ -667,15 +923,51 @@
     },
     {
       "path": "scripts/validate-public-repo.mjs",
-      "sha256": "017f8148f05ac2f3d9311f8abe4b8fd0d10a9cefb2de34f85b883b1220bb871c"
+      "sha256": "02fc172e546bf9045ae369a4cd2442af7c4a6f80308edb05743fa8a51c7687ff"
+    },
+    {
+      "path": "scripts/verify-control-exercise-scope.mjs",
+      "sha256": "33d5a37a8e318714c4b6d36ed443d2c828f431e422af75c766f25e0c0bfb2e30"
     },
     {
       "path": "tests/browser-list.spec.mjs",
       "sha256": "2d00a656039f7926f384376be0853529dc780bac5e197bfae3e3221166e1ffea"
     },
     {
+      "path": "tests/compendium-preview.spec.mjs",
+      "sha256": "2d75a9c9bfa38aa3cc9e5d3992cc70b0ea9c4bb33c78b641289e5aa263891e2a"
+    },
+    {
+      "path": "tests/control-core.spec.cjs",
+      "sha256": "b4980ed90196c189f7a28ee5464d0bf3e62e8ef4f580116cc50b3155353fb114"
+    },
+    {
+      "path": "tests/control-exercise-behavior.spec.cjs",
+      "sha256": "b254500911a741721de076ed2f306124491331773a24a85e92d3bcfb4c607cc8"
+    },
+    {
+      "path": "tests/control-exercise-browser.spec.mjs",
+      "sha256": "3ed4704abcff3bc481388c5f593fca53093d18c68579e4015834953210da83c5"
+    },
+    {
+      "path": "tests/control-exercise.spec.cjs",
+      "sha256": "8ded5fd0282c212196ab74fe4412e312f339ca37a782e60bc7d5b9b199fe758b"
+    },
+    {
       "path": "tests/control-lite.spec.mjs",
-      "sha256": "27ef36c474ff585e5e926f5daec3a2e0703ac3d3ac4b5de493a067f34eb31993"
+      "sha256": "0d3ce52fea99e89f77351b80e956a83ab24d6834aef44429a79f403d5c64fdab"
+    },
+    {
+      "path": "tests/navigator-demo.spec.cjs",
+      "sha256": "5a4ed5039c09d37cdb7c5a6f560dadcc0ce4d2b7a370351b3c4b118830fa735e"
+    },
+    {
+      "path": "tests/navigator-preview.spec.cjs",
+      "sha256": "528d7d29db61e6b66a3656e29dcc01341bb0e774c10bd67c20acf9bd51b6aec7"
+    },
+    {
+      "path": "tests/pages-preview.spec.cjs",
+      "sha256": "bf2b16c5442e5017216d70b73836b5fd9611df7cdf4ecb1bc247aa9399991034"
     },
     {
       "path": "tests/pr-control.spec.mjs",

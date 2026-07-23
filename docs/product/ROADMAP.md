@@ -9,12 +9,13 @@ in control of AI-assisted code changes.
 - complete the same-tester external-alpha retest;
 - finish clean-profile installation and UX hardening for Control Lite in Navigator;
 - reduce Navigator information density through progressive disclosure;
-- publish a checksum-listed Navigator or Control-exercise preview after release review;
+- review and publish the checksum-listed limited Navigator preview and demo workspace;
+- validate the runnable Control exercise and its CI evidence with external users;
 - complete independent human review for the highest-value knowledge nodes.
 
 ## Next
 
-- host a reviewed, HTTPS Compendium preview;
+- manually deploy the allowlisted six-node Compendium preview to HTTPS after release review;
 - run a 10–20 person independent evaluation;
 - measure activation, completed controlled changes, repeat use, and review time;
 - test the same bounded task across multiple AI tools;

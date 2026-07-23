@@ -8,11 +8,26 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "validate": "node scripts/validate-public-repo.mjs",
+    "validate": "npm run manifest:check && node scripts/validate-public-repo.mjs",
     "validate:control": "node scripts/validate-control-example.mjs",
     "test:browser": "playwright test",
-    "test": "npm run validate && npm run validate:control && npm run test:pr-control && npm run test:browser",
-    "test:pr-control": "node --test tests/pr-control.spec.mjs"
+    "test": "npm run verify:public-preview && npm run test:browser",
+    "test:pr-control": "node --test tests/pr-control.spec.mjs",
+    "manifest:build": "node scripts/build-public-manifest.mjs",
+    "manifest:check": "node scripts/build-public-manifest.mjs --check",
+    "test:control-core": "node --test tests/control-core.spec.cjs",
+    "test:navigator-preview": "node --test tests/navigator-preview.spec.cjs",
+    "navigator:build": "node scripts/build-navigator-preview.mjs",
+    "test:navigator-demo": "node --test tests/navigator-demo.spec.cjs",
+    "navigator:demo:package": "node scripts/package-navigator-demo.mjs",
+    "test:control-exercise": "node --test tests/control-exercise.spec.cjs",
+    "verify:control-exercise": "node scripts/verify-control-exercise-scope.mjs && node --test tests/control-exercise.spec.cjs tests/control-exercise-behavior.spec.cjs",
+    "compendium:build": "node scripts/build-compendium-preview.mjs",
+    "compendium:check": "node scripts/build-compendium-preview.mjs --check",
+    "test:compendium": "node --test tests/compendium-preview.spec.mjs",
+    "pages:build": "node scripts/build-pages-preview.mjs",
+    "test:pages": "node --test tests/pages-preview.spec.cjs",
+    "verify:public-preview": "npm run validate && npm run validate:control && npm run verify:control-exercise && npm run test:control-core && npm run test:compendium && npm run test:navigator-preview && npm run navigator:build && npm run test:navigator-demo && npm run navigator:demo:package && npm run pages:build && npm run test:pages && npm run test:pr-control"
   },
   "devDependencies": {
     "@playwright/test": "1.61.1"

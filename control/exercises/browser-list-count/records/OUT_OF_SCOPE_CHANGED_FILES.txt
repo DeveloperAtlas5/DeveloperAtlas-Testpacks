@@ -1,0 +1,3 @@
+control/exercises/browser-list-count/project/index.html
+control/exercises/browser-list-count/project/script.js
+package.json

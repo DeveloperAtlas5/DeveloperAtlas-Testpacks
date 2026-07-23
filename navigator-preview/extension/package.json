@@ -1,0 +1,82 @@
+{
+  "name": "developer-atlas-navigator-public-preview",
+  "displayName": "Atlas Navigator — Public Preview",
+  "description": "A deliberately limited public preview for tracing Laravel routes to controllers and Blade views.",
+  "version": "0.1.0",
+  "publisher": "developer-atlas",
+  "license": "MIT",
+  "preview": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Education"
+  ],
+  "keywords": [
+    "laravel",
+    "blade",
+    "php",
+    "navigation",
+    "flow"
+  ],
+  "activationEvents": [
+    "onLanguage:php",
+    "onLanguage:blade",
+    "onCommand:atlasPreview.showCurrentFlow",
+    "onView:atlasPreview.flow",
+    "workspaceContains:**/routes/web.php"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "atlasPreview.showCurrentFlow",
+        "title": "Show Current Laravel Flow",
+        "category": "Atlas Preview"
+      },
+      {
+        "command": "atlasPreview.refresh",
+        "title": "Refresh Laravel Flows",
+        "category": "Atlas Preview"
+      },
+      {
+        "command": "atlasPreview.openLearningNode",
+        "title": "Open Public Learning Node",
+        "category": "Atlas Preview"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "atlasPreview",
+          "title": "Atlas Preview",
+          "icon": "media/atlas-preview.svg"
+        }
+      ]
+    },
+    "views": {
+      "atlasPreview": [
+        {
+          "id": "atlasPreview.flow",
+          "name": "Laravel Flows"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "atlasPreview.refresh",
+          "when": "view == atlasPreview.flow",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeveloperAtlas5/DeveloperAtlas-Public"
+  },
+  "homepage": "https://github.com/DeveloperAtlas5/DeveloperAtlas-Public/tree/main/navigator-preview"
+}

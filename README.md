@@ -5,190 +5,123 @@
 [![Status: public preview](https://img.shields.io/badge/status-public_preview-7257d8.svg)](docs/product/ROADMAP.md)
 [![Privacy: local first](https://img.shields.io/badge/privacy-local--first-167d6d.svg)](docs/public/privacy-and-safety.md)
 
-**Human-controlled AI development for Laravel and Vue: define scope, understand changes, review
-evidence, and make the final decision.**
+## Keep control of AI-generated code changes
+
+**Define what may change, inspect what actually changed, record real evidence, and make the final human decision.**
 
 ![Atlas Navigator showing a Laravel request flow](screenshots/navigator-flow.png)
 
-### [Build a local Change Contract with Control Lite →](control-lite/README.md)
+### Start with one controlled change
 
-**[Try the guided 15-minute Control walkthrough](docs/getting-started/TRY_ATLAS.md)**<br>
-**[See current Navigator preview access](https://github.com/DeveloperAtlas5/DeveloperAtlas-Public/blob/main/docs/testing/START_TESTING.md)**
-**[Browse all public documentation](docs/README.md)**
+1. **[Open Control Lite](control-lite/index.html)** and define a bounded change.
+2. Generate a scoped AI instruction and review record.
+3. Compare the supplied or real patch with the allowed scope.
+4. Record checks as **Passed**, **Failed**, or **Not run**.
+5. Decide to **Accept**, **Revise**, or **Reject**.
+6. Open the related public Compendium node when a concept or boundary needs explanation.
 
-> **Current status:** public preview and internal alpha. The software and control lifecycle are real
-> and extensively tested. Broad usability, retention, independent review, and paid demand remain
-> unproven.
+[Try the guided Control walkthrough →](docs/getting-started/TRY_ATLAS.md)
 
-## Keep AI-assisted work understandable and bounded
+> **Current status:** public preview and internal alpha. The technical lifecycle is real and tested,
+> while broad usability, repeat use, independent review, and willingness to pay remain unproven.
 
-AI can produce code faster than a person can understand, review, and remember it. Atlas is being
-built around one explicit loop:
+## The Atlas control loop
 
 ```mermaid
 flowchart LR
-    Goal["Human goal"] --> Instruction["Scoped AI instruction"]
-    Instruction --> Change["Traceable change"]
-    Change --> Understand["Understand impact"]
-    Understand --> Verify["Review evidence"]
-    Verify --> Decision["Accept, revise, or reject"]
-    Decision --> Memory["Remember the decision"]
-    Memory --> Goal
+    Goal["Human goal"] --> Scope["Bound the change"]
+    Scope --> Instruction["Scoped AI instruction"]
+    Instruction --> Change["Inspect the patch"]
+    Change --> Evidence["Record observed evidence"]
+    Evidence --> Decision["Accept, revise, or reject"]
+    Decision --> Memory["Preserve the decision"]
 ```
+
+Atlas does not ask an AI to certify its own work. Missing evidence remains **Not run**, scope expansion
+remains visible, and the accountable human keeps the final decision.
+
+## Three connected product surfaces
+
+| Surface | Job | Public experience |
+| --- | --- | --- |
+| **Control** | Define scope, evidence requirements, and the final decision | [Control Lite](control-lite/README.md) and the [15-minute walkthrough](docs/getting-started/TRY_ATLAS.md) |
+| **Navigator** | Show a bounded Laravel route → controller → Blade flow in VS Code | [Build the limited public VSIX](navigator-preview/README.md) |
+| **Compendium** | Explain unfamiliar concepts with version scope, evidence, and practical boundaries | [Open the six-node public preview](compendium-preview/index.html) |
+
+The learning missions and packs support onboarding, but they are not the primary product.
+
+## What the public preview demonstrates
 
 ### Keep the AI in scope
 
-Declare allowed files, protected behavior, acceptance criteria, and parked ideas before a patch
-begins. Risky expansion remains a human confirmation boundary.
+Declare allowed files, protected behavior, acceptance criteria, required checks, and parked ideas before
+a patch begins. Suggestions outside that boundary remain visible without silently entering the change.
 
 ### Understand what changed
 
-Navigator connects routes, controllers, views, dependencies, and learning context so the reviewer can
-reason about the change instead of accepting a diff on trust.
-
-### Verify before accepting
-
-Atlas separates scope conformance from observed checks. A missing test result remains “not run”; the
-AI cannot promote its own claim into evidence or make the final decision.
-
-## One concrete example
-
-The public exercise starts with this request:
-
-> Improve the status page so a reviewer knows the application is ready for a human check.
-
-The baseline prompt contains no file boundary or proof requirement. The Atlas-controlled version
-allows two Laravel files, protects routes and authentication, defines visible acceptance criteria,
-and requires honest test reporting.
-
-The supplied patch stays in scope, but the completed decision is **revise** because this static
-repository cannot run the real Laravel test command. That is the product thesis in practice: preserve
-useful work without pretending missing evidence is a pass.
-
-[Open the complete worked example](control/examples/laravel-status-label/README.md).
-
-## Control, Navigator, and Compendium
-
-Near the top, Atlas has three jobs:
-
-- **Control** defines the change, records supplied evidence, and preserves the human decision.
-- **Navigator** brings the lifecycle into VS Code beside code flow and impact.
-- **Compendium** supplies primary-source-mapped context when the reviewer needs to understand a
-  concept or boundary.
-
-Control Lite now provides Prepare → Instruct → Evidence → Decide inside Navigator. It writes only to
-the local project, does not launch an AI, does not run the declared verification command, and does not
-infer acceptance.
-
-### See code flow
-
-![Atlas Navigator flow view](screenshots/navigator-flow.png)
-
-Navigator traces a Laravel request from route to controller, Blade view, and included partial without
-executing arbitrary project commands.
-
-### Review impact
+Navigator connects Laravel routes, controllers, Blade views, components, and dependencies so a reviewer
+can reason about a patch instead of accepting a diff on trust.
 
 ![Atlas Navigator impact view](screenshots/navigator-impact.png)
 
-Impact and Git comparison views expose incoming users, outgoing dependencies, and flow changes while
-project content remains local.
+### Separate claims from evidence
 
-### Learn in context
+A test command written in an AI response is not evidence that the command ran. Atlas records each
+required check as Passed, Failed, or Not run and keeps known limitations beside the decision.
+
+### Learn without leaving the review
+
+Contextual learning cards connect unfamiliar code to Compendium nodes whose source mapping,
+AI-assistance state, version scope, limitations, and independent-review state remain visible.
 
 ![Atlas Navigator contextual learning cards](screenshots/navigator-learning.png)
 
-Compact cards explain unfamiliar code and link to Compendium nodes whose AI-assisted and independent
-review states remain visible.
+## One honest worked example
 
-### Explore the Compendium preview
+The current Laravel exercise asks for a clearer review-ready status page. The proposed patch stays
+inside its two-file boundary, but the repository cannot execute the required Laravel test. The sample
+decision is therefore **Revise**, not an invented pass.
 
-![Atlas Compendium home](screenshots/compendium-home.png)
+[Review the complete Laravel example](control/examples/laravel-status-label/README.md), then try the [runnable remaining-count exercise](control/exercises/browser-list-count/README.md).
 
-The Compendium connects a large programming Lexicon with practical mistakes, version scope,
-verification design, and evidence. Public hosting is still being prepared; screenshots and selected
-node samples are available here now.
+## Availability
 
-More images and their review status are listed in [`screenshots/README.md`](screenshots/README.md).
-
-## Current availability
-
-| Experience | Available here | Limitation |
+| Experience | Available | Current boundary |
 | --- | --- | --- |
-| Local Control Lite generator | Yes | Runs in the browser; does not execute AI or verification commands |
-| Guided Control walkthrough | Yes | Static Laravel example; no real Laravel runtime |
-| Safe browser example | Yes | Learning example, not the full product |
-| Selected missions and nodes | Yes | Curated preview; independent review pending |
-| Navigator VSIX | Tester access only | General signed release and clean-profile proof pending |
-| Hosted Compendium | Not yet | Static hosting review in progress |
+| Browser-based Control Lite | Yes | Local templates and review workflow; no AI or command execution |
+| Guided Laravel Control exercise | Yes | Static example; the real Laravel test remains Not run |
+| Safe browser teaching example | Yes | Learning fixture, not the full product |
+| Selected missions and nodes | Yes | Curated preview; independent review is incomplete |
+| Limited Navigator VSIX | Buildable public preview | Conventional Laravel controller-array routes only; unsigned and not the private product |
+| Compendium preview | Yes, local and deployable | Six allowlisted public nodes; no private Compendium source or full Lexicon |
 
-The manual packaging workflow can prepare a checksum-listed exercise archive for maintainer review.
-See [`DOWNLOAD.md`](docs/getting-started/DOWNLOAD.md); no public release is implied until a human publishes one.
+## Evidence, privacy, and limitations
 
-## Evidence and limitations
+The private development repository currently validates 54 maintained Knowledge Nodes, 664 Lexicon
+entries, 752 generated Compendium pages, and the Control, Continuity, Navigator, Compendium, policy,
+security, packaging, and lifecycle checks. Founder dogfooding, a five-person embedded design cohort,
+and one external-alpha round support formative usefulness—not product-market fit.
 
-The private development repository currently validates:
+The public preview is local-first, contains no telemetry, requires no account, performs no silent AI
+action, and does not execute or infer verification results. Public exports pass through an allowlist,
+secret and path scanning, local-link validation, integrity hashes, and human review.
 
-- 54 maintained Knowledge Nodes and 664 Lexicon entries;
-- 752 generated Compendium pages;
-- Control, Continuity, Navigator, Compendium, policy, security, packaging, and lifecycle checks;
-- founder dogfooding and a five-person embedded design cohort;
-- one preserved external-alpha round whose same-tester retest remains pending.
+Read the [testing status](docs/public/testing-status.md), [known limitations](docs/public/known-limitations.md),
+[privacy and safety notes](docs/public/privacy-and-safety.md), and [security policy](.github/SECURITY.md).
 
-Every exported node now shows its evidence date, source count, AI assistance, automated check state,
-version scope, and pending independent human review. “Gold” describes an internal teaching-depth
-target; it does **not** mean final certification.
+## Explore and contribute
 
-This supports technical credibility and formative usefulness. It does not prove product-market fit,
-retention, willingness to pay, universal correctness, or production safety. Read
-[`testing-status.md`](docs/public/testing-status.md),
-[`known-limitations.md`](docs/public/known-limitations.md), and the public [`FAQ`](docs/product/FAQ.md).
-
-## Supporting work
-
-The learning material helps people build the understanding needed to use the control loop; it is not
-the primary product demonstration.
-
-| Area | Role | Start |
-| --- | --- | --- |
-| First Expedition and beginner missions | Confidence-building onboarding | [Mission index](content/missions/README.md) |
-| AI Collaboration Pack | Prompt and review habits | [Pack entry](packs/ai-collaboration/README.md) |
-| Public node samples | Just-in-time concept reference | [Node index](content/nodes/README.md) |
-| Continuity research | Local readiness, health, and recovery | Tracked as parallel alpha work in the roadmap |
-| Testing and research | Protocols, facilitator questions, evidence status | [Testing status](docs/public/testing-status.md) |
-
-## Privacy and trust
-
-- Local-first by default.
-- No telemetry in the current Navigator preview.
-- No account or payment requirement in the current free preview.
-- No silent AI actions, verification execution, or acceptance decisions.
-- Remote Compendium links require HTTPS; localhost is allowed for development.
-- Public material passes through a one-way allowlist, secret/path scanning, local-link validation, and
-  manual review.
-- Runnable browser teaching code is tested against HTML-like user input and may not assign user data
-  through `innerHTML`.
-
-Read [`SECURITY.md`](.github/SECURITY.md) and
-[`privacy-and-safety.md`](docs/public/privacy-and-safety.md).
-
-## Roadmap and feedback
-
-The immediate public focus is to validate Control Lite in a clean profile, repeat the external-alpha
-workflow, publish a safe preview artifact, and measure whether the control loop helps real reviewers.
-The public [`ROADMAP.md`](docs/product/ROADMAP.md) keeps supporting research separate.
-
-Precise feedback is welcome for reproducible bugs, unclear first steps, accessibility barriers,
-privacy concerns, or workflows that would help people retain control. See
-[`CONTRIBUTING.md`](.github/CONTRIBUTING.md) and the public
-[`FEEDBACK.md`](https://github.com/DeveloperAtlas5/DeveloperAtlas-Public/blob/main/docs/testing/FEEDBACK.md).
+- [Public documentation](docs/README.md)
+- [Product roadmap](docs/product/ROADMAP.md)
+- [Mission index](content/missions/README.md)
+- [AI Collaboration Pack](packs/ai-collaboration/README.md)
+- [Feedback instructions](docs/testing/FEEDBACK.md)
+- [Contribution guide](.github/CONTRIBUTING.md)
 
 ## License and provenance
 
-The files committed to this public preview are available under the [MIT License](LICENSE). The
-private Developer Atlas monorepo and unreleased product source are separate and are not licensed by
-this repository.
-
-Development is materially AI-assisted and human-directed. Automated verification is kept separate
-from independent human review and final acceptance. See [`PROVENANCE.md`](docs/governance/PROVENANCE.md) and the
-outcome-focused [`CHANGELOG.md`](CHANGELOG.md).
+The files in this public preview are available under the [MIT License](LICENSE). The private Developer
+Atlas monorepo and unreleased product source are separate and are not licensed by this repository.
+Development is materially AI-assisted and human-directed; automated checks remain separate from
+independent human review and final acceptance. See [PROVENANCE.md](docs/governance/PROVENANCE.md) and
+the outcome-focused [CHANGELOG.md](CHANGELOG.md).

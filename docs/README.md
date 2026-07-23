@@ -9,6 +9,10 @@ file at once.
 - [Try the 15-minute Atlas Control walkthrough](getting-started/TRY_ATLAS.md)
 - [Prepare the downloadable Control exercise](getting-started/DOWNLOAD.md)
 - [Run Atlas Control Lite locally](../control-lite/README.md)
+- [Complete the runnable bounded-change exercise](../control/exercises/browser-list-count/README.md)
+- [Build the limited Navigator public preview](../navigator-preview/README.md)
+- [Open the public Compendium preview](../compendium-preview/index.html)
+- [Review the public-preview release checklist](getting-started/PUBLIC_PREVIEW_RELEASE_REVIEW.md)
 
 ## Product and roadmap
 
